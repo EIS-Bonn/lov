@@ -15,7 +15,7 @@ var path = require('path')
 
 module.exports = {
   development: {
-    db: 'mongodb://localhost/lov',
+    db: 'mongodb://localhost/bdo',
     es: {host: 'localhost',port: 9200},
     email: {
       service: 'Gmail',
@@ -26,7 +26,7 @@ module.exports = {
     }
   },
   test: {
-    db: 'mongodb://localhost/lov',
+    db: 'mongodb://localhost/bdo',
     es: {host: 'localhost',port: 9200},
     email: {
       service: 'Gmail',
