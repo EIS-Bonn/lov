@@ -1,0 +1,82 @@
+Installation of Elasticsearch 1.3.1 docker
+	1. Download zip file from 
+	https://github.com/kpearsondx/docker-elasticsearch
+	2. Unzip folder
+	3. Go to Dockerfile and change
+		a. Line 4: openjdk-8-jre-headless or newer
+		b. Line 5: …/java-8-openjdk-amd64
+	4. Open a terminal and type one by one
+		a. docker build . -t elasticsearch
+		b. docker run -d -v "$PWD/config":/usr/share/elasticsearch/config elasticsearch
+		c. docker run -d -v "$PWD/esdata":/usr/share/elasticsearch/data elasticsearch
+		d. docker run -v /usr/share/elasticsearch/data -p 9200:9200 -e "http.host=0.0.0.0" -e "transport.host=127.0.0.1" elasticsearch
+
+Installation of necessary software
+	1. Node.js 
+	https://tecadmin.net/install-latest-nodejs-npm-on-ubuntu/# 
+	Open a terminal
+		a. sudo apt-get install python-software-properties
+		b. curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+		c. sudo apt-get install nodejs
+
+	2. MongoDB
+	https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
+		a. sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
+		b. For Ubuntu 16.04
+		echo "deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
+		c. sudo apt-get update
+		d. sudo apt-get install -y mongodb-org
+		e. Start mongoDB service
+		sudo service mongod start
+		f. To automatically start mongoDB:
+		sudo systemctl enable mongod.service
+	
+	3. Maven
+	sudo apt install maven
+
+Lov and LovScripts projects for BigDataOcean
+https://github.com/EIS-Bonn/lov
+https://github.com/EIS-Bonn/lovScripts
+
+	1. Lov (Frontend)
+		a. Go to the path you want to save the project
+		git clone https://github.com/EIS-Bonn/lov.git
+		b. Open a terminal
+		npm install
+		c. Go to lov/config and change: 
+			i. express.js line 26: var pathroot = '/root/Documents/LOV/lov'
+		d. Go to lov/setup and unzip LOV BCKP.zip in this location
+			i. Open a terminal and 
+			mongoimport -d bdo-c agents --file agents.json
+			mongoimport -d bdo-c languages --file languages.json
+			mongoimport -d bdo-c logsearches --file logsearches.json
+			mongoimport -d bdo-c sessions --file sessions.json
+			mongoimport -d bdo-c statlanguages --file statlanguages.json
+			mongoimport -d bdo-c stattags --file stattags.json
+			mongoimport -d bdo-c statvocabularies --file statvocabularies.json
+			mongoimport -d bdo-c users --file users.json
+			mongoimport -d bdo-c vocabularies --file vocabularies.json
+		e. Go to lov/setup and unzip versions.zip in /lov/
+		f. Go lov/public and unzip bdo.zip in the same folder
+	
+	2. LovScripts (Backend)
+		a. Go to the same path as Lov
+		git clone https://github.com/EIS-Bonn/lovScripts.git
+		b. Go to /lovScripts/src/main/resources/log4j.properties 
+		and modify the line 15, obviously create that path in the computer then change the path
+		c. mvn install
+		d. Open a terminal and 
+		cd Documents/LOV/lovScripts/target/lovscripts-cli/lovscripts/bin then
+			i. ./create-index /root/Documents/LOV/lovScripts/lov.config
+			ii. ./index-lov
+
+Running BigDataOcean Repository
+	1. Open a terminal (do not close it)
+		a. Start elasticsearch docker with volume
+		docker run -v /usr/share/elasticsearch/data -p 9200:9200 -e "http.host=0.0.0.0" -e "transport.host=127.0.0.1" elasticsearch
+	2. Open another terminal (do not close it)
+		a. If mongodb does not start automatically; Start mongo service
+		sudo service mongod start
+		b. cd Documents/LOV/lov
+		npm start
+	3. Go to google chrome and http://localhost:3333/dataset/lov

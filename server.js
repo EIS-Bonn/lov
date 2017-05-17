@@ -13,9 +13,9 @@ var express = require('express')
   , fs = require('fs')
   , https = require('https')
   , http = require('http')
-  , keys_dir = '/etc/letsencrypt/live/lov.okfn.org/'
+  , keys_dir = './config/'
   , server_options = {
-        key  : fs.readFileSync(keys_dir + 'privkey.pem'),
+        key  : fs.readFileSync(keys_dir + 'key.pem'),
         cert : fs.readFileSync(keys_dir + 'cert.pem')
       }
   , passport = require('passport')

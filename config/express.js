@@ -23,11 +23,11 @@ module.exports = function (app, config, passport) {
     },
     level: 9
   }))
-
+var pathroot = '/root/Documents/LOV/lov'
   app.use(express.favicon())
-  app.use(express.static(config.root + '/public'))
-  app.use(express.static(config.root + '/versions'))
-  app.use('/vocommons',express.static(config.root + '/vocommons'))
+  app.use(express.static(pathroot + '/public'))
+  app.use(express.static(pathroot + '/versions'))
+  app.use('/vocommons',express.static(pathroot + '/vocommons'))
 
   // Logging
   // Use winston on production
@@ -47,7 +47,7 @@ module.exports = function (app, config, passport) {
   if (env !== 'test') app.use(express.logger(log))
 
   // set views path, template engine and default layout
-  app.set('views', config.root + '/app/views')
+  app.set('views', pathroot + '/app/views')
   app.set('view engine', 'jade')
 
   app.configure(function () {
