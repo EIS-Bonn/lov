@@ -28,7 +28,7 @@
     "jade": "latest",
     "mongoose": "latest",
     "elasticsearchclient": "latest",
-    "elasticsearch": "2.2.0",
+    "elasticsearch": "latest",
     "connect-mongo": "latest",
     "connect-flash": "latest",
     "passport": "latest",
