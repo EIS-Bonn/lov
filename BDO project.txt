@@ -41,11 +41,9 @@ https://github.com/EIS-Bonn/lovScripts
 	1. Lov (Frontend)
 		a. Go to the path you want to save the project
 		git clone https://github.com/EIS-Bonn/lov.git
-		b. Open a terminal
-		npm install
-		c. Go to lov/config and change: 
+		b. Go to lov/config and change: 
 			i. express.js line 26: var pathroot = '/root/Documents/LOV/lov'
-		d. Go to lov/setup and unzip LOV BCKP.zip in this location
+		c. Go to lov/setup and unzip LOV BCKP.zip in this location
 			i. Open a terminal and 
 			mongoimport -d bdo-c agents --file agents.json
 			mongoimport -d bdo-c languages --file languages.json
@@ -56,16 +54,23 @@ https://github.com/EIS-Bonn/lovScripts
 			mongoimport -d bdo-c statvocabularies --file statvocabularies.json
 			mongoimport -d bdo-c users --file users.json
 			mongoimport -d bdo-c vocabularies --file vocabularies.json
-		e. Go to lov/setup and unzip versions.zip in /lov/
-		f. Go lov/public and unzip bdo.zip in the same folder
+		d. Go to lov/setup and unzip versions.zip in /lov/
+		e. Go lov/public and unzip bdo.zip in the same folder
+		f. Open a terminal
+		npm install
 	
 	2. LovScripts (Backend)
 		a. Go to the same path as Lov
 		git clone https://github.com/EIS-Bonn/lovScripts.git
 		b. Go to /lovScripts/src/main/resources/log4j.properties 
 		and modify the line 15, obviously create that path in the computer then change the path
-		c. mvn install
-		d. Open a terminal and 
+		c. Go to /lovScripts/lov.config
+		And modify all PATHs
+		d. Go to lovScripts/src/main/java/org/lov/cli/configPath.java
+		Change the path to the lov.config file
+		e. Open a terminal: cd Documents/LOV/lovScripts
+		mvn install
+		f. Open a terminal and 
 		cd Documents/LOV/lovScripts/target/lovscripts-cli/lovscripts/bin then
 			i. ./create-index /root/Documents/LOV/lovScripts/lov.config
 			ii. ./index-lov
