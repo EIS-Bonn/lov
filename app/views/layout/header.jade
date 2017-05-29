@@ -27,3 +27,7 @@ header
               a(href="/edition/lov/users/"+req.user.id, title="Profile") Profile
             li
               a(href="/edition/lov/logout", title="logout") Logout
+        else
+          ul.editionAuth(style='position:absolute; top:0; right:0;')
+            li
+              a(href="/edition/lov/", title="Login") Login
