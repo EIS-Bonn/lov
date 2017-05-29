@@ -226,7 +226,7 @@ module.exports = function (app, passport,esclient, elasticsearchClient, emailTra
   
   function executeSPARQLQuery(res, headers, query, defaultGraphUri, namedGraphUri) {
     var sparqlExecTime = Date.now();
-    path='/lov/sparql?query='+  encodeURIComponent(query);
+    path='/bigdataocean/sparql?query='+  encodeURIComponent(query);
     if(defaultGraphUri)path+='&default-graph-uri='+ encodeURIComponent(defaultGraphUri);
     if(namedGraphUri)path+='&named-graph-uri='+ encodeURIComponent(namedGraphUri);
     delete headers['content-length'];

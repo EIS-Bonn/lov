@@ -31,10 +31,10 @@ block content
               script.
                 var yasqe = YASQE(document.getElementById('yasqe'), {
                   sparql: {
-                    endpoint: 'http://lov.okfn.org/dataset/lov/sparql',
+                    endpoint: 'http://localhost:3333/bigdataocean/sparql',
                     showQueryButton: true
                     },
-                    value: 'PREFIX vann:<http://purl.org/vocab/vann/>\n\PREFIX voaf:<http://purl.org/vocommons/voaf#>\n\ \n\### Vocabularies contained in LOV and their prefix\n\SELECT DISTINCT ?vocabPrefix ?vocabURI {\n\ \tGRAPH <http://lov.okfn.org/dataset/lov>{\n\ \t \t?vocabURI a voaf:Vocabulary.\n\ \t \t?vocabURI vann:preferredNamespacePrefix ?vocabPrefix.\n\}} ORDER BY ?vocabPrefix'
+                    value: 'PREFIX vann:<http://purl.org/vocab/vann/>\n\PREFIX voaf:<http://purl.org/vocommons/voaf#>\n\ \n\### Vocabularies contained in LOV and their prefix\n\SELECT DISTINCT ?vocabPrefix ?vocabURI {\n\ \tGRAPH <http://localhost:3333/dataset/lov>{\n\ \t \t?vocabURI a voaf:Vocabulary.\n\ \t \t?vocabURI vann:preferredNamespacePrefix ?vocabPrefix.\n\}} ORDER BY ?vocabPrefix'
                 });
                 var yasr = YASR(document.getElementById("yasr"), {
                   //this way, the URLs in the results are prettified using the defined prefixes in the query
@@ -67,12 +67,12 @@ block content
                         img(src='/img/nq_small.gif' style="width:61px; height:38px")
                         span(style="padding-left:.5em; display: table-cell;   vertical-align: middle; ") LOV + vocabs 
                 .clear
-              .h-padding
-                h2 APIs
-                .line
-                div 
-                  span Consider using 
-                  a(href="/dataset/lov/api")
+              //.h-padding
+                //h2 APIs
+                //.line
+                //div 
+                  //span Consider using 
+                  //a(href="/dataset/lov/api")
                     b LOV APIs 
-                  span when appropriate
-                .clear
+                  //span when appropriate
+                //.clear

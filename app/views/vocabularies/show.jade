@@ -8,8 +8,8 @@ block content
                 | #{vocab.titles[0].value} 
                 span (#{vocab.prefix})
               if (req.isAuthenticated())
-                a(href='#')
-                  img#vocabDelete.editActionH1(src='/img/remove.png')
+                //a(href='#')
+                  //img#vocabDelete.editActionH1(src='/img/remove.png')
                 a(href='/edition/lov/vocabs/#{vocab.prefix}/versions')
                   img.editActionH1(src='/img/version.png')
                 a(href='/edition/lov/vocabs/#{vocab.prefix}')
@@ -172,14 +172,14 @@ block content
                         li
                           a.tag(href='/dataset/lov/vocabs?tag='+encodeURIComponent(tag)) #{tag}
                 .clear
-                h2 LOD
-                .line
-                .blabla 
-                  span Vocabulary used in 
-                  a(href='http://stats.lod2.eu/', target='_blank')
+                //h2 LOD
+                //.line
+                //.blabla 
+                  //span Vocabulary used in 
+                  //a(href='http://stats.lod2.eu/', target='_blank')
                     b #{(vocab.datasets)?vocab.datasets.length: 0} datasets 
-                  span 
-                .clear
+                  //span 
+                //.clear
       section#post.postMediumDarkBlue
         h2(style="width:50%; float:left;" title="Vocabularies using #{vocab.prefix}. The relation type between a vocabulary and #{vocab.prefix} is indicated by the color.") #{inData.nodes?inData.nodes.length-1:0} Incoming Links
         h2(style="width:50%; float:left;" title="Vocabularies used by #{vocab.prefix}. The relation type between #{vocab.prefix} and a vocabulary is indicated by the color.")  #{outData.nodes?outData.nodes.length-1:0} Outgoing Links
