@@ -2,10 +2,11 @@ var utils = require('../../lib/utils');
 
 var indexName = 'lov'; /* Name of the ElasticSearch index */
 var placeholders = [ /* placeholder used in the input box */
-"all you want to know about LOV!",
-"LOV is all :)",
-"be ready to fall in LOV!",
-"all you need is LOV :)"
+"Search"
+//"all you want to know about LOV!",
+//"LOV is all :)",
+//"be ready to fall in LOV!",
+//"all you need is LOV :)"
 ];
 
 var mongoose = require('mongoose')
