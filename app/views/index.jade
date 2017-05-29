@@ -91,7 +91,7 @@ block content
                       .on("click", function(d) { self.location= "/dataset/lov/vocabs/"+ d.className});
 
                   node.append("title")
-                      .text(function(d) { return d.className+" - reused by " + ((d.value>=1)?format(d.value):'0')+ " vocabs"; });
+                      //.text(function(d) { return d.className+" - reused by " + ((d.value>=1)?format(d.value):'0')+ " vocabs"; });
 
                   node.append("circle")
                       .attr("r", function(d) { return d.r; })
