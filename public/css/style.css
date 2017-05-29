@@ -135,6 +135,7 @@ figure object,
 figure embed,
 figure video {
 	max-width: 100%;
+	max-width: 100%;
 	display: block;
 }
 img {
@@ -209,7 +210,7 @@ figure figcaption a img {
 }
 
 .wrplGreen{
-	background-color: #5E9B9B; /*499191*/
+	background-color: #1965A2; /*499191*/
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-o-box-sizing: border-box;
@@ -516,7 +517,7 @@ article > .navigation {
 
 
 .container > header{
-	border-top: 0.4em solid #f57c20;
+	border-top: 0.4em solid #25AAE1;
 }
 
 .container > header,
@@ -524,7 +525,7 @@ article > .navigation {
 	padding:1em 2.5em;
 }
 .container > footer{
-	border-bottom: 0.4em solid #f57c20;
+	border-bottom: 0.4em solid #25AAE1;
 }
 
 .container > section {

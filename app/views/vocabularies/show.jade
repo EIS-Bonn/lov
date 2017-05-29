@@ -5,7 +5,8 @@ block content
           header.wrpl.w-3-3
             h1
               a(href='#{vocab.prefix}')
-                | #{vocab.titles[0].value} 
+                | 
+                span #{vocab.titles[0].value} 
                 span (#{vocab.prefix})
               if (req.isAuthenticated())
                 //a(href='#')

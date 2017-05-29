@@ -2,7 +2,7 @@ extends ../layout/layout
 block content
       section#post.postPink
         article
-          h1 Log in
+          h1(style="color: #FFFFFF") Log in
           .clear
       
         form(action="/edition/lov/session", method="post" name="TheForm")#fieldSets
@@ -11,7 +11,7 @@ block content
             input(type='hidden', name='_csrf', value="#{csrf_token}")
             input(type='email', name="email", placeholder='Email')
             input(type='password', name="password", placeholder='Password')
-            input.loginButtonRight(type='submit' name='submit' value='LOV\' In it!')
+            input.loginButtonRight(type='submit' name='submit' value='Log In!')
       script.        
         //form validation before submit
         new FormValidator('TheForm', [{

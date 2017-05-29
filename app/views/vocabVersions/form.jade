@@ -11,7 +11,8 @@ block content
             else
               h1
                 a(href='/dataset/lov/vocabs/#{vocab.prefix}')
-                  | #{vocab.titles[0].value} 
+                  | 
+                  span #{vocab.titles[0].value} 
                   span (#{vocab.prefix})
               
       section#posts.default-area

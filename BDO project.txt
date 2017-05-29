@@ -72,8 +72,20 @@ https://github.com/EIS-Bonn/lovScripts
 		mvn install
 		f. Open a terminal and 
 		cd Documents/LOV/lovScripts/target/lovscripts-cli/lovscripts/bin then
-			i. ./create-index /root/Documents/LOV/lovScripts/lov.config
+			i. ./create-index 
 			ii. ./index-lov
+
+SPARQL Endpoint
+https://jena.apache.org/documentation/serving_data/
+	1. Go to https://jena.apache.org/download/index.cgi
+	2. Download apache-jena-fuseki-2.6.0.zip
+	3. Unzip and open a terminal
+	4. Go to the path where the zip file was unzipped
+		a. chmod +x fuseki-server
+		b. ./fuseki-server --update --mem /bigdataocean
+	5. Go to localhost:3030
+	6. Select "add data" button
+	7. Select lov.nq and lov.n3 files and upload them
 
 Running BigDataOcean Repository
 	1. Open a terminal (do not close it)
@@ -84,4 +96,6 @@ Running BigDataOcean Repository
 		sudo service mongod start
 		b. cd Documents/LOV/lov
 		npm start
-	3. Go to google chrome and http://localhost:3333/dataset/lov
+	3. Open another terminal (do not close it)
+		a. ./fuseki-server --update --mem /bigdataocean
+	4. Go to google chrome and http://localhost:3333/dataset/lov

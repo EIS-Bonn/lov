@@ -56,7 +56,7 @@ all the rest of the style can be managed with http://lesscss.org
   /*
 			background-color: @footer;
 			color:@grey;
-			text-shadow: 0px -1px 0px rgba(0,0,0,.5);ù
+			text-shadow: 0px -1px 0px rgba(0,0,0,.5);ï¿½
 			*/
 
 }
@@ -96,6 +96,10 @@ all the rest of the style can be managed with http://lesscss.org
   font-family: 'Terminal Dosis', helvetica, arial, sans-serif;
 }
 /* DEFAULTS */
+/*a {
+  text-decoration: none;
+  color: #fff;
+}*/
 a {
   text-decoration: none;
   color: #3c3c3c;
@@ -157,7 +161,7 @@ h3 {
   border-radius: 0px 0px 0px 0px;
   -webkit-border-radius: 0px 0px 0px 0px;
   -moz-border-radius: 0px 0px 0px 0px;
-  background-color: #3c3c3c;
+  background-color: #043159;
   color: #d0d7da;
 }
 .container > footer dt {
@@ -387,7 +391,7 @@ figure img, .landscape img, .bg-zoom {
   margin-bottom:1.5em;
 }
 #title.postBlue{
-  background-color: #A2DAD2;
+  background-color: #25aae1;
 }
 #title h1{
   font-size: 3em;
@@ -404,7 +408,7 @@ figure img, .landscape img, .bg-zoom {
   background-color: #5E9B9B;
 }
 #post.postBlue{
-  background-color: #A2DAD2;
+  background-color: #66BCDF;
 }
 #post.postDarkBlue{
   border-top: 1em solid #556677;
@@ -413,7 +417,7 @@ figure img, .landscape img, .bg-zoom {
 }
 #post.postMediumDarkBlue{
   padding:1em;
-  background-color: #5E9B9B
+  background-color: #66BCDF
 }
 #post.postDarkerBlue{
   padding:1em;
@@ -423,7 +427,7 @@ figure img, .landscape img, .bg-zoom {
   background-color: #99CC00;
 }
 #post.postPink{
-  background-color: #FFD688;
+  background-color: #66BCDF;
 }
 
 #post h2{

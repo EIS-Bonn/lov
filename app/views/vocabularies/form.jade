@@ -11,9 +11,9 @@ block content
         article
           header.wrpl.w-3-3
             if(vocab.isNew)
-              h1 Create a new Vocabulary
+              h1(style="color: #FFFFFF") Create a new Vocabulary
             else
-              h1
+              h1(style="color: #E2E1E1") 
                 a(href='#{vocab.prefix}')
                   | #{vocab.titles[0].value} 
                   span (#{vocab.prefix})
