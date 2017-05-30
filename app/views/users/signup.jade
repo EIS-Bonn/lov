@@ -8,7 +8,7 @@ block content
           li Account Setup
         .clear
       
-        form(action="/edition/lov/users", method="post" name="TheForm")#fieldSets
+        form(action="/edition/bdo/users", method="post" name="TheForm")#fieldSets
           fieldset
             .loginsubTitle Agent Binding (Step 1)
             .loginBody
@@ -16,7 +16,7 @@ block content
               #agentName 
               input#next.loginButtonRight(type='button' name='next' class='next action-button' value='Next' disabled)
               .clear.loginButtonRight
-                a(href="/edition/lov/login") login
+                a(href="/edition/bdo/login") login
           fieldset
             .loginsubTitle Account Setup (Step 2)
             .loginBody
@@ -30,7 +30,7 @@ block content
               input.loginButtonRight(type='submit' name='submit' value='Submit')
               
               .clear.loginButtonRight
-                a(href="/edition/lov/login") login          
+                a(href="/edition/bdo/login") login          
 
             
           
@@ -41,7 +41,7 @@ block content
               minLength: 1,
               source: function (request, response) {
                $.ajax({
-                 url: "/dataset/lov/api/v2/agent/autocomplete",
+                 url: "/dataset/bdo/api/v2/agent/autocomplete",
                  data: { q: request.term },
                  dataType: "json",
                  success: response,

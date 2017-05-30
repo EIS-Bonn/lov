@@ -9,14 +9,14 @@ block content
                   .suggestions
                     span Do you mean: 
                     each suggestion, i in suggestions
-                      a(href="/dataset/lov/vocabs?q=#{suggestion.text}") #{suggestion.text} 
+                      a(href="/dataset/bdo/vocabs?q=#{suggestion.text}") #{suggestion.text} 
       script.      
         $(document).ready(function() {
           $( "#searchInput" ).autocomplete({
               minLength: 1,
               source: function (request, response) {
                $.ajax({
-                 url: "/dataset/lov/api/v2/vocabulary/autocomplete",
+                 url: "/dataset/bdo/api/v2/vocabulary/autocomplete",
                  data: { q: request.term },
                  dataType: "json",
                  success: function( data ) {
@@ -35,7 +35,7 @@ block content
               position: {my : "left top",at: "left bottom"},
               messages: {noResults: '',results: function() {}},
               select : function(event, ui) {
-                  location.href = '/dataset/lov/vocabs/' + encodeURIComponent(ui.item.label);
+                  location.href = '/dataset/bdo/vocabs/' + encodeURIComponent(ui.item.label);
               },
              open: function(event, ui) {$(".ui-autocomplete").css("z-index", 1000);}
           }).data( "uiAutocomplete" )._renderItem = function( ul, item ) {
@@ -60,9 +60,9 @@ block content
                     .SearchContainer
                       div.SearchInnerBox
                         span.prefix
-                          a(href='/dataset/lov/vocabs/#{result._source.prefix}') !{result._source.prefix}
+                          a(href='/dataset/bdo/vocabs/#{result._source.prefix}') !{result._source.prefix}
                         if(result._source["http://purl.org/dc/terms/title@en"])
-                          a(href='/dataset/lov/vocabs/#{result._source.prefix}').vocabularyPrefix - #{result._source["http://purl.org/dc/terms/title@en"]}
+                          a(href='/dataset/bdo/vocabs/#{result._source.prefix}').vocabularyPrefix - #{result._source["http://purl.org/dc/terms/title@en"]}
                         div.uri 
                             a(href='#{result._source.uri}', target='_blank') !{result._source.uri}
                       div.hr
@@ -100,9 +100,9 @@ block content
                     li.nav-item(class="nav-item-vocabulary") 
                       span vocabulary  (#{results.total_results})
                     li.nav-item-inactive(class="nav-item-propertyclass hover")
-                      a(href='/dataset/lov/terms') property/class >
+                      a(href='/dataset/bdo/terms') property/class >
                     li.nav-item-inactive(class="nav-item-agent hover")
-                      a(href='/dataset/lov/agents') agent >
+                      a(href='/dataset/bdo/agents') agent >
               .facet
                 h2.facet-heading Tag
                 // | !{JSON.stringify(results.aggregations)}

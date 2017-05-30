@@ -21,7 +21,7 @@ block content
               p(style="padding-top: 2em;")
                 | This vocabulary is already part of the Linked Open Vocabularies ecosystem. You can access the
                 b
-                  a(href='#{"/dataset/lov/vocabs/"+ vocab.prefix}') #{vocab.prefix} vocabulary page
+                  a(href='#{"/dataset/bdo/vocabs/"+ vocab.prefix}') #{vocab.prefix} vocabulary page
                 | to get more information.
         - if(typeof(mailSent) !== 'undefined' && mailSent)
           #greenContainer.clear.wrplGreen(style="width:100%")
@@ -56,7 +56,7 @@ block content
                         }
                     }
                   .submit
-                    form#searchForm(name='searchForm' action='/dataset/lov/suggest' onsubmit="return validateForm();" method='post')
+                    form#searchForm(name='searchForm' action='/dataset/bdo/suggest' onsubmit="return validateForm();" method='post')
                       span &nbsp
                       input(name='email', type='text', placeholder='Enter your email address', autocomplete='off')
                       input(type="hidden", name="_method", value="POST")
