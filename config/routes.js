@@ -148,7 +148,7 @@ module.exports = function (app, passport,esclient, elasticsearchClient, emailTra
   app.get('/dataset/bdo/qa', auth.requiresLogin, function(req, res){qa.search(req,res);})
   
   //Bot
-  app.get('/dataset/bdo/suggest', function(req, res){bot.isInbdo(req,res);})
+  app.get('/dataset/bdo/suggest', function(req, res){bot.isInLOV(req,res);})
   app.post('/dataset/bdo/suggest',function(req, res){bot.submit(req,res,emailTransporter);})
   
   // tag routes
