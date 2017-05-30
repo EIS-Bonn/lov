@@ -1,6 +1,6 @@
 extends ../layout/layout
 block content
-      - var action = '/edition/bdo/users'
+      - var action = '/edition/lov/users'
       - action += user.isNew? '' : '/' + user.id
       - var title = user.isNew? 'Sign up' : 'Edit your profile'
       section#post.postBlue
@@ -30,7 +30,7 @@ block content
                             input(type='password', name="password_confirm", placeholder='Confirm Password')
                 .editionActionBar
                   input.editionSaveButtonRight(type='submit' name='submit' value='Save')
-                  a.editionCancelButtonRight(href="/dataset/bdo/users", title="cancel") Cancel
+                  a.editionCancelButtonRight(href="/dataset/lov/users", title="cancel") Cancel
                   .clear
       script.
         //form validation before submit

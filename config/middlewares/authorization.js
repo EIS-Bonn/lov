@@ -9,7 +9,7 @@
 exports.requiresLogin = function (req, res, next) {
   if (!req.isAuthenticated()) {
     req.session.returnTo = req.originalUrl
-    return res.redirect('edition/bdo/login')
+    return res.redirect('edition/lov/login')
   }
   next()
 }
@@ -20,7 +20,7 @@ exports.requiresAdmin = function (req, res, next) {
   }
   else{
     req.session.returnTo = req.originalUrl
-    return res.redirect('edition/bdo/login')
+    return res.redirect('edition/lov/login')
   }
 }
 exports.requiresAdminOrUser = function (req, res, next) {
@@ -29,7 +29,7 @@ exports.requiresAdminOrUser = function (req, res, next) {
   }
   else{
     req.session.returnTo = req.originalUrl
-    return res.redirect('edition/bdo/login')
+    return res.redirect('edition/lov/login')
   }
 }
 

@@ -26,7 +26,7 @@ exports.reviewUsersBatch = function(req, res){
           User.find({_id:id}).remove().exec(cb);
       }, function(err, result) {
           if( err ) { return console.log(err); }
-          res.redirect('/edition/bdo/');
+          res.redirect('/edition/lov/');
       });
   });
 }
@@ -34,14 +34,14 @@ exports.reviewUsersBatch = function(req, res){
 exports.suggestTakeAction = function(req, res){
   LogSuggest.update({_id:req.body.suggId},{$set:{reviewedBy:req.user.agent}}).exec(function(err, suggest) {
       if (err) return res.render('500')
-      res.redirect('/edition/bdo/');
+      res.redirect('/edition/lov/');
   });  
 }
 
 exports.suggestUpdateStatus = function(req, res){
   LogSuggest.update({_id:req.body.suggId},{$set:{status:req.body.status}}).exec(function(err, suggest) {
       if (err) return res.render('500')
-      res.redirect('/edition/bdo/');
+      res.redirect('/edition/lov/');
   });  
 }
 

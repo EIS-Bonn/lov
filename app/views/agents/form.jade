@@ -1,6 +1,6 @@
 extends ../layout/layout
 block content
-      - var action = '/edition/bdo/agents'
+      - var action = '/edition/lov/agents'
       - action += agent.isNew? '' : '/' + agent.id
       section#post.postBlue
         article
@@ -44,7 +44,7 @@ block content
                                   img.imageWithLangRemoveAction(src='/img/remove.png' onClick='this.parentNode.remove();')
                 .editionActionBar
                   input.editionSaveButtonRight(type='submit' name='submit' value='Save')
-                  a.editionCancelButtonRight(href="/dataset/bdo/agents/#{agent.name}", title="cancel") Cancel
+                  a.editionCancelButtonRight(href="/dataset/lov/agents/#{agent.name}", title="cancel") Cancel
                   .clear
                   
       script.
@@ -86,7 +86,7 @@ block content
               minLength: 1,
               source: function (request, response) {
                $.ajax({
-                 url: "/dataset/bdo/api/v2/agent/autoCompleteFull",
+                 url: "/dataset/lov/api/v2/agent/autoCompleteFull",
                  data: { q: request.term },
                  dataType: "json",
                  success: response,
@@ -98,7 +98,7 @@ block content
               position: {my : "left top",at: "left bottom"},
               messages: {noResults: '',results: function() {}},
               select : function(event, ui) {
-                  location.href = '/dataset/bdo/agents/' + encodeURIComponent(ui.item.name);
+                  location.href = '/dataset/lov/agents/' + encodeURIComponent(ui.item.name);
               },
              open: function(event, ui) {$(".ui-autocomplete").css("z-index", 1000);}
           }).data( "uiAutocomplete" )._renderItem = function( ul, item ) {

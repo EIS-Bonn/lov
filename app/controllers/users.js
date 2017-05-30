@@ -77,7 +77,7 @@ exports.update = function(req, res){
   user.save(function(err) {
     if (!err) {
       req.flash('info', 'User updated successfully')
-      return res.redirect('/edition/bdo')
+      return res.redirect('/edition/lov')
     }
     res.render('users/edit', {
       user: user,
@@ -98,7 +98,7 @@ exports.update = function(req, res){
           User.find({_id:id}).remove().exec(cb);
       }, function(err, result) {
           if( err ) { return console.log(err); }
-          res.redirect('/edition/bdo/');
+          res.redirect('/edition/lov/');
       });
   });
 }*/
@@ -109,7 +109,7 @@ exports.update = function(req, res){
 
 exports.logout = function (req, res) {
   req.logout()
-  res.redirect('/edition/bdo/login')
+  res.redirect('/edition/lov/login')
 }
 
 /**
@@ -140,11 +140,11 @@ exports.create = function (req, res) {
         })
       }
 
-      res.redirect('/edition/bdo/login')
+      res.redirect('/edition/lov/login')
       // manually login the user once successfully signed up
       /*req.logIn(user, function(err) {
         if (err) return next(err)
-        return res.redirect('/edition/bdo/')
+        return res.redirect('/edition/lov/')
       })*/
     })
   })
@@ -178,7 +178,7 @@ exports.destroy = function(req, res){
   var user = req.userObj
   user.remove(function(err){
     req.flash('info', 'User deleted successfully')
-    res.redirect('/edition/bdo/users')
+    res.redirect('/edition/lov/users')
   })
 }
 
@@ -200,7 +200,7 @@ exports.index = function(req, res){
 exports.userChangeCategory = function(req, res){
   User.update({_id:req.body.userId},{$set:{category:req.body.category}}).exec(function(err, user) {
       if (err) return res.render('500')
-      res.redirect('/edition/bdo/users');
+      res.redirect('/edition/lov/users');
   });  
 }
 

@@ -57,11 +57,11 @@ exports.remove = function (req, res) {
     if(versionFile){
       fs.unlink(versionFile, function() {
           if (err) throw err;
-          return res.redirect('/edition/bdo/vocabs/'+vocab.prefix+'/versions')
+          return res.redirect('/edition/lov/vocabs/'+vocab.prefix+'/versions')
       });
     }
     else{
-      return res.redirect('/edition/bdo/vocabs/'+vocab.prefix+'/versions')
+      return res.redirect('/edition/lov/vocabs/'+vocab.prefix+'/versions')
     }
   })
 }
@@ -83,7 +83,7 @@ exports.changeStatusReviewed = function (req, res) {
   
   vocab.save(function(err) {
     if (err) {return res.render('500')}
-    return res.redirect('/edition/bdo/vocabs/'+vocab.prefix+'/versions')
+    return res.redirect('/edition/lov/vocabs/'+vocab.prefix+'/versions')
   })
 }
 
@@ -97,7 +97,7 @@ exports.changeStatusReviewedAll = function (req, res) {
   }  
   vocab.save(function(err) {
     if (err) {return res.render('500')}
-    return res.redirect('/edition/bdo/vocabs/'+vocab.prefix+'/versions')
+    return res.redirect('/edition/lov/vocabs/'+vocab.prefix+'/versions')
   })
 }
 
@@ -138,7 +138,7 @@ exports.edit = function (req, res) {
     if (err) {return res.render('500')}
     //change version file name if date has changed
     if(sourceDateStr === targetDateStr){
-      return res.redirect('/edition/bdo/vocabs/'+vocab.prefix+'/versions')
+      return res.redirect('/edition/lov/vocabs/'+vocab.prefix+'/versions')
     }
     else{
       var source_path = './versions/'+vocab._id+'/' +vocab._id+'_'+ sourceDateStr+'.n3'
@@ -148,7 +148,7 @@ exports.edit = function (req, res) {
             // delete the temporary file, so that the explicitly set temporary upload dir does not get filled with unwanted files
             fs.unlink(source_path, function() {
                 if (err) throw err;
-                return res.redirect('/edition/bdo/vocabs/'+vocab.prefix+'/versions')
+                return res.redirect('/edition/lov/vocabs/'+vocab.prefix+'/versions')
             });
       });
     }
@@ -192,7 +192,7 @@ exports.new = function (req, res) {
               if (err) throw err;
               var versionPublicPath = "http://lov.okfn.org/dataset/lov/vocabs/"+req.vocab.prefix+"/versions/"+issuedStr+".n3";
               //analyse the vocab
-               var command = "/usr/local/bdo/scripts/bin/versionAnalyser "+versionPublicPath+" "+req.vocab.uri+" "+req.vocab.nsp+" /usr/local/bdo/scripts/lov.config";
+               var command = "/usr/local/lov/scripts/bin/versionAnalyser "+versionPublicPath+" "+req.vocab.uri+" "+req.vocab.nsp+" /usr/local/lov/scripts/lov.config";
               var exec = require('child_process').exec;
               child = exec(command,
                 function (error, stdout, stderr) {
@@ -203,7 +203,7 @@ exports.new = function (req, res) {
                   stdout = _.extend(stdout, version);
                    Vocabulary.addVersion(vocab.prefix, stdout, function(err) {
                       if (err) {return res.render('500')}
-                      return res.redirect('/edition/bdo/vocabs/'+vocab.prefix+'/versions')
+                      return res.redirect('/edition/lov/vocabs/'+vocab.prefix+'/versions')
                     });
               });
           });
@@ -212,7 +212,7 @@ exports.new = function (req, res) {
   else{//no version file atached
     Vocabulary.addVersion(vocab.prefix, version, function(err) {
       if (err) {return res.render('500')}
-      return res.redirect('/edition/bdo/vocabs/'+vocab.prefix+'/versions')
+      return res.redirect('/edition/lov/vocabs/'+vocab.prefix+'/versions')
     });
   }
   

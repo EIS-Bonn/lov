@@ -15,7 +15,7 @@ block content
                       - var queryIndex=1;
                       - each queryExample in queryExamples
                         .aboutDesc Query ##{queryIndex} 
-                          a.linkBox(href='/dataset/bdo/sparql?query='+encodeURIComponent(queryExample.query)) #{queryExample.title}
+                          a.linkBox(href='/dataset/lov/sparql?query='+encodeURIComponent(queryExample.query)) #{queryExample.title}
                         - queryIndex=queryIndex+1;
               script.
                 $(".aboutTopicContent").hide()
@@ -34,7 +34,7 @@ block content
                     endpoint: 'http://localhost:3030/bigdataocean/sparql',
                     showQueryButton: true
                     },
-                    value: 'PREFIX vann:<http://purl.org/vocab/vann/>\n\PREFIX voaf:<http://purl.org/vocommons/voaf#>\n\ \n\### Vocabularies contained in BigDataOcean and their prefix\n\SELECT DISTINCT ?vocabPrefix ?vocabURI {\n\ \tGRAPH <http://localhost:3333/dataset/bdo>{\n\ \t \t?vocabURI a voaf:Vocabulary.\n\ \t \t?vocabURI vann:preferredNamespacePrefix ?vocabPrefix.\n\}} ORDER BY ?vocabPrefix'
+                    value: 'PREFIX vann:<http://purl.org/vocab/vann/>\n\PREFIX voaf:<http://purl.org/vocommons/voaf#>\n\ \n\### Vocabularies contained in LOV and their prefix\n\SELECT DISTINCT ?vocabPrefix ?vocabURI {\n\ \tGRAPH <http://localhost:3333/dataset/lov>{\n\ \t \t?vocabURI a voaf:Vocabulary.\n\ \t \t?vocabURI vann:preferredNamespacePrefix ?vocabPrefix.\n\}} ORDER BY ?vocabPrefix'
                 });
                 var yasr = YASR(document.getElementById("yasr"), {
                   //this way, the URLs in the results are prettified using the defined prefixes in the query
@@ -59,20 +59,20 @@ block content
                 .asideListFloat
                   ul.dumps
                     li
-                      a(href='/bdo.n3.gz' target='_blank' style="display: table; ")
+                      a(href='/lov.n3.gz' target='_blank' style="display: table; ")
                         img(src='/img/n3_small.gif' style="width:61px; height:38px")
-                        span(style="padding-left:.5em; display: table-cell; vertical-align: middle; ") BDO 
+                        span(style="padding-left:.5em; display: table-cell; vertical-align: middle; ") LOV 
                     li
-                      a(href='/bdo.nq.gz' target='_blank' style="display: table; ")
+                      a(href='/lov.nq.gz' target='_blank' style="display: table; ")
                         img(src='/img/nq_small.gif' style="width:61px; height:38px")
-                        span(style="padding-left:.5em; display: table-cell;   vertical-align: middle; ") BDO + vocabs 
+                        span(style="padding-left:.5em; display: table-cell;   vertical-align: middle; ") LOV + vocabs 
                 .clear
               //.h-padding
                 //h2 APIs
                 //.line
                 //div 
                   //span Consider using 
-                  //a(href="/dataset/bdo/api")
-                    b BigDataOcean APIs 
+                  //a(href="/dataset/lov/api")
+                    b LOV APIs 
                   //span when appropriate
                 //.clear

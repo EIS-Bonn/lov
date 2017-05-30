@@ -1,33 +1,33 @@
 header
-        a#logo(title='BigDataOcean Repository', href='/dataset/bdo')
+        a#logo(title='BigDataOcean Repository', href='/dataset/lov')
           img(itemprop="image" alt='BigDataOcean Repository', src='/img/BIG-DATA-OCEAN_LOGO.png' height='86' width='150')
         nav
           ul
             li.wrpl
-              a(title='', href='/dataset/bdo/vocabs')
+              a(title='', href='/dataset/lov/vocabs')
                 | Vocabs
             li.wrpl
-              a(title='', href='/dataset/bdo/terms')
+              a(title='', href='/dataset/lov/terms')
                 | Terms
             li.wrpl
-              a(title='', href='/dataset/bdo/agents')
+              a(title='', href='/dataset/lov/agents')
                 | Agents
             li.wrpl
-              a(title='', href='/dataset/bdo/sparql')
+              a(title='', href='/dataset/lov/sparql')
                 | SPARQL/Dump
             if (req.isAuthenticated() && req.user.category === "admin")
               li.wrpl
-                a(title='', href='/edition/bdo/users')
+                a(title='', href='/edition/lov/users')
                   | Users
         if (req.isAuthenticated())
           ul.editionAuth(style='position:absolute; top:0; right:0;')
             li
-              a(href="/edition/bdo/", title="Edition") Edition
+              a(href="/edition/lov/", title="Edition") Edition
             li
-              a(href="/edition/bdo/users/"+req.user.id, title="Profile") Profile
+              a(href="/edition/lov/users/"+req.user.id, title="Profile") Profile
             li
-              a(href="/edition/bdo/logout", title="logout") Logout
+              a(href="/edition/lov/logout", title="logout") Logout
         else
           ul.editionAuth(style='position:absolute; top:0; right:0;')
             li
-              a(href="/edition/bdo/", title="Login") Login
+              a(href="/edition/lov/", title="Login") Login

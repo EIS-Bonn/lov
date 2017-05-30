@@ -365,7 +365,7 @@ exports.create = function (req, res) {
                               if(error3 !== null){
                                 console.log('exec error3: ' + error3);
                               }
-                              return res.send({redirect:'/dataset/bdo/vocabs/'+vocab.prefix})
+                              return res.send({redirect:'/dataset/lov/vocabs/'+vocab.prefix})
                             });
                         });
                   });
@@ -373,7 +373,7 @@ exports.create = function (req, res) {
           });  
         }
         else{//no version found
-          return res.send({redirect:'/dataset/bdo/vocabs/'+vocab.prefix})
+          return res.send({redirect:'/dataset/lov/vocabs/'+vocab.prefix})
         }
     });
   })
@@ -387,7 +387,7 @@ exports.update = function(req, res){
     if (err) {
       return res.render('500')
     }
-    return res.send({redirect:'/dataset/bdo/vocabs/'+vocab.prefix})
+    return res.send({redirect:'/dataset/lov/vocabs/'+vocab.prefix})
   })
   
 }
@@ -427,14 +427,14 @@ exports.new = function (req, res) {
   //test if the vocabulary already exist or not
   if (!req.body.uri) { //control that q param is present
       req.flash('error', 'You must specify a vocabulary URI')
-      res.redirect('/edition/bdo')
+      res.redirect('/edition/lov')
   } else {
     //console.log(req.body.uri)
     Vocabulary.findNspURI(req.body.uri, function(err, vocab) {
       if (err) return res.render('500')
       if(vocab){ //vocab already exist
         req.flash('error', 'This vocabulary already exists')
-        res.redirect('/edition/bdo')
+        res.redirect('/edition/lov')
       }
       else{ //vocab does not exist yet*/
         Language.listAll(function(err, langs) {
