@@ -19,15 +19,15 @@ block content
                     .SearchContainer
                       div.SearchInnerBox
                         div.actionBar
-                          form(action='/edition/lov/users/#{user._id}' method='post' name='formEdit')
+                          form(action='/edition/bdo/users/#{user._id}' method='post' name='formEdit')
                             input(type='hidden', name='_csrf', value="#{csrf_token}")
                             input(type="hidden", name="_method", value="GET")
                             img.changeUser.actionBarAction(src="/img/edit_small.png" onclick="submit();")
-                          form(action='/edition/lov/users/#{user._id}' method='post' name='formDelete')
+                          form(action='/edition/bdo/users/#{user._id}' method='post' name='formDelete')
                             input(type='hidden', name='_csrf', value="#{csrf_token}")
                             input(type="hidden", name="_method", value="DELETE")
                             img.removeUser.actionBarAction(src="/img/remove.png")
-                        a.prefix(href='/dataset/lov/agents/#{user.agent.name}') !{user.agent.name}
+                        a.prefix(href='/dataset/bdo/agents/#{user.agent.name}') !{user.agent.name}
                         div.uri 
                           a(href="mailto:#{user.email}") !{user.email}
                       div.hr
@@ -36,7 +36,7 @@ block content
                           - if(user.category === "curator")
                             .statusButton curator
                           - else
-                            form.statusActionButton(action="/edition/lov/userChangeCategory", method="post")
+                            form.statusActionButton(action="/edition/bdo/userChangeCategory", method="post")
                               input.csrf(type='hidden', name='_csrf', value="#{csrf_token}")
                               input(type='hidden', name='userId', value="#{user._id}")
                               input(type='hidden', name='category', value="curator")
@@ -44,7 +44,7 @@ block content
                           - if(user.category === "admin")
                             .statusButton admin
                           - else
-                            form.statusActionButton(action="/edition/lov/userChangeCategory", method="post")
+                            form.statusActionButton(action="/edition/bdo/userChangeCategory", method="post")
                               input.csrf(type='hidden', name='_csrf', value="#{csrf_token}")
                               input(type='hidden', name='userId', value="#{user._id}")
                               input(type='hidden', name='category', value="admin")

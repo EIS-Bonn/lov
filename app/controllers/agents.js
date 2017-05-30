@@ -49,7 +49,7 @@ exports.destroy = function(req, res){
   var agent = req.agent
   agent.remove(function(err){
     req.flash('info', 'Deleted successfully')
-    res.redirect('/dataset/lov/agents')
+    res.redirect('/dataset/bdo/agents')
   })
 }
 
@@ -60,7 +60,7 @@ exports.create = function (req, res) {
   var agent = new Agent(req.body)
   agent.save(function (err) {
     if (err) {return res.render('500')}
-    return res.redirect('/dataset/lov/agents/' + agent.name)
+    return res.redirect('/dataset/bdo/agents/' + agent.name)
   })
 }
 
@@ -90,7 +90,7 @@ exports.update = function(req, res){
     if (err) {
       return res.render('500')
     }
-    res.redirect('/dataset/lov/agents/' + agent.name)
+    res.redirect('/dataset/bdo/agents/' + agent.name)
   })
 }
 

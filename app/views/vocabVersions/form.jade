@@ -1,7 +1,7 @@
 extends ../layout/layout
 block content
       //- used to extract information form in JSON: https://github.com/maxatwork/form2js
-      - var action = '/edition/lov/vocabs'
+      - var action = '/edition/bdo/vocabs'
       - action += vocab.isNew? '' : '/' + vocab.prefix
       section#post.postBlue
         article
@@ -10,7 +10,7 @@ block content
               h1 Create a new Vocabulary
             else
               h1
-                a(href='/dataset/lov/vocabs/#{vocab.prefix}')
+                a(href='/dataset/bdo/vocabs/#{vocab.prefix}')
                   | 
                   span #{vocab.titles[0].value} 
                   span (#{vocab.prefix})
@@ -21,7 +21,7 @@ block content
                 .editionIndexBoxHeader
                   .title #{vocab.prefix} Versions
                     img.fieldReviewAddAction(src='/img/add.png')
-                  form(action="/edition/lov/vocabs/#{vocab.prefix}/versions/reviewAll", method="post")
+                  form(action="/edition/bdo/vocabs/#{vocab.prefix}/versions/reviewAll", method="post")
                     input(type='hidden', name='_csrf', value="#{csrf_token}")
                     input.statusAllActionButton(type='submit' name='submit' value='ReviewAll')
                 .count-items
@@ -37,7 +37,7 @@ block content
                         .editionContainer
                           div.editionInnerBox
                             .takeAction
-                              form(action='/edition/lov/vocabs/#{vocab.prefix}/versions' method='post' name='formDelete')
+                              form(action='/edition/bdo/vocabs/#{vocab.prefix}/versions' method='post' name='formDelete')
                                 input(type='hidden', name='_csrf', value="#{csrf_token}")
                                 input(type="hidden", name="_method", value="DELETE")
                                 input.issuedInput(type="hidden", name="issued", value="#{version.issued}")
@@ -53,14 +53,14 @@ block content
                           div.hr
                           div.SearchBody
                             - if(!version.isReviewed)
-                              form.statusActionButton(action="/edition/lov/vocabs/#{vocab.prefix}/versions/review", method="post")
+                              form.statusActionButton(action="/edition/bdo/vocabs/#{vocab.prefix}/versions/review", method="post")
                                 input(type='hidden', name='_csrf', value="#{csrf_token}")
                                 input(type="hidden", name="issued", value="#{version.issued}")
                                 input(type="hidden", name="name", value="#{version.name}")
                                 .statusSubmit review
       #dialogRemoveVersion(style='display:none;') Are you sure you want to delete this version?
       #dialogEditVersion(style='display:none;' title='version Edition')
-        form#dialogEditVersionForm(action="/edition/lov/vocabs/#{vocab.prefix}/versions/edit", method="post")
+        form#dialogEditVersionForm(action="/edition/bdo/vocabs/#{vocab.prefix}/versions/edit", method="post")
           input(type='hidden', name='_csrf', value="#{csrf_token}")
           input#dialogEditVersionIssued(type='hidden', name='issued')
           input#dialogEditVersionName(type='hidden', name='name')
@@ -78,7 +78,7 @@ block content
                     td
                       input#dialogEditVersionNameNew(type='text', name='nameNew')
       #dialogNewVersion(style='display:none;' title='version Creation')
-        form#dialogNewVersionForm(action="/edition/lov/vocabs/#{vocab.prefix}/versions/new", method="post", enctype="multipart/form-data")
+        form#dialogNewVersionForm(action="/edition/bdo/vocabs/#{vocab.prefix}/versions/new", method="post", enctype="multipart/form-data")
           input(type='hidden', name='_csrf', value="#{csrf_token}")
           .metadataFrame
             #dialogNewVersionFormErrors

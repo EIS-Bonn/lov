@@ -44,73 +44,73 @@ module.exports = function (app, passport,esclient, elasticsearchClient, emailTra
 
   /* ########### Edition ########### */
   //root and authentication
-  app.get('/edition', function(req, res){res.redirect('/edition/lov/')})
-  app.get('/edition/lov', auth.requiresLogin, edition.index)
-  app.get('/edition/lov/signup', users.signup)
-  app.get('/edition/lov/login', users.login)
-  app.get('/edition/lov/logout', users.logout)
-  app.post('/edition/lov/users', users.create)
-  app.post('/edition/lov/session',
+  app.get('/edition', function(req, res){res.redirect('/edition/bdo/')})
+  app.get('/edition/bdo', auth.requiresLogin, edition.index)
+  app.get('/edition/bdo/signup', users.signup)
+  app.get('/edition/bdo/login', users.login)
+  app.get('/edition/bdo/logout', users.logout)
+  app.post('/edition/bdo/users', users.create)
+  app.post('/edition/bdo/session',
     passport.authenticate('local', {
-     failureRedirect: '/edition/lov/login',
+     failureRedirect: '/edition/bdo/login',
       failureFlash: true
     }), users.session)
   //global actions
-  app.post('/edition/lov/usersReview', auth.requiresLogin, edition.reviewUsersBatch)
-  app.post('/edition/lov/suggestTakeAction', auth.requiresLogin, edition.suggestTakeAction)
-  app.post('/edition/lov/suggestUpdateStatus', auth.requiresLogin, edition.suggestUpdateStatus)
+  app.post('/edition/bdo/usersReview', auth.requiresLogin, edition.reviewUsersBatch)
+  app.post('/edition/bdo/suggestTakeAction', auth.requiresLogin, edition.suggestTakeAction)
+  app.post('/edition/bdo/suggestUpdateStatus', auth.requiresLogin, edition.suggestUpdateStatus)
   //users
-  app.get('/edition/lov/users', auth.requiresAdmin, users.index)
-  app.post('/edition/lov/userChangeCategory', auth.requiresAdmin, users.userChangeCategory)
-  app.del('/edition/lov/users/:userId', auth.requiresAdmin, users.destroy)
-  app.get('/edition/lov/users/:userId', auth.requiresAdminOrUser, users.edit)
-  app.put('/edition/lov/users/:userId', auth.requiresAdminOrUser, users.update)
+  app.get('/edition/bdo/users', auth.requiresAdmin, users.index)
+  app.post('/edition/bdo/userChangeCategory', auth.requiresAdmin, users.userChangeCategory)
+  app.del('/edition/bdo/users/:userId', auth.requiresAdmin, users.destroy)
+  app.get('/edition/bdo/users/:userId', auth.requiresAdminOrUser, users.edit)
+  app.put('/edition/bdo/users/:userId', auth.requiresAdminOrUser, users.update)
   app.param('userId', users.load)
   //agents
-  app.get('/edition/lov/agents/new', auth.requiresLogin, agents.new);
-  app.post('/edition/lov/agents', auth.requiresLogin, agents.create)
-  app.post('/edition/lov/agents/creationOnTheFly', auth.requiresLogin, agents.createOnTheFly)
-  app.get('/edition/lov/agents/:agentId', auth.requiresLogin, agents.edit)
-  app.put('/edition/lov/agents/:agentId', auth.requiresLogin, agents.update)
-  app.del('/edition/lov/agents/:agentId', auth.requiresLogin, agents.destroy)
+  app.get('/edition/bdo/agents/new', auth.requiresLogin, agents.new);
+  app.post('/edition/bdo/agents', auth.requiresLogin, agents.create)
+  app.post('/edition/bdo/agents/creationOnTheFly', auth.requiresLogin, agents.createOnTheFly)
+  app.get('/edition/bdo/agents/:agentId', auth.requiresLogin, agents.edit)
+  app.put('/edition/bdo/agents/:agentId', auth.requiresLogin, agents.update)
+  app.del('/edition/bdo/agents/:agentId', auth.requiresLogin, agents.destroy)
   app.param('agentId', agents.load)
   //vocabs
-  app.post('/edition/lov/vocabs/new', auth.requiresLogin, vocabularies.new) //create the vocab
-  app.get('/edition/lov/vocabs/:vocabPxEdition', auth.requiresLogin, vocabularies.edit)
-  app.post('/edition/lov/vocabs', auth.requiresLogin, vocabularies.create) //save initial metadata + version
-  app.put('/edition/lov/vocabs/:vocabPxEdition', auth.requiresLogin, vocabularies.update)
+  app.post('/edition/bdo/vocabs/new', auth.requiresLogin, vocabularies.new) //create the vocab
+  app.get('/edition/bdo/vocabs/:vocabPxEdition', auth.requiresLogin, vocabularies.edit)
+  app.post('/edition/bdo/vocabs', auth.requiresLogin, vocabularies.create) //save initial metadata + version
+  app.put('/edition/bdo/vocabs/:vocabPxEdition', auth.requiresLogin, vocabularies.update)
   //versions
-  app.get('/edition/lov/vocabs/:vocabPxEdition/versions', auth.requiresLogin, versions.list)
-  app.del('/edition/lov/vocabs/:vocabPxEdition/versions', auth.requiresLogin, versions.remove)
-  app.post('/edition/lov/vocabs/:vocabPxEdition/versions/review', auth.requiresLogin, versions.changeStatusReviewed)
-  app.post('/edition/lov/vocabs/:vocabPxEdition/versions/reviewAll', auth.requiresLogin, versions.changeStatusReviewedAll)
-  app.post('/edition/lov/vocabs/:vocabPxEdition/versions/edit', auth.requiresLogin, versions.edit)
-  app.post('/edition/lov/vocabs/:vocabPxEdition/versions/new', auth.requiresLogin, versions.new)
+  app.get('/edition/bdo/vocabs/:vocabPxEdition/versions', auth.requiresLogin, versions.list)
+  app.del('/edition/bdo/vocabs/:vocabPxEdition/versions', auth.requiresLogin, versions.remove)
+  app.post('/edition/bdo/vocabs/:vocabPxEdition/versions/review', auth.requiresLogin, versions.changeStatusReviewed)
+  app.post('/edition/bdo/vocabs/:vocabPxEdition/versions/reviewAll', auth.requiresLogin, versions.changeStatusReviewedAll)
+  app.post('/edition/bdo/vocabs/:vocabPxEdition/versions/edit', auth.requiresLogin, versions.edit)
+  app.post('/edition/bdo/vocabs/:vocabPxEdition/versions/new', auth.requiresLogin, versions.new)
   
   // agent
-  app.get('/dataset/lov/agents', function(req, res){search.searchAgent(req,res,esclient);})
-  app.get('/dataset/lov/agents/:agentName', agents.show)
+  app.get('/dataset/bdo/agents', function(req, res){search.searchAgent(req,res,esclient);})
+  app.get('/dataset/bdo/agents/:agentName', agents.show)
   app.param('agentName', agents.loadFromName)
 
   
   // vocabs routes
 
-  app.get('/', function(req, res){res.redirect('/dataset/lov/')})
-  app.get('/dataset', function(req, res){res.redirect('/dataset/lov/')})
-  app.get('/dataset/lov', vocabularies.index)
-  app.get('/dataset/lov/vocabs', function(req, res){search.searchVocabulary(req,res,esclient);})
-  app.get('/dataset/lov/vocabs/:vocabPx/versions/:date.n3', function(req, res) {
+  app.get('/', function(req, res){res.redirect('/dataset/bdo/')})
+  app.get('/dataset', function(req, res){res.redirect('/dataset/bdo/')})
+  app.get('/dataset/bdo', vocabularies.index)
+  app.get('/dataset/bdo/vocabs', function(req, res){search.searchVocabulary(req,res,esclient);})
+  app.get('/dataset/bdo/vocabs/:vocabPx/versions/:date.n3', function(req, res) {
     res.set('Content-Type', 'text/n3');
     res.download(require('path').resolve(__dirname+'/../versions/'+req.vocab._id+'/'+req.vocab._id+'_'+req.params.date+'.n3'),req.params.vocabPx+'_'+req.params.date+'.n3');
 });
-  app.get('/dataset/lov/vocabs/:vocabPx', vocabularies.show)
-  app.get('/dataset/lov/details/vocabulary:vocabularyid', function(req, res) {
+  app.get('/dataset/bdo/vocabs/:vocabPx', vocabularies.show)
+  app.get('/dataset/bdo/details/vocabulary:vocabularyid', function(req, res) {
     var vocabularyId=req.param('vocabularyid');
     if(vocabularyId){
       var prefix = vocabularyId.substring(1,vocabularyId.indexOf(".html"));
-      res.redirect('/dataset/lov/vocabs/'+ prefix);
+      res.redirect('/dataset/bdo/vocabs/'+ prefix);
     }
-    else res.redirect('/dataset/lov/');
+    else res.redirect('/dataset/bdo/');
   });
   //app.get('/vocabs/new', auth.requiresLogin, vocabularies.new)
   //app.post('/vocabs', auth.requiresLogin, vocabularies.create)
@@ -122,7 +122,7 @@ module.exports = function (app, passport,esclient, elasticsearchClient, emailTra
   
 
   // languages routes
-  app.get('/dataset/lov/languages/:langIso639P3PCode', languages.show)
+  app.get('/dataset/bdo/languages/:langIso639P3PCode', languages.show)
   app.param('langIso639P3PCode', languages.load)
   
   
@@ -138,18 +138,18 @@ module.exports = function (app, passport,esclient, elasticsearchClient, emailTra
 
   //app.param('id', articles.load)
   
-  app.get('/dataset/lov/about', function(req, res){res.render('about', {});}  )
+  app.get('/dataset/bdo/about', function(req, res){res.render('about', {});}  )
   
   
   // search
-  app.get('/dataset/lov/terms', function(req, res){search.search(req,res,esclient);})
-  app.get('/dataset/lov/searchMulti', auth.requiresLogin, function(req, res){searchMulti.search(req,res,esclient);})
+  app.get('/dataset/bdo/terms', function(req, res){search.search(req,res,esclient);})
+  app.get('/dataset/bdo/searchMulti', auth.requiresLogin, function(req, res){searchMulti.search(req,res,esclient);})
   	  
-  app.get('/dataset/lov/qa', auth.requiresLogin, function(req, res){qa.search(req,res);})
+  app.get('/dataset/bdo/qa', auth.requiresLogin, function(req, res){qa.search(req,res);})
   
   //Bot
-  app.get('/dataset/lov/suggest', function(req, res){bot.isInLOV(req,res);})
-  app.post('/dataset/lov/suggest',function(req, res){bot.submit(req,res,emailTransporter);})
+  app.get('/dataset/bdo/suggest', function(req, res){bot.isInbdo(req,res);})
+  app.post('/dataset/bdo/suggest',function(req, res){bot.submit(req,res,emailTransporter);})
   
   // tag routes
   //var tags = require('../app/controllers/tags')
@@ -157,37 +157,37 @@ module.exports = function (app, passport,esclient, elasticsearchClient, emailTra
   
   
   //APIs  
-  app.get('/dataset/lov/context', function(req, res){vocabularies.jsonLDListVocabs(req,res);})
+  app.get('/dataset/bdo/context', function(req, res){vocabularies.jsonLDListVocabs(req,res);})
   
-  app.get('/dataset/lov/api/v2/term/suggest', function(req, res){search.apiSuggestTerms(req,res,esclient);})
-  app.get('/dataset/lov/api/v2/term/autocomplete', function(req, res){search.apiAutocompleteTerms(req,res,esclient);})
-  app.get('/dataset/lov/api/v2/autocomplete/terms', function(req, res){search.apiAutocompleteTerms(req,res,esclient);})
-  app.get('/dataset/lov/api/v2/term/autocompleteLabels', function(req, res){search.apiAutocompleteLabelsTerms(req,res,elasticsearchClient);})
+  app.get('/dataset/bdo/api/v2/term/suggest', function(req, res){search.apiSuggestTerms(req,res,esclient);})
+  app.get('/dataset/bdo/api/v2/term/autocomplete', function(req, res){search.apiAutocompleteTerms(req,res,esclient);})
+  app.get('/dataset/bdo/api/v2/autocomplete/terms', function(req, res){search.apiAutocompleteTerms(req,res,esclient);})
+  app.get('/dataset/bdo/api/v2/term/autocompleteLabels', function(req, res){search.apiAutocompleteLabelsTerms(req,res,elasticsearchClient);})
   
-  app.get('/dataset/lov/api/v2/term/search', function(req, res){search.apiSearch(req,res,esclient);})
-  app.get('/dataset/lov/api/v2/search', function(req, res){search.apiSearch(req,res,esclient);})
+  app.get('/dataset/bdo/api/v2/term/search', function(req, res){search.apiSearch(req,res,esclient);})
+  app.get('/dataset/bdo/api/v2/search', function(req, res){search.apiSearch(req,res,esclient);})
   
-  app.get('/dataset/lov/api/v2/agent/autocomplete', agents.autoComplete)
-  app.get('/dataset/lov/api/v2/agent/autocompleteFull', agents.autoCompleteFull)
-  app.get('/dataset/lov/api/v2/agent/search', function(req, res){search.apiSearchAgent(req,res,esclient);})
-  app.get('/dataset/lov/api/v2/agent/list', function(req, res){agents.apiListAgents(req,res);})
-  app.get('/dataset/lov/api/v2/agent/info', function(req, res){agents.apiInfoAgent(req,res);})
+  app.get('/dataset/bdo/api/v2/agent/autocomplete', agents.autoComplete)
+  app.get('/dataset/bdo/api/v2/agent/autocompleteFull', agents.autoCompleteFull)
+  app.get('/dataset/bdo/api/v2/agent/search', function(req, res){search.apiSearchAgent(req,res,esclient);})
+  app.get('/dataset/bdo/api/v2/agent/list', function(req, res){agents.apiListAgents(req,res);})
+  app.get('/dataset/bdo/api/v2/agent/info', function(req, res){agents.apiInfoAgent(req,res);})
   
-  app.get('/dataset/lov/api/v2/vocabulary/autocomplete', function(req, res){search.apiAutocompleteVocabs(req,res,esclient);})
-  app.get('/dataset/lov/api/v2/autocomplete/vocabularies', function(req, res){search.apiAutocompleteVocabs(req,res,esclient);})
-  app.get('/dataset/lov/api/v2/vocabulary/list', function(req, res){vocabularies.apiListVocabs(req,res);})
-  app.get('/dataset/lov/api/v2/vocabulary/search', function(req, res){search.apiSearchVocabs(req,res,esclient);})
-  app.get('/dataset/lov/api/v2/vocabulary/info', function(req, res){vocabularies.apiInfoVocab(req,res);})
-  app.get('/dataset/lov/api/v2/vocabulary/prefix/exists', function(req, res){vocabularies.apiPrefixExists(req,res);})
+  app.get('/dataset/bdo/api/v2/vocabulary/autocomplete', function(req, res){search.apiAutocompleteVocabs(req,res,esclient);})
+  app.get('/dataset/bdo/api/v2/autocomplete/vocabularies', function(req, res){search.apiAutocompleteVocabs(req,res,esclient);})
+  app.get('/dataset/bdo/api/v2/vocabulary/list', function(req, res){vocabularies.apiListVocabs(req,res);})
+  app.get('/dataset/bdo/api/v2/vocabulary/search', function(req, res){search.apiSearchVocabs(req,res,esclient);})
+  app.get('/dataset/bdo/api/v2/vocabulary/info', function(req, res){vocabularies.apiInfoVocab(req,res);})
+  app.get('/dataset/bdo/api/v2/vocabulary/prefix/exists', function(req, res){vocabularies.apiPrefixExists(req,res);})
   
-  app.get('/dataset/lov/api/v2/log/sparql', function(req, res){logs.apiSPARQL(req,res);})
+  app.get('/dataset/bdo/api/v2/log/sparql', function(req, res){logs.apiSPARQL(req,res);})
 
-  app.get('/dataset/lov/api/v2/tags/list', function(req, res){vocabularies.apiTags(req,res);})
+  app.get('/dataset/bdo/api/v2/tags/list', function(req, res){vocabularies.apiTags(req,res);})
   
-  app.get('/dataset/lov/api', function(req, res){res.render('api', {});}  )
-  app.get('/dataset/lov/api/v1', function(req, res){res.render('api', {});}  )
-  app.get('/dataset/lov/api/v2', function(req, res){res.render('api', {});}  )
-  app.get('/dataset/lov/apidoc', function(req, res){res.render('api', {});}  )
+  app.get('/dataset/bdo/api', function(req, res){res.render('api', {});}  )
+  app.get('/dataset/bdo/api/v1', function(req, res){res.render('api', {});}  )
+  app.get('/dataset/bdo/api/v2', function(req, res){res.render('api', {});}  )
+  app.get('/dataset/bdo/apidoc', function(req, res){res.render('api', {});}  )
   
   
   /* Vocommons */
@@ -202,8 +202,8 @@ module.exports = function (app, passport,esclient, elasticsearchClient, emailTra
     });
   });
   
-  app.get('/endpoint/lov', function(req, res){res.redirect('/dataset/lov/sparql')});   
-  app.get('/dataset/lov/sparql', function(req, res, next) {
+  app.get('/endpoint/bdo', function(req, res){res.redirect('/dataset/bdo/sparql')});   
+  app.get('/dataset/bdo/sparql', function(req, res, next) {
     //TODO log SPARQL Queries using the logSearch object ??
     
     req.negotiate({'application/sparql-results+json,application/sparql-results+xml,text/tab-separated-values,text/csv,application/json,application/xml': function() {
@@ -218,7 +218,7 @@ module.exports = function (app, passport,esclient, elasticsearchClient, emailTra
         }
     });
   });
-  app.post('/dataset/lov/sparql', function(req, res, next) {
+  app.post('/dataset/bdo/sparql', function(req, res, next) {
       //console.log('req.query '+JSON.stringify(req.body.query))
       executeSPARQLQuery(res, req.headers, req.body.query, req.body['default-graph-uri'],req.body['named-graph-uri']);
       

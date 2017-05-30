@@ -2,7 +2,7 @@ extends ./layout/layout
 block content
       section#title.postBlue
         h1(itemprop="name")
-          a(href='/edition/lov') 
+          a(href='/edition/bdo') 
             span BigDataOcean Edition
             
       section#featuresBanner
@@ -11,11 +11,11 @@ block content
             a.createVocab(href='#') Vocab
         .featureWrapper
           .suggest
-            a(href='/edition/lov/agents/new') Agent
+            a(href='/edition/bdo/agents/new') Agent
         - if(auth.category === "admin")       
           .featureWrapper
             .suggest
-              a(href='/edition/lov/signup') User
+              a(href='/edition/bdo/signup') User
       
       section#posts.default-area
         div.clear.col-2
@@ -36,13 +36,13 @@ block content
                           div.editionInnerBox
                             - if(typeof sugg.reviewedBy =="undefined" || !sugg.reviewedBy)
                               .takeAction
-                                form(action="/edition/lov/suggestTakeAction", method="post")
+                                form(action="/edition/bdo/suggestTakeAction", method="post")
                                   img#submitTakeAction(src="/img/take_action.png" title="I'll review it!" onclick="submit();")                 
                                   input.csrf(type='hidden', name='_csrf', value="#{csrf_token}")
                                   input(type='hidden', name='suggId', value="#{sugg._id}")
                             - else
                               - if(""+sugg.reviewedBy._id === ""+auth.agent)
-                                form(action="/edition/lov/vocabs/new", method="post")
+                                form(action="/edition/bdo/vocabs/new", method="post")
                                   input.csrf(type='hidden', name='_csrf', value="#{csrf_token}")
                                   input(type='hidden', name='uri', value="#{sugg.uri}")
                                   input.suggestCreate(type='submit' name='submit' value='Create')
@@ -53,12 +53,12 @@ block content
                             div.SearchBody
                               - if(""+sugg.reviewedBy._id === ""+auth.agent)
                                 .statusButton suggested
-                                form.statusActionButton(action="/edition/lov/suggestUpdateStatus", method="post")
+                                form.statusActionButton(action="/edition/bdo/suggestUpdateStatus", method="post")
                                   input.csrf(type='hidden', name='_csrf', value="#{csrf_token}")
                                   input(type='hidden', name='suggId', value="#{sugg._id}")
                                   input(type='hidden', name='status', value="discarded")
                                   .statusSubmit discarded
-                                form.statusActionButton(action="/edition/lov/suggestUpdateStatus", method="post")
+                                form.statusActionButton(action="/edition/bdo/suggestUpdateStatus", method="post")
                                   input.csrf(type='hidden', name='_csrf', value="#{csrf_token}")
                                   input(type='hidden', name='suggId', value="#{sugg._id}")
                                   input(type='hidden', name='status', value="created")
@@ -85,7 +85,7 @@ block content
                       li(class="editionBoxRev")
                         .editionContainer
                           div.editionInnerBox
-                            a.prefix(href='/dataset/lov/vocabs/#{vocab.prefix}') #{vocab.prefix}
+                            a.prefix(href='/dataset/bdo/vocabs/#{vocab.prefix}') #{vocab.prefix}
                             - if(typeof vocab.latestReviewDate != "undefined")
                               div.uri Last reviewed on #{utils.dateToYMD(vocab.latestReviewDate)}
                             - else
@@ -107,7 +107,7 @@ block content
                     li(class="editionBoxRev")
                       .editionContainer
                         div.editionInnerBox
-                          a.prefix(href='/dataset/lov/vocabs/#{vocab.prefix}') #{vocab.prefix}
+                          a.prefix(href='/dataset/bdo/vocabs/#{vocab.prefix}') #{vocab.prefix}
                           - if(typeof vocab.lastModifiedInLOVAt != "undefined")
                             div.uri Last Modified on #{utils.dateToYMD(vocab.lastModifiedInLOVAt)}
                           - else
@@ -119,7 +119,7 @@ block content
           - if(auth.category === "admin")          
             article.wrpl
               .wrplGreen.editionIndexBox
-                form(action="/edition/lov/usersReview", method="post" id="formUsers")
+                form(action="/edition/bdo/usersReview", method="post" id="formUsers")
                   .editionIndexBoxHeader
                     .title User Review
                     - if(users && users.length>0)
@@ -141,13 +141,13 @@ block content
                               .checkbox
                                 input.checkboxUser(type="checkbox" value="#{usr._id}")
                               img.remove(src="/img/remove.png")
-                              a.prefix(href='/dataset/lov/agents/#{usr.agent.name}') !{usr.agent.name} 
+                              a.prefix(href='/dataset/bdo/agents/#{usr.agent.name}') !{usr.agent.name} 
                               span - !{usr.category}
                               div.uri !{usr.email}
                             div.hr
           #dialogCreateVocab(title="Enter the URI for the vocabulary to create" style='display:none') 
             #dialogCreateVocabError
-            form(action="/edition/lov/vocabs/new", method="post" name="formDialogCreateVocab" id="formDialogCreateVocab")
+            form(action="/edition/bdo/vocabs/new", method="post" name="formDialogCreateVocab" id="formDialogCreateVocab")
               fieldset.editionTable
                 input(type='hidden', name='_csrf', value="#{csrf_token}")
                 input(type="text" name="uri" placeholder="vocabulary URI")
