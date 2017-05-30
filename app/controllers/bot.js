@@ -6,7 +6,7 @@ var mongoose = require('mongoose')
   , User = mongoose.model('User')
 
 //var jarPath = 'C:/Users/vandenbusschep/Documents/SVN/PYV_Repository/lovSuggest/build/lovSuggest'; /* Name of the  suggest jar file */
-var jarPath = 'root/LOV/lovScripts/target/lovscripts-cli/lovscripts/suggest/build/lovSuggest'; /* Name of the  suggest jar file */
+var jarPath = 'root/LOV/scripts/suggest/build/lovSuggest'; /* Name of the  suggest jar file */
 
 /* **********************
   ENTRYPOINT FUNCTIONS
