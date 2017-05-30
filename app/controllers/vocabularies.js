@@ -310,7 +310,8 @@ exports.create = function (req, res) {
     if (err) {return res.render('500')}
     
     /* store version locally */
-    var command = "/usr/local/lov/scripts/bin/downloadVersion "+(vocab.isDefinedBy?vocab.isDefinedBy:vocab.uri)+" /usr/local/lov/scripts/lov.config";
+    //var command = "root/LOV/lovScripts/target/lovscripts-cli/lovscripts/bin/downloadVersion "+(vocab.isDefinedBy?vocab.isDefinedBy:vocab.uri)+" root/LOV/lovScripts/target/lovscripts-cli/lovscripts/lov.config";
+    var command = "root/LOV/lovScripts/target/lovscripts-cli/lovscripts/bin/downloadVersion "+(vocab.isDefinedBy?vocab.isDefinedBy:vocab.uri);
     var exec = require('child_process').exec;
     child = exec(command,
       function (error, stdout, stderr) {
@@ -345,7 +346,8 @@ exports.create = function (req, res) {
                   if (err) throw err;
                   var versionPublicPath = "http://lov.okfn.org/dataset/lov/vocabs/"+vocab.prefix+"/versions/"+issuedStr+".n3";
                   /* run analytics on vocab */
-                   var command2 = "/usr/local/lov/scripts/bin/versionAnalyser "+versionPublicPath+" "+vocab.uri+" "+vocab.nsp+" /usr/local/lov/scripts/lov.config";
+                  //var command2 = "root/LOV/lovScripts/target/lovscripts-cli/lovscripts/bin/versionAnalyser "+versionPublicPath+" "+vocab.uri+" "+vocab.nsp+" root/LOV/lovScripts/target/lovscripts-cli/lovscripts/lov.config";
+                  var command2 = "root/LOV/lovScripts/target/lovscripts-cli/lovscripts/bin/versionAnalyser "+versionPublicPath+" "+vocab.uri+" "+vocab.nsp;
                   var exec2 = require('child_process').exec;
                   child = exec2(command2, function (error2, stdout2, stderr2) {
                       stdout2 = JSON.parse(stdout2);
@@ -359,7 +361,8 @@ exports.create = function (req, res) {
                           //console.log('Done!');
                           
                             //success generate first stats
-                            var command3 = "/usr/local/lov/scripts/bin/statsonevocab /usr/local/lov/scripts/lov.config "+vocab.uri;
+                            //var command3 = "root/LOV/lovScripts/target/lovscripts-cli/lovscripts/bin/statsonevocab root/LOV/lovScripts/target/lovscripts-cli/lovscripts/lov.config "+vocab.uri;
+                            var command3 = "root/LOV/lovScripts/target/lovscripts-cli/lovscripts/bin/statsonevocab "+vocab.uri;
                             var exec3 = require('child_process').exec;
                             child = exec3(command3, function (error3, stdout3, stderr3) {
                               if(error3 !== null){
@@ -399,7 +402,8 @@ exports.edit = function (req, res) {
       if (err) return res.render('500')
       
       //var stdout={"nbTriplesWithoutInf":104,"uri":"http://www.ics.forth.gr/isl/oncm/core","uriInputSearch":"http://www.ics.forth.gr/isl/oncm/core.owl","uriDeclared":"http://www.ics.forth.gr/isl/oncm/core","nsp":"http://www.ics.forth.gr/isl/oncm/core#","nspMostUsed":"http://www.ics.forth.gr/isl/oncm/core#","nspDefault":"http://www.ics.forth.gr/isl/oncm/core#","prefix":"onc","prefixAssociatedNsp":"onc","nbClasses":8,"nbProperties":13,"nbInstances":0,"nbDatatypes":0,"languages":[{"id":"54b2be018433ca9ccf1c0e0c","uri":"http://id.loc.gov/vocabulary/iso639-2/eng","label":"English","iso639P3PCode":"eng","iso639P1Code":"en"}],"titles":[{"value":"Open NEE Configuration Model","lang":"en"},{"value":"The Open NEE Configuration Model","lang":"en"}],"descriptions":[{"value":"The Open NEE Configuration Model defines a Linked Data-based model for describing a configuration supported by a Named Entity Extraction (NEE) service. It is based on the model proposed in \"Configuring Named Entity Extraction through Real-Time Exploitation of Linked Data\" (http://dl.acm.org/citation.cfm?doid\u003d2611040.2611085) for configuring such services, and allows a NEE service to describe and publish as Linked Data its entity mining capabilities, but also to be dynamically configured.","lang":"en"}],"creators":[{"prefUri":"http://users.ics.forth.gr/~fafalios"}],"contributors":[{"prefUri":"http://users.ics.forth.gr/~tzitzik"}],"relMetadata":[{"nbTriplesWithoutInf":0,"uri":"http://purl.org/dc/terms/","nsp":"http://purl.org/dc/terms/","prefix":"dcterms","nbClasses":0,"nbProperties":0,"nbInstances":0,"nbDatatypes":0},{"nbTriplesWithoutInf":0,"uri":"http://www.w3.org/1999/02/22-rdf-syntax-ns#","nsp":"http://www.w3.org/1999/02/22-rdf-syntax-ns#","prefix":"rdf","nbClasses":0,"nbProperties":0,"nbInstances":0,"nbDatatypes":0},{"nbTriplesWithoutInf":0,"uri":"http://www.w3.org/2000/01/rdf-schema#","nsp":"http://www.w3.org/2000/01/rdf-schema#","prefix":"rdfs","nbClasses":0,"nbProperties":0,"nbInstances":0,"nbDatatypes":0},{"nbTriplesWithoutInf":0,"uri":"http://www.w3.org/2002/07/owl","nsp":"http://www.w3.org/2002/07/owl#","prefix":"owl","nbClasses":0,"nbProperties":0,"nbInstances":0,"nbDatatypes":0}],"relSpecializes":[{"nbTriplesWithoutInf":0,"uri":"http://www.w3.org/2000/01/rdf-schema#","nsp":"http://www.w3.org/2000/01/rdf-schema#","prefix":"rdfs","nbClasses":0,"nbProperties":0,"nbInstances":0,"nbDatatypes":0},{"nbTriplesWithoutInf":0,"uri":"http://www.w3.org/2004/02/skos/core","nsp":"http://www.w3.org/2004/02/skos/core#","prefix":"skos","nbClasses":0,"nbProperties":0,"nbInstances":0,"nbDatatypes":0}],"relGeneralizes":[],"relExtends":[{"nbTriplesWithoutInf":0,"uri":"http://www.w3.org/2000/01/rdf-schema#","nsp":"http://www.w3.org/2000/01/rdf-schema#","prefix":"rdfs","nbClasses":0,"nbProperties":0,"nbInstances":0,"nbDatatypes":0}],"relEquivalent":[],"relDisjunc":[],"relImports":[{"nbTriplesWithoutInf":0,"uri":"http://www.w3.org/2004/02/skos/","nbClasses":0,"nbProperties":0,"nbInstances":0,"nbDatatypes":0}]}
-      var command = "/usr/local/lov/scripts/bin/suggest "+(req.vocab.isDefinedBy?req.vocab.isDefinedBy:req.vocab.uri)+" /usr/local/lov/scripts/lov.config";
+      //var command = "root/LOV/lovScripts/target/lovscripts-cli/lovscripts/bin/suggest "+(req.vocab.isDefinedBy?req.vocab.isDefinedBy:req.vocab.uri)+" root/LOV/lovScripts/target/lovscripts-cli/lovscripts/lov.config";
+      var command = "root/LOV/lovScripts/target/lovscripts-cli/lovscripts/bin/suggest "+(req.vocab.isDefinedBy?req.vocab.isDefinedBy:req.vocab.uri);
         var exec = require('child_process').exec;
         child = exec(command,{timeout:5000},
           function (error, stdout, stderr) {
@@ -441,7 +445,8 @@ exports.new = function (req, res) {
           if (err) return res.render('500')
           Stattag.list(function(err, listTags) {
             if (err) return res.render('500')
-            var command = "/usr/local/lov/scripts/bin/suggest "+req.body.uri+" /usr/local/lov/scripts/lov.config";
+            //var command = "root/LOV/lovScripts/target/lovscripts-cli/lovscripts/bin/suggest "+req.body.uri+" root/LOV/lovScripts/target/lovscripts-cli/lovscripts/lov.config";
+            var command = "root/LOV/lovScripts/target/lovscripts-cli/lovscripts/bin/suggest "+req.body.uri;
             var exec = require('child_process').exec;
             child = exec(command,
               function (error, stdout, stderr) {

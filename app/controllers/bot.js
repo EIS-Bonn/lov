@@ -5,7 +5,8 @@ var mongoose = require('mongoose')
   , LogSuggest = mongoose.model('LogSuggest')
   , User = mongoose.model('User')
 
-var jarPath = 'C:/Users/vandenbusschep/Documents/SVN/PYV_Repository/lovSuggest/build/lovSuggest'; /* Name of the  suggest jar file */
+//var jarPath = 'C:/Users/vandenbusschep/Documents/SVN/PYV_Repository/lovSuggest/build/lovSuggest'; /* Name of the  suggest jar file */
+var jarPath = 'root/LOV/lovScripts/target/lovscripts-cli/lovscripts/suggest/build/lovSuggest'; /* Name of the  suggest jar file */
 
 /* **********************
   ENTRYPOINT FUNCTIONS
@@ -28,7 +29,8 @@ exports.isInLOV = function (req, res) {
       else{ //vocab does not exist yet
         /* run the bot on the URL */
         console.log(req.query.q)
-        var command = "/usr/local/lov/scripts/bin/suggest "+req.query.q+" /usr/local/lov/scripts/lov.config";
+        //var command = "root/LOV/lovScripts/target/lovscripts-cli/lovscripts/bin/suggest "+req.query.q+" root/LOV/lovScripts/target/lovscripts-cli/lovscripts/lov.config";
+        var command = "root/LOV/lovScripts/target/lovscripts-cli/lovscripts/bin/suggest "+req.query.q;
         var exec = require('child_process').exec;
         child = exec(command,
           function (error, stdout, stderr) {
@@ -188,7 +190,7 @@ exports.submit = function (req, res, emailTransporter) {
     User.listAdmin(function(err, users) {
       // setup e-mail data with unicode symbols
       var mailOptions = {
-          from: "Linked Open Vocabularies <linkedopenvocabularies@gmail.com>", // sender address
+          from: "BigDataOcean <usr@gmail.com>", // sender address
           to: (function() { // list of receivers
             var admins="";
             for(i = 0; i < users.length; i++) {
@@ -217,10 +219,10 @@ exports.submit = function (req, res, emailTransporter) {
     
     // setup e-mail data with unicode symbols for person who suggested
     var mailOptionsSender = {
-        from: "Linked Open Vocabularies <linkedopenvocabularies@gmail.com>", // sender address
+        from: "BigDataOcean <usr@gmail.com>", // sender address
         to: req.body.email, // list of receivers
         subject: "[LOV-suggestion] "+data.uriInputSearch, // Subject line
-        text: "Thank you for submitting the vocabulary: "+data.uriInputSearch+" to Linked Open Vocabularies.\nWe will review your vocabulary shortly and inform you as soon as it is integrated to the LOV.\n\n The LOV curation team.", // plaintext body
+        text: "Thank you for submitting the vocabulary: "+data.uriInputSearch+" to Linked Open Vocabularies.\nWe will review your vocabulary shortly and inform you as soon as it is integrated to the BigDataOcean.\n\n The BigDataOcean curation team.", // plaintext body
     }
     // send mail with defined transport object
     emailTransporter.sendMail(mailOptionsSender, function(error, response){

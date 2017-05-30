@@ -192,7 +192,8 @@ exports.new = function (req, res) {
               if (err) throw err;
               var versionPublicPath = "http://lov.okfn.org/dataset/lov/vocabs/"+req.vocab.prefix+"/versions/"+issuedStr+".n3";
               //analyse the vocab
-               var command = "/usr/local/bdo/scripts/bin/versionAnalyser "+versionPublicPath+" "+req.vocab.uri+" "+req.vocab.nsp+" /usr/local/bdo/scripts/lov.config";
+              //var command = "root/LOV/lovScripts/target/lovscripts-cli/lovscripts/bin/versionAnalyser "+versionPublicPath+" "+req.vocab.uri+" "+req.vocab.nsp+" root/LOV/lovScripts/target/lovscripts-cli/lovscripts/lov.config";
+              var command = "root/LOV/lovScripts/target/lovscripts-cli/lovscripts/bin/versionAnalyser "+versionPublicPath+" "+req.vocab.uri+" "+req.vocab.nsp;
               var exec = require('child_process').exec;
               child = exec(command,
                 function (error, stdout, stderr) {
