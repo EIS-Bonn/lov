@@ -1,12 +1,12 @@
 var utils = require('../../lib/utils');
-
+var globalPath = require('../../config/configPath').path;
 var mongoose = require('mongoose')
   , Vocabulary = mongoose.model('Vocabulary')
   , LogSuggest = mongoose.model('LogSuggest')
   , User = mongoose.model('User')
 
 //var jarPath = 'C:/Users/vandenbusschep/Documents/SVN/PYV_Repository/lovSuggest/build/lovSuggest'; /* Name of the  suggest jar file */
-var jarPath = 'root/LOV/scripts/suggest/build/lovSuggest'; /* Name of the  suggest jar file */
+var jarPath =  globalPath+'/scripts/suggest/build/lovSuggest'; /* Name of the  suggest jar file */
 
 /* **********************
   ENTRYPOINT FUNCTIONS
@@ -29,8 +29,8 @@ exports.isInLOV = function (req, res) {
       else{ //vocab does not exist yet
         /* run the bot on the URL */
         console.log(req.query.q)
-        //var command = "root/LOV/lovScripts/target/lovscripts-cli/lovscripts/bin/suggest "+req.query.q+" root/LOV/lovScripts/target/lovscripts-cli/lovscripts/lov.config";
-        var command = "root/LOV/lovScripts/target/lovscripts-cli/lovscripts/bin/suggest "+req.query.q;
+        //var command = globalPath+"/lovScripts/target/lovscripts-cli/lovscripts/bin/suggest "+req.query.q+" /home/jaimetrillos/Documents/LOV/lovScripts/target/lovscripts-cli/lovscripts/lov.config";
+        var command = globalPath+"/lovScripts/target/lovscripts-cli/lovscripts/bin/suggest "+req.query.q;
         var exec = require('child_process').exec;
         child = exec(command,
           function (error, stdout, stderr) {

@@ -1,7 +1,7 @@
 /**
  * Module dependencies.
  */
-
+var globalPath = require('./configPath').path;
 var express = require('express')
   , csrf = express.csrf()
   , mongoStore = require('connect-mongo')(express)
@@ -23,7 +23,7 @@ module.exports = function (app, config, passport) {
     },
     level: 9
   }))
-var pathroot = '/root/Documents/LOV/lov'
+var pathroot = globalPath+'/lov'
   app.use(express.favicon())
   app.use(express.static(pathroot + '/public'))
   app.use(express.static(pathroot + '/versions'))

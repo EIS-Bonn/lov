@@ -1,0 +1,8 @@
+{"_id":{"$oid":"594165ef36b93d361a05e129"},"searchURL":"/dataset/bdo/vocabs","date":{"$date":"2017-06-14T16:35:59.096Z"},"category":"vocabularySearch","method":"ui","nbResults":"6","__v":0}
+{"_id":{"$oid":"5941662a36b93d361a05e12a"},"searchURL":"/dataset/bdo/vocabs","date":{"$date":"2017-06-14T16:36:58.279Z"},"category":"vocabularySearch","method":"ui","nbResults":"6","__v":0}
+{"_id":{"$oid":"5941664736b93d361a05e12b"},"searchURL":"/dataset/bdo/terms","date":{"$date":"2017-06-14T16:37:27.207Z"},"category":"termSearch","method":"ui","nbResults":"470","__v":0}
+{"_id":{"$oid":"5941667536b93d361a05e12c"},"searchURL":"/dataset/bdo/agents","date":{"$date":"2017-06-14T16:38:13.136Z"},"category":"agentSearch","method":"ui","nbResults":"5","__v":0}
+{"_id":{"$oid":"594166a836b93d361a05e12d"},"searchURL":"/dataset/bdo/vocabs","date":{"$date":"2017-06-14T16:39:04.420Z"},"category":"vocabularySearch","method":"ui","nbResults":"6","__v":0}
+{"_id":{"$oid":"594167cf36b93d361a05e12e"},"searchURL":"/dataset/bdo/vocabs","date":{"$date":"2017-06-14T16:43:59.204Z"},"category":"vocabularySearch","method":"ui","nbResults":"6","__v":0}
+{"_id":{"$oid":"594167e636b93d361a05e12f"},"searchURL":"/dataset/bdo/terms","date":{"$date":"2017-06-14T16:44:22.012Z"},"category":"termSearch","method":"ui","nbResults":"470","__v":0}
+{"_id":{"$oid":"5941684f36b93d361a05e130"},"searchURL":"/dataset/bdo/vocabs","date":{"$date":"2017-06-14T16:46:07.234Z"},"category":"vocabularySearch","method":"ui","nbResults":"6","__v":0}

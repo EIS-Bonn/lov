@@ -1,0 +1,5 @@
+{"_id":{"$oid":"594142ce8f347aca1dd072cb"},"prefUri":"http://mydomain/yourUri","name":"admin BDO","type":"person","altUris":[]}
+{"_id":{"$oid":"59414d339b53dd257d0d8c09"},"type":"organization","altUris":[],"name":"W3C","prefUri":"https://www.w3.org/","__v":0}
+{"_id":{"$oid":"59415f852e36eb324cbb57dd"},"type":"organization","altUris":[],"name":"Quantities, Units, Dimensions and Data Types Ontologies","prefUri":"http://www.qudt.org/release2/qudt-catalog.html","__v":0}
+{"_id":{"$oid":"594162b5d8138a34b28f9616"},"type":"person","altUris":[],"name":"Bernard Vatant","prefUri":"http://data.semanticweb.org/person/bernard-vatant","__v":0}
+{"_id":{"$oid":"594162c8d8138a34b28f9617"},"type":"organization","altUris":[],"name":"GeoNames","prefUri":"http://dbpedia.org/resource/GeoNames","__v":0}
