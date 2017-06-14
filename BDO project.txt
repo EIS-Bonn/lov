@@ -42,8 +42,8 @@ https://github.com/EIS-Bonn/lovScripts
 		a. Go to the path you want to save the project
 		git clone https://github.com/EIS-Bonn/lov.git
 		b. Go to lov/config and change: 
-			i. express.js line 26: var pathroot = '/root/Documents/LOV/lov'
-		c. Go to lov/setup and unzip LOV BCKP.zip in this location
+			i. configPath.js to the path where the projects (lov and lovScripts) are saved
+		c. Go to lov/setup
 			i. Open a terminal and 
 			mongoimport -d bdo-c agents --file agents.json
 			mongoimport -d bdo-c languages --file languages.json
@@ -54,23 +54,23 @@ https://github.com/EIS-Bonn/lovScripts
 			mongoimport -d bdo-c statvocabularies --file statvocabularies.json
 			mongoimport -d bdo-c users --file users.json
 			mongoimport -d bdo-c vocabularies --file vocabularies.json
-		d. Go to lov/setup and unzip versions.zip in /lov/
-		e. Go lov/public and unzip bdo.zip in the same folder
-		f. Open a terminal
+		d. Go to lov/setup and unzip versions.zip, move the folder to the location of /lov/
+		e. Open a terminal
 		npm install
 	
 	2. LovScripts (Backend)
-		a. Go to the same path as Lov
+		a. Go to the same path as LOV
 		git clone https://github.com/EIS-Bonn/lovScripts.git
 		b. Go to /lovScripts/src/main/resources/log4j.properties 
-		and modify the line 15, obviously create that path in the computer then change the path
+		create folders scripts/log and file server.log in /root/Documents/LOV/
+		and modify the line 15, to the path created before
 		c. Go to /lovScripts/lov.config
-		And modify all PATHs
+		And modify all PATHs (LOV_NQ_FILE_PATH, LOV_RDF_FILE_PATH, LOV_N3_FILE_PATH, METRICS_FILE_PATH, VERSIONS_DIR_PATH, VERSIONS_TEMP_PATH)
 		d. Go to lovScripts/src/main/java/org/lov/cli/configPath.java
 		Change the path to the lov.config file
 		e. Open a terminal: cd Documents/LOV/lovScripts
 		mvn install
-		f. Open a terminal and 
+		f. Open a terminal and (ElasticSearch docker must be running)
 		cd Documents/LOV/lovScripts/target/lovscripts-cli/lovscripts/bin then
 			i. ./create-index 
 			ii. ./index-lov
@@ -85,17 +85,20 @@ https://jena.apache.org/documentation/serving_data/
 		b. ./fuseki-server --update --mem /bigdataocean
 	5. Go to localhost:3030
 	6. Select "add data" button
-	7. Select lov.nq and lov.n3 files and upload them
+	7. Select lov.nq and lov.n3 files from /root/Documents/LOV/lov/public and upload them
 
 Running BigDataOcean Repository
 	1. Open a terminal (do not close it)
 		a. Start elasticsearch docker with volume
 		docker run -v /usr/share/elasticsearch/data -p 9200:9200 -e "http.host=0.0.0.0" -e "transport.host=127.0.0.1" elasticsearch
+	3. Open another terminal (do not close it)
+		a. ./fuseki-server --update --mem /bigdataocean
+		b. Go to localhost:3030
+	       Select "add data" button
+	       Select lov.nq and lov.n3 files from /root/Documents/LOV/lov/public and upload them
 	2. Open another terminal (do not close it)
 		a. If mongodb does not start automatically; Start mongo service
 		sudo service mongod start
 		b. cd Documents/LOV/lov
 		npm start
-	3. Open another terminal (do not close it)
-		a. ./fuseki-server --update --mem /bigdataocean
-	4. Go to google chrome and http://localhost:3333/dataset/lov
+	4. Go to google chrome and http://localhost:3333/dataset/bdo
