@@ -91,12 +91,12 @@ Running BigDataOcean Repository
 	1. Open a terminal (do not close it)
 		a. Start elasticsearch docker with volume
 		docker run -v /usr/share/elasticsearch/data -p 9200:9200 -e "http.host=0.0.0.0" -e "transport.host=127.0.0.1" elasticsearch
-	3. Open another terminal (do not close it)
+	2. Open another terminal (do not close it)
 		a. ./fuseki-server --update --mem /bigdataocean
 		b. Go to localhost:3030
 	       Select "add data" button
 	       Select lov.nq and lov.n3 files from /root/Documents/LOV/lov/public and upload them
-	2. Open another terminal (do not close it)
+	3. Open another terminal (do not close it)
 		a. If mongodb does not start automatically; Start mongo service
 		sudo service mongod start
 		b. cd Documents/LOV/lov
