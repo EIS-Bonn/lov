@@ -71,7 +71,7 @@ https://github.com/EIS-Bonn/lovScripts
 		e. Open a terminal: cd Documents/LOV/lovScripts
 		mvn install
 		f. Open a terminal and (ElasticSearch docker must be running)
-		cd Documents/LOV/lovScripts/target/lovscripts-cli/lovscripts/bin then
+		cd Documents/BigDataOcean/lovScripts/target/lovscripts-cli/lovscripts/bin then
 			i. ./create-index 
 			ii. ./index-lov
 
@@ -99,6 +99,6 @@ Running BigDataOcean Repository
 	3. Open another terminal (do not close it)
 		a. If mongodb does not start automatically; Start mongo service
 		sudo service mongod start
-		b. cd Documents/LOV/lov
+		b. cd Documents/BigDataOcean/lov
 		npm start
 	4. Go to google chrome and http://localhost:3333/dataset/bdo
