@@ -43,7 +43,8 @@ https://github.com/EIS-Bonn/lovScripts
 		git clone https://github.com/EIS-Bonn/lov.git
 		b. Go to lov/config and change: 
 			i. configPath.js to the path where the projects (lov and lovScripts) are saved
-		c. Go to lov/setup/BDO setup
+		c. Go to lov/public and unzip bdo.zip
+		d. Go to lov/setup/BDO setup
 			i. Open a terminal and 
 			mongoimport -d bdo -c agents --file agents.json
 			mongoimport -d bdo -c languages --file languages.json
