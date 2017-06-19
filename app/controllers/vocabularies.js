@@ -310,7 +310,16 @@ exports.create = function (req, res) {
   
   vocab.save(function (err) {
     if (err) {return res.render('500')}
-    
+    //trillosj
+    //Aggregator
+    var commandAggr = globalPath+"/lovScripts/target/lovscripts-cli/lovscripts/bin/aggregator";
+    var execAggr = require('child_process').exec;
+    child = execAggr(commandAggr, function (errorAggr, stdoutAggr, stderrAggr) {
+      if(errorAggr !== null){
+        console.log('exec errorAggr: ' + errorAggr);
+      }
+    });
+
     /* store version locally */
     //var command = globalPath+"/lovScripts/target/lovscripts-cli/lovscripts/bin/downloadVersion "+(vocab.isDefinedBy?vocab.isDefinedBy:vocab.uri)+" /home/jaimetrillos/Documents/LOV/lovScripts/target/lovscripts-cli/lovscripts/lov.config";
     var command = globalPath+"/lovScripts/target/lovscripts-cli/lovscripts/bin/downloadVersion "+(vocab.isDefinedBy?vocab.isDefinedBy:vocab.uri);
