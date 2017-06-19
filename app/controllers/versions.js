@@ -2,7 +2,7 @@
  * Module dependencies.
  */
 var globalPath = require('../../config/configPath').path;
-var globlaURL = require('../../config/configPath').URL;
+var globalURL = require('../../config/configPath').URL;
 var mongoose = require('mongoose')
   , Vocabulary = mongoose.model('Vocabulary')
   , Language = mongoose.model('Language')
