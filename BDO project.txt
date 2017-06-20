@@ -42,7 +42,8 @@ https://github.com/EIS-Bonn/lovScripts
 		a. Go to the path you want to save the project
 		git clone https://github.com/EIS-Bonn/lov.git
 		b. Go to lov/config and change: 
-			i. configPath.js to the path where the projects (lov and lovScripts) are saved
+			i. configPath.js to the path where the projects (lov and lovScripts) are saved and the mail that it is going to be used for notifications.
+			ii. config.js to change the user and pass of the authentication
 		c. Go to lov/public and unzip bdo.zip
 		d. Go to lov/setup/BDO_setup
 			i. Open a terminal and 
