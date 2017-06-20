@@ -191,13 +191,14 @@ exports.submit = function (req, res, emailTransporter) {
     User.listAdmin(function(err, users) {
       // setup e-mail data with unicode symbols
       var mailOptions = {
-          from: "BigDataOcean <"+adminMail+">", // sender address
+          from: adminMail, // sender address
           to: (function() { // list of receivers
             var admins="";
             for(i = 0; i < users.length; i++) {
               if(admins.length>1)admins+=",";
               admins+=users[i].email;
             }
+            console.log(admins);
             return admins;
           })(),//"py.vandenbussche@gmail.com",
           subject: "[LOV-suggestion] "+data.uriInputSearch, // Subject line
@@ -220,7 +221,7 @@ exports.submit = function (req, res, emailTransporter) {
     
     // setup e-mail data with unicode symbols for person who suggested
     var mailOptionsSender = {
-        from: "BigDataOcean <usr@gmail.com>", // sender address
+        from: adminMail, // sender address
         to: req.body.email, // list of receivers
         subject: "[LOV-suggestion] "+data.uriInputSearch, // Subject line
         text: "Thank you for submitting the vocabulary: "+data.uriInputSearch+" to Linked Open Vocabularies.\nWe will review your vocabulary shortly and inform you as soon as it is integrated to the BigDataOcean.\n\n The BigDataOcean curation team.", // plaintext body

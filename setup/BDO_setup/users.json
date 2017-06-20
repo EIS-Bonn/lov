@@ -1,1 +1,1 @@
-{"_id":{"$oid":"594146f31e0e3221baf82350"},"email":"mail@gmail.com","hashed_password":"da81dbac7964c848261c4a3081a50bf27e37857c","salt":"600945354719","agent":{"$oid":"594142ce8f347aca1dd072cb"},"activated":true,"category":"curator","__v":0}
+{"_id":{"$oid":"594146f31e0e3221baf82350"},"email":"mail@gmail.com","hashed_password":"da81dbac7964c848261c4a3081a50bf27e37857c","salt":"600945354719","agent":{"$oid":"594142ce8f347aca1dd072cb"},"activated":true,"category":"admin","__v":0}
