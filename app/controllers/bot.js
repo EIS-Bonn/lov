@@ -1,5 +1,6 @@
 var utils = require('../../lib/utils');
 var globalPath = require('../../config/configPath').path;
+var adminMail = require('../../config/configPath').adminMail;
 var mongoose = require('mongoose')
   , Vocabulary = mongoose.model('Vocabulary')
   , LogSuggest = mongoose.model('LogSuggest')
@@ -190,7 +191,7 @@ exports.submit = function (req, res, emailTransporter) {
     User.listAdmin(function(err, users) {
       // setup e-mail data with unicode symbols
       var mailOptions = {
-          from: "BigDataOcean <usr@gmail.com>", // sender address
+          from: "BigDataOcean <"+adminMail+">", // sender address
           to: (function() { // list of receivers
             var admins="";
             for(i = 0; i < users.length; i++) {
