@@ -304,6 +304,16 @@ exports.show = function(req, res){
   })
 }
 
+//atrillos
+//Delete vocab
+exports.destroy = function(req, res){
+  var vocab = req.vocab
+  vocab.remove(function(err){
+    req.flash('info', 'Vocabulary deleted successfully')
+    res.redirect('dataset/bdo/vocabs')
+  })
+}
+
 exports.create = function (req, res) {
   var vocab = new Vocabulary(req.body);
   //console.log(vocab);

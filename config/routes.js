@@ -78,6 +78,7 @@ module.exports = function (app, passport,esclient, elasticsearchClient, emailTra
   app.post('/edition/bdo/vocabs/new', auth.requiresLogin, vocabularies.new) //create the vocab
   app.get('/edition/bdo/vocabs/:vocabPxEdition', auth.requiresLogin, vocabularies.edit)
   app.post('/edition/bdo/vocabs', auth.requiresLogin, vocabularies.create) //save initial metadata + version
+  app.del('/dataset/bdo/vocabs/:vocabPxEdition', auth.requiresAdmin, vocabularies.destroy)
   app.put('/edition/bdo/vocabs/:vocabPxEdition', auth.requiresLogin, vocabularies.update)
   //versions
   app.get('/edition/bdo/vocabs/:vocabPxEdition/versions', auth.requiresLogin, versions.list)
