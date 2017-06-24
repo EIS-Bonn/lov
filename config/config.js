@@ -15,8 +15,8 @@ var path = require('path')
 
 module.exports = {
   development: {
-    db: 'mongodb://localhost/bdo',
-    es: {host: 'localhost',port: 9200},
+    db: 'mongodb://mongodb/bdo',
+    es: {host: 'elasticsearch',port: 9200},
     email: {
       service: 'Gmail',
       auth: {
