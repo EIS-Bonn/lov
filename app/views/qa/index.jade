@@ -1,8 +1,8 @@
 extends ../layout/layout
 block content
       section#post.postBlue.postSearch
-        h1 LOV Question Answering 
-          span / Prototype
+        h1 BDO Question Answering 
+          //span / Prototype
       
       section#posts.default-area
           article
@@ -10,7 +10,7 @@ block content
               form#searchForm(action='' method='get', style='margin-bottom:1em; margin-top:1em')
                 div.searchWrapper
                   button(type='submit', value=' ') ASK Me
-                  input(name='q', type='text', value='#{(question)?question:""}', placeholder='e.g. What is foaf?' autocomplete='off') 
+                  input(name='q', type='text', value='#{(question)?question:""}', placeholder='e.g. What is ssn?' autocomplete='off') 
               - if(question)
                 table
                   tr

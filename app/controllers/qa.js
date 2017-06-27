@@ -4,6 +4,7 @@ var http = require('http');
 var questionAnswerExamples = require('../../lib/questionAnswerExamples');
 var mongoose = require('mongoose');
 var LogQA = mongoose.model('LogQA');
+var globalPath = require('../../config/configPath').path;
 
 /* **********************
   ENTRYPOINT FUNCTIONS
@@ -14,8 +15,7 @@ var LogQA = mongoose.model('LogQA');
 exports.search = function (req, res, esclient) {
   if(req.query.q && req.query.q.length>1){      
       console.log(req.query.q)
-        //Taken from https://github.com/gatemezing/QA4LOV. If you want to work with it you need to download the project to that path
-        var command = "python /root/LOV/lov/qa4lov/src/webapp/main.py '"+req.query.q+"'";
+        var command = "python "+globalPath+"/qa4lov/src/webapp/main.py --q '"+req.query.q+"'";
         var exec = require('child_process').exec;
         child = exec(command,
           function (error, stdout, stderr) {
