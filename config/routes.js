@@ -17,6 +17,7 @@ var users = require('../app/controllers/users')
   , languages = require('../app/controllers/languages')
   , edition = require('../app/controllers/edition')
   , agents = require('../app/controllers/agents')
+  , pilots = require('../app/controllers/pilots') //atrillos
   , auth = require('./middlewares/authorization')
   , search = require('../app/controllers/search')
   , searchMulti = require('../app/controllers/searchMulti')
@@ -74,6 +75,15 @@ module.exports = function (app, passport,esclient, elasticsearchClient, emailTra
   app.put('/edition/bdo/agents/:agentId', auth.requiresLogin, agents.update)
   app.del('/edition/bdo/agents/:agentId', auth.requiresLogin, agents.destroy)
   app.param('agentId', agents.load)
+  //atrillos
+  //pilots
+  app.get('/edition/bdo/pilots/new', auth.requiresAdmin, pilots.new);
+  app.post('/edition/bdo/pilots', auth.requiresAdmin, pilots.create)
+  //app.post('/edition/bdo/pilots/creationOnTheFly', auth.requiresAdmin, pilots.createOnTheFly)
+  app.get('/edition/bdo/pilots/:pilotId', auth.requiresAdmin, pilots.edit)
+  app.put('/edition/bdo/pilots/:pilotId', auth.requiresAdmin, pilots.update)
+  app.del('/edition/bdo/pilots/:pilotId', auth.requiresAdmin, pilots.destroy)
+  app.param('pilotId', pilots.load)
   //vocabs
   app.post('/edition/bdo/vocabs/new', auth.requiresLogin, vocabularies.new) //create the vocab
   app.get('/edition/bdo/vocabs/:vocabPxEdition', auth.requiresLogin, vocabularies.edit)
@@ -92,6 +102,12 @@ module.exports = function (app, passport,esclient, elasticsearchClient, emailTra
   app.get('/dataset/bdo/agents', function(req, res){search.searchAgent(req,res,esclient);})
   app.get('/dataset/bdo/agents/:agentName', agents.show)
   app.param('agentName', agents.loadFromName)
+
+  //atrillos
+  // agent
+  //app.get('/dataset/bdo/pilots', function(req, res){search.searchAgent(req,res,esclient);})
+  app.get('/dataset/bdo/pilots/:pilotName', pilots.show)
+  app.param('pilotName', pilots.loadFromName)
 
   
   // vocabs routes
@@ -173,6 +189,11 @@ module.exports = function (app, passport,esclient, elasticsearchClient, emailTra
   app.get('/dataset/bdo/api/v2/agent/search', function(req, res){search.apiSearchAgent(req,res,esclient);})
   app.get('/dataset/bdo/api/v2/agent/list', function(req, res){agents.apiListAgents(req,res);})
   app.get('/dataset/bdo/api/v2/agent/info', function(req, res){agents.apiInfoAgent(req,res);})
+
+  //atrillos
+  //app.get('/dataset/bdo/api/v2/pilot/search', function(req, res){search.apiSearchAgent(req,res,esclient);})
+  app.get('/dataset/bdo/api/v2/pilot/list', function(req, res){agents.apiListPilots(req,res);})
+  app.get('/dataset/bdo/api/v2/pilot/info', function(req, res){agents.apiInfoPilot(req,res);})
   
   app.get('/dataset/bdo/api/v2/vocabulary/autocomplete', function(req, res){search.apiAutocompleteVocabs(req,res,esclient);})
   app.get('/dataset/bdo/api/v2/autocomplete/vocabularies', function(req, res){search.apiAutocompleteVocabs(req,res,esclient);})
