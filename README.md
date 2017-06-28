@@ -1,17 +1,18 @@
 # Linked Open Vocabularies (LOV) - frontEnd
 
-This is the [Linked Open Vocabularies (LOV) application code repository](http://lov.okfn.org/dataset/lov/). LOV provides a choice of several hundreds of such vocabularies, based on quality requirements including URI stability and availability on the Web, use of standard formats and publication best practices, quality metadata and documentation, identifiable and trustable publication body, proper versioning policy.
+This is the [BigDataOcean Metadata Repository (based on LOV)](https://github.com/EIS-Bonn/BigDataOcean-LOV). LOV provides a choice of several hundreds of such vocabularies, based on quality requirements including URI stability and availability on the Web, use of standard formats and publication best practices, quality metadata and documentation, identifiable and trustable publication body, proper versioning policy.
 
-LOV uses [lovScripts](https://github.com/pyvandenbussche/lovScripts) for backoffice scripts such as the aggregator and other scripts.
+LOV uses [lovScripts](https://github.com/EIS-Bonn/lovScripts) for backoffice scripts such as the aggregator and other scripts.
 
-The live instance of LOV is available at the following URL: [http://lov.okfn.org/dataset/lov/](http://lov.okfn.org/dataset/lov/)
+Also LOV uses [QA4LOV](https://github.com/EIS-Bonn/QA4LOV) for backoffice scripts such as the aggregator and other scripts.
+
 
 ## Install
 
 **NOTE:** You need to have node.js, mongodb and elasticsearch installed and running.
 
 ```sh
-  $ git clone git://github.com/pyvandenbussche/lov.git
+  $ git clone git://github.com/EIS-Bonn/lov.git
   $ npm install
   $ cp config/config.example.js config/config.js
   $ npm start
