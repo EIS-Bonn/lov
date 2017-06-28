@@ -312,6 +312,9 @@ exports.destroy = function(req, res){
     req.flash('info', 'Vocabulary deleted successfully')
     res.redirect('dataset/bdo/vocabs')
   })
+  //jtrillos
+  //Call the scripts for updating the elasticsearch
+  scriptGenerator()
 }
 
 exports.create = function (req, res) {
@@ -320,7 +323,7 @@ exports.create = function (req, res) {
   
   vocab.save(function (err) {
     if (err) {return res.render('500')}
-    //trillosj
+    //jtrillos
     //Aggregator
     var commandAggr = globalPath+"/lovScripts/target/lovscripts-cli/lovscripts/bin/aggregator";
     var execAggr = require('child_process').exec;
@@ -383,14 +386,19 @@ exports.create = function (req, res) {
                           
                             //success generate first stats
                             //var command3 = globalPath+"/lovScripts/target/lovscripts-cli/lovscripts/bin/statsonevocab /home/jaimetrillos/Documents/LOV/lovScripts/target/lovscripts-cli/lovscripts/lov.config "+vocab.uri;
-                            var command3 = globalPath+"/lovScripts/target/lovscripts-cli/lovscripts/bin/statsonevocab "+vocab.uri;
+                            /*//var command3 = globalPath+"/lovScripts/target/lovscripts-cli/lovscripts/bin/statsonevocab "+vocab.uri;
+                            var command3 = globalPath+"/lovScripts/target/lovscripts-cli/lovscripts/bin/stats";
                             var exec3 = require('child_process').exec;
                             child = exec3(command3, function (error3, stdout3, stderr3) {
                               if(error3 !== null){
                                 console.log('exec error3: ' + error3);
                               }
                               return res.send({redirect:'/dataset/bdo/vocabs/'+vocab.prefix})
-                            });
+                            });*/
+                            //jtrillos
+                            //Call the scripts for updating the elasticsearch
+                            scriptGenerator();
+                            return res.send({redirect:'/dataset/bdo/vocabs/'+vocab.prefix})
                         });
                   });
               });
@@ -513,4 +521,58 @@ function pushNodesLinks(vocabList,isFilterOut,group, nodes, links, cpt){
     }
   }
   return cpt;
+}
+
+function scriptGenerator() {
+  //var commandStats = globalPath+"/lovScripts/target/lovscripts-cli/lovscripts/bin/statsonevocab "+vocab.uri;
+  var commandStats = globalPath+"/lovScripts/target/lovscripts-cli/lovscripts/bin/stats";
+  var execStats = require('child_process').exec;
+  child = execStats(commandStats, function (errorStats, stdoutStats, stderrStats) {
+    if(errorStats !== null){
+      console.log('exec errorStats: ' + errorStats);
+    }
+  });
+
+  var commandMongo2RDF = globalPath+"/lovScripts/target/lovscripts-cli/lovscripts/bin/mongo2rdf";
+  var execMongo2RDF = require('child_process').exec;
+  child = execMongo2RDF(commandMongo2RDF, function (errorMongo2RDF, stdoutMongo2RDF, stderrMongo2RDF) {
+    if(errorMongo2RDF !== null){
+      console.log('exec errorMongo2RDF: ' + errorMongo2RDF);
+    }
+  }); 
+
+  var commandCreateIndex = globalPath+"/lovScripts/target/lovscripts-cli/lovscripts/bin/create-index";
+  var execCreateIndex = require('child_process').exec;
+  child = execCreateIndex(commandCreateIndex, function (errorCreateIndex, stdoutCreateIndex, stderrCreateIndex) {
+    if(errorCreateIndex !== null){
+      console.log('exec errorCreateIndex: ' + errorCreateIndex);
+    }else{
+      var commandIndex = globalPath+"/lovScripts/target/lovscripts-cli/lovscripts/bin/index-lov";
+      var execIndex = require('child_process').exec;
+      child = execIndex(commandIndex, function (errorIndex, stdoutIndex, stderrIndex) {
+        if(errorIndex !== null){
+          console.log('exec errorIndex: ' + errorIndex);
+        } 
+      });
+    }
+  });
+
+  /*var commandFuseki2 = globalPath+"/apache-jena-fuseki-2.6.0/bin/s-put http://localhost:3030/bigdataocean/data default "+globalPath+"/lov/public/lov.n3";
+  var execFuseki2 = require('child_process').exec;
+  child = execFuseki2(commandFuseki2, function (errorFuseki2, stdoutFuseki2, stderrFuseki2) {
+    if(errorFuseki2 !== null){
+      console.log('exec errorFuseki2: ' + errorFuseki2);
+    }else{
+      console.log('ENTREEE OTRA VEZ');
+      var commandFuseki3 = globalPath+"/apache-jena-fuseki-2.6.0/bin/s-put http://localhost:3030/bigdataocean/data default "+globalPath+"/lov/public/lov.nq";
+      var execFuseki3 = require('child_process').exec;
+      child = execFuseki3(commandFuseki3, function (errorFuseki3, stdoutFuseki3, stderrFuseki3) {
+        if(errorFuseki3 !== null){
+          console.log('exec errorFuseki3: ' + errorFuseki3);
+        }
+      });
+    }
+  });*/
+
+  return true;
 }
