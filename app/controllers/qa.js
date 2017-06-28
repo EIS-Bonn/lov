@@ -15,7 +15,7 @@ var globalPath = require('../../config/configPath').path;
 exports.search = function (req, res, esclient) {
   if(req.query.q && req.query.q.length>1){      
       console.log(req.query.q)
-        var command = "python "+globalPath+"/qa4lov/src/webapp/main.py --q '"+req.query.q+"'";
+        var command = "python "+globalPath+"/QA4LOV/src/webapp/main.py --q '"+req.query.q+"'";
         var exec = require('child_process').exec;
         child = exec(command,
           function (error, stdout, stderr) {

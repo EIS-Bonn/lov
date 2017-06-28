@@ -162,7 +162,8 @@ module.exports = function (app, passport,esclient, elasticsearchClient, emailTra
   app.get('/dataset/bdo/terms', function(req, res){search.search(req,res,esclient);})
   app.get('/dataset/bdo/searchMulti', auth.requiresLogin, function(req, res){searchMulti.search(req,res,esclient);})
   	  
-  app.get('/dataset/bdo/qa', auth.requiresLogin, function(req, res){qa.search(req,res);})
+  //app.get('/dataset/bdo/qa', auth.requiresLogin, function(req, res){qa.search(req,res);})
+  app.get('/dataset/bdo/qa', function(req, res){qa.search(req,res);})
   
   //Bot
   app.get('/dataset/bdo/suggest', function(req, res){bot.isInLOV(req,res);})
