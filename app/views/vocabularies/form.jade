@@ -266,6 +266,22 @@ block content
                     table.editionTable
                       tbody
                         tr
+                          td Pilots
+                            img.fieldPilotsAddAction(src='/img/add_grey.png')
+                          td#pilotsTd
+                            ul#pilotsUl.pilotsVocab
+                              if(vocab.pilots)
+                                each pilot in vocab.pilots
+                                  li
+                                    span.pilot #{pilot}
+                                    img.imagePilotRemoveAction(src='/img/remove_white.png' onClick='this.parentNode.remove();')
+                                    input(type='hidden' name='pilots[]' value='#{pilot}' )
+              #greenContainer.contents.clear.col-1.wrplGreen
+                .metadataFrame
+                  div(class='metadataContainerVocab')
+                    table.editionTable
+                      tbody          
+                        tr
                           td Tags
                             img.fieldTagsAddAction(src='/img/add_grey.png')
                           td#tagsTd
@@ -334,6 +350,12 @@ block content
                 each tag in listTags
                   li
                     span.tag.tagFromList #{tag.label}
+            //atrillos
+            #listOfPilots(title='Select a Pilot' style='display:none;')
+              ul.pilotsVocab
+                each pilot in listPilots
+                  li
+                    span.pilot.pilotFromList #{pilot.name}
                                 
             form(method='post' action='/edition/bdo/agents/creationOnTheFly' name='agentCreationOnTheFlyForm' id='agentCreationOnTheFlyForm' title='Get Or Create an Agent' style='display:none;')
               input(type='hidden', name='_csrf', value="#{csrf_token}")
@@ -379,6 +401,26 @@ block content
           li.appendChild(Id);
           document.getElementById('tagsUl').appendChild(li);
         }
+        //atrillos
+        function addPilot(pilotName){
+          var li = document.createElement('li');
+             var span = document.createElement('span');
+             span.className  = 'pilot';
+             span.innerHTML= pilotName;
+          li.appendChild(span);
+              var image = document.createElement("img");
+              image.className ='imagePilotRemoveAction';
+              image.src='/img/remove_white.png';
+              image.addEventListener('click', function(){ this.parentNode.remove();}, false);
+          li.appendChild(image);
+              var Id = document.createElement('input');
+              Id.type  = 'hidden';
+              Id.name= 'pilots[]';    
+              Id.value= pilotName;   
+          li.appendChild(Id);
+          document.getElementById('pilotsUl').appendChild(li);
+        }
+
         function addReview(divName,dataArray,langArray,value,lang){
           var cptVal = document.getElementById('cptOverall').value;
           cptVal++;
@@ -548,6 +590,9 @@ block content
           else formErrors+='At least one description in English is required<br>';
           //test at least one tag
           if(!formData.tags || formData.tags.length<1)  formErrors+='At least one tag is required<br>';
+          //atrillos
+          //test at least one pilot
+          if(!formData.pilots || formData.pilots.length<1)  formErrors+='At least one pilot is required<br>';
           //test at least one review
           if(!formData.reviews || formData.reviews.length<1)  formErrors+='At least one review is required<br>';
           
@@ -653,6 +698,21 @@ block content
         
           $('.fieldTagsAddAction').click(function(e){
             $('#listOfTags').dialog({
+              resizable: false,
+              height:600,
+              width:800,
+              modal: true
+            });
+          });
+
+          //atrillos
+          $('.pilotFromList').click(function(e){
+            addPilot($(this).text());
+            $('#listOfPilots').dialog('close');
+          });
+
+          $('.fieldPilotsAddAction').click(function(e){
+            $('#listOfPilots').dialog({
               resizable: false,
               height:600,
               width:800,

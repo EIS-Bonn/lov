@@ -5,7 +5,7 @@ block content
       section#post.postBlue
         article
           header.wrpl.w-3-3
-            h1(style="color: #FFFFFF") #{pilot.name?[pilot].name:'Create a new Pilot'}
+            h1(style="color: #FFFFFF") #{pilot.name?pilot.name:'Create a new Pilot'}
       section#posts.default-area
           article
             #greenContainer.contents.clear.col-1.wrplGreen
@@ -19,49 +19,20 @@ block content
                     table.editionTable
                       tbody
                         tr
-                          td Pilot name
-                          td                            
-                            input(type='text', name="name", value=pilot.name, 
-                            autocomplete='off')
+                          td Pilot name                            
+                          td 
+                            input#pilotNameAutocomplete(type='text', name="name", value=pilot.name, autocomplete='off')
                         tr
-                          td Description
-                          td
+                          td Description                           
+                          td 
                             input(type='text', name="description", value=pilot.description, autocomplete='off')
-                        //tr
-                          //td Type
-                          //td
-                            //select(name='type')
-                              //- var agentTypes = ['person','organization','software agent'];
-                              //each agentType in agentTypes
-                                //option(value=agentType, selected= agentType == agent.type)= agentType
-                        //tr
-                          //td URI
-                          //td
-                            //input(type='text', name="prefUri", value=agent.prefUri)
-                        //tr
-                          //td Alternative URIs
-                            //img.fieldReviewAddAction(src='/img/add_grey.png')
-                          //td
-                            //#altUrisDiv.controls
-                              //each altUri in agent.altUris
-                                //div
-                                  //input.agentALtURI(type='text', name='altUris[]', value=altUri)
-                                  //img.imageWithLangRemoveAction(src='/img/remove.png' onClick='this.parentNode.remove();')
+                        
                 .editionActionBar
                   input.editionSaveButtonRight(type='submit' name='submit' value='Save')
                   a.editionCancelButtonRight(href="/dataset/bdo/pilots/#{pilot.name}", title="cancel") Cancel
                   .clear
                   
       script.
-        //function addInput(divName,dataArray,value){
-            //var newdiv = document.createElement('div');
-            //newdiv.innerHTML = "<input class='agentALtURI' type='text' name='"+dataArray+"[]', value='"+value+"'><img src='/img/remove.png' class='imageWithLangRemoveAction' onClick='this.parentNode.remove();'/>";
-            //document.getElementById(divName).appendChild(newdiv);
-        //}
-        //$('.fieldReviewAddAction').click(function() {  //on click 
-            //addInput('altUrisDiv','altUris','');
-        //});
-        
         //form validation before submit
         new FormValidator('TheForm', [{
             name: 'name',
@@ -72,15 +43,7 @@ block content
             display: 'Description',
             rules: 'required'
         }
-        //, {
-            //name: 'prefUri',
-            //display: 'URI',
-            //rules: 'required|valid_url'
-        //}, {
-            //name: 'altUris[]',
-            //display: 'Alternative URIs',
-            //rules: 'valid_url'
-        //}
+        
         ], function(errors, event) {
             if (errors.length > 0) {
               var errorString = '';
@@ -93,11 +56,11 @@ block content
             }
         });
         $(document).ready(function () {
-          $( "#agentNameAutocomplete" ).autocomplete({
+          $( "#pilotNameAutocomplete" ).autocomplete({
               minLength: 1,
               source: function (request, response) {
                $.ajax({
-                 url: "/dataset/bdo/api/v2/agent/autoCompleteFull",
+                 url: "/dataset/bdo/api/v2/pilot/autoCompleteFull",
                  data: { q: request.term },
                  dataType: "json",
                  success: response,

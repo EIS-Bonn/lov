@@ -43,6 +43,7 @@ var VocabularySchema = new Schema({
     value: {type : String, trim : true},
     lang: {type : String, trim : true},
   }],
+  pilots: [{ type : String, trim : true}],
   tags: [{ type : String, trim : true}],
   issuedAt  : {type : Date}, //first publication of the vocabulary on the WEB (not in LOV)
   createdInLOVAt  : {type : Date}, //creation of the record in LOV

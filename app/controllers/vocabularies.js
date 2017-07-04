@@ -7,6 +7,7 @@ var mongoose = require('mongoose')
   , Vocabulary = mongoose.model('Vocabulary')
   , Language = mongoose.model('Language')
   , Statvocabulary = mongoose.model('Statvocabulary')
+  , Pilot = mongoose.model('Pilot')
   , Stattag = mongoose.model('Stattag')
   , LogSearch = mongoose.model('LogSearch')
   , utils = require('../../lib/utils')
@@ -20,24 +21,27 @@ exports.index = function(req, res){
   Vocabulary.list( function(err, vocabs) {
     if (err) return res.render('500')
     Stattag.mostPopularTags(30, function(err, tagsMostPopular) {
-      Statvocabulary.mostLOVIncomingLinks(0, function(err, vocabsMostLOVIncomingLinks) {
-        Vocabulary.latestInsertion(5, function(err, vocabsLatestInsertion) {
-          if (err) return res.render('500')
-          Vocabulary.latestModification(5, function(err, vocabsLatestModification) {
+      Pilot.mostPopularPilots(30, function(err, pilotsMostPopular){
+        Statvocabulary.mostLOVIncomingLinks(0, function(err, vocabsMostLOVIncomingLinks) {
+          Vocabulary.latestInsertion(5, function(err, vocabsLatestInsertion) {
             if (err) return res.render('500')
-            //vocabsMostLOVIncomingLinks.unshift(JSON.stringify({ 'nbIncomingLinks': vocabsMostLOVIncomingLinks[0].nbIncomingLinks+50, prefix: '...' }));
-            res.render('index', {
-              title: 'Articles',
-              utils: utils,
-              vocabs: vocabs,
-              vocabsLatestInsertion: vocabsLatestInsertion,
-              vocabsLatestModification: vocabsLatestModification,
-              vocabsMostLOVIncomingLinks:vocabsMostLOVIncomingLinks,
-              tagsMostPopular: tagsMostPopular
+            Vocabulary.latestModification(5, function(err, vocabsLatestModification) {
+              if (err) return res.render('500')
+              //vocabsMostLOVIncomingLinks.unshift(JSON.stringify({ 'nbIncomingLinks': vocabsMostLOVIncomingLinks[0].nbIncomingLinks+50, prefix: '...' }));
+              res.render('index', {
+                title: 'Articles',
+                utils: utils,
+                vocabs: vocabs,
+                vocabsLatestInsertion: vocabsLatestInsertion,
+                vocabsLatestModification: vocabsLatestModification,
+                vocabsMostLOVIncomingLinks:vocabsMostLOVIncomingLinks,
+                pilotsMostPopular: pilotsMostPopular,
+                tagsMostPopular: tagsMostPopular                
+              })
             })
           })
         })
-      })
+      })    
     })
   })
  }
@@ -78,6 +82,16 @@ exports.apiTags = function (req, res) {
   Stattag.list(function(err, tags) {
     if (err) return res.render('500')
     return standardCallback(req, res, err, tags);
+  })
+}
+
+/**
+* Vocabulary PIlots List API
+*/
+exports.apiPilots = function (req, res) {
+  Pilot.list(function(err, pilots) {
+    if (err) return res.render('500')
+    return standardCallback(req, res, err, p);
   })
 }
 
@@ -429,29 +443,30 @@ exports.edit = function (req, res) {
     if (err) return res.render('500')
     Stattag.list(function(err, listTags) {
       if (err) return res.render('500')
-      
-      //var stdout={"nbTriplesWithoutInf":104,"uri":"http://www.ics.forth.gr/isl/oncm/core","uriInputSearch":"http://www.ics.forth.gr/isl/oncm/core.owl","uriDeclared":"http://www.ics.forth.gr/isl/oncm/core","nsp":"http://www.ics.forth.gr/isl/oncm/core#","nspMostUsed":"http://www.ics.forth.gr/isl/oncm/core#","nspDefault":"http://www.ics.forth.gr/isl/oncm/core#","prefix":"onc","prefixAssociatedNsp":"onc","nbClasses":8,"nbProperties":13,"nbInstances":0,"nbDatatypes":0,"languages":[{"id":"54b2be018433ca9ccf1c0e0c","uri":"http://id.loc.gov/vocabulary/iso639-2/eng","label":"English","iso639P3PCode":"eng","iso639P1Code":"en"}],"titles":[{"value":"Open NEE Configuration Model","lang":"en"},{"value":"The Open NEE Configuration Model","lang":"en"}],"descriptions":[{"value":"The Open NEE Configuration Model defines a Linked Data-based model for describing a configuration supported by a Named Entity Extraction (NEE) service. It is based on the model proposed in \"Configuring Named Entity Extraction through Real-Time Exploitation of Linked Data\" (http://dl.acm.org/citation.cfm?doid\u003d2611040.2611085) for configuring such services, and allows a NEE service to describe and publish as Linked Data its entity mining capabilities, but also to be dynamically configured.","lang":"en"}],"creators":[{"prefUri":"http://users.ics.forth.gr/~fafalios"}],"contributors":[{"prefUri":"http://users.ics.forth.gr/~tzitzik"}],"relMetadata":[{"nbTriplesWithoutInf":0,"uri":"http://purl.org/dc/terms/","nsp":"http://purl.org/dc/terms/","prefix":"dcterms","nbClasses":0,"nbProperties":0,"nbInstances":0,"nbDatatypes":0},{"nbTriplesWithoutInf":0,"uri":"http://www.w3.org/1999/02/22-rdf-syntax-ns#","nsp":"http://www.w3.org/1999/02/22-rdf-syntax-ns#","prefix":"rdf","nbClasses":0,"nbProperties":0,"nbInstances":0,"nbDatatypes":0},{"nbTriplesWithoutInf":0,"uri":"http://www.w3.org/2000/01/rdf-schema#","nsp":"http://www.w3.org/2000/01/rdf-schema#","prefix":"rdfs","nbClasses":0,"nbProperties":0,"nbInstances":0,"nbDatatypes":0},{"nbTriplesWithoutInf":0,"uri":"http://www.w3.org/2002/07/owl","nsp":"http://www.w3.org/2002/07/owl#","prefix":"owl","nbClasses":0,"nbProperties":0,"nbInstances":0,"nbDatatypes":0}],"relSpecializes":[{"nbTriplesWithoutInf":0,"uri":"http://www.w3.org/2000/01/rdf-schema#","nsp":"http://www.w3.org/2000/01/rdf-schema#","prefix":"rdfs","nbClasses":0,"nbProperties":0,"nbInstances":0,"nbDatatypes":0},{"nbTriplesWithoutInf":0,"uri":"http://www.w3.org/2004/02/skos/core","nsp":"http://www.w3.org/2004/02/skos/core#","prefix":"skos","nbClasses":0,"nbProperties":0,"nbInstances":0,"nbDatatypes":0}],"relGeneralizes":[],"relExtends":[{"nbTriplesWithoutInf":0,"uri":"http://www.w3.org/2000/01/rdf-schema#","nsp":"http://www.w3.org/2000/01/rdf-schema#","prefix":"rdfs","nbClasses":0,"nbProperties":0,"nbInstances":0,"nbDatatypes":0}],"relEquivalent":[],"relDisjunc":[],"relImports":[{"nbTriplesWithoutInf":0,"uri":"http://www.w3.org/2004/02/skos/","nbClasses":0,"nbProperties":0,"nbInstances":0,"nbDatatypes":0}]}
-      //var command = globalPath+"/lovScripts/target/lovscripts-cli/lovscripts/bin/suggest "+(req.vocab.isDefinedBy?req.vocab.isDefinedBy:req.vocab.uri)+" /home/jaimetrillos/Documents/LOV/lovScripts/target/lovscripts-cli/lovscripts/lov.config";
-      var command = globalPath+"/lovScripts/target/lovscripts-cli/lovscripts/bin/suggest "+(req.vocab.isDefinedBy?req.vocab.isDefinedBy:req.vocab.uri);
-        var exec = require('child_process').exec;
-        child = exec(command,{timeout:5000},
-          function (error, stdout, stderr) {
-            if(stderr.length<4){
-              if(stdout) stdout = JSON.parse(stdout);
-            }
-            if(error !== null){
-              console.log('exec error: ' + error);
-            }
-             res.render('vocabularies/edit', {
-              stdout:stdout,
-              vocab: req.vocab,
-              langs: langs,
-              listTags:listTags,
-              profile:req.user,
-              utils: utils
-            });
-        });
-      
+      Pilot.list(function(err, listPilots) {
+        //var stdout={"nbTriplesWithoutInf":104,"uri":"http://www.ics.forth.gr/isl/oncm/core","uriInputSearch":"http://www.ics.forth.gr/isl/oncm/core.owl","uriDeclared":"http://www.ics.forth.gr/isl/oncm/core","nsp":"http://www.ics.forth.gr/isl/oncm/core#","nspMostUsed":"http://www.ics.forth.gr/isl/oncm/core#","nspDefault":"http://www.ics.forth.gr/isl/oncm/core#","prefix":"onc","prefixAssociatedNsp":"onc","nbClasses":8,"nbProperties":13,"nbInstances":0,"nbDatatypes":0,"languages":[{"id":"54b2be018433ca9ccf1c0e0c","uri":"http://id.loc.gov/vocabulary/iso639-2/eng","label":"English","iso639P3PCode":"eng","iso639P1Code":"en"}],"titles":[{"value":"Open NEE Configuration Model","lang":"en"},{"value":"The Open NEE Configuration Model","lang":"en"}],"descriptions":[{"value":"The Open NEE Configuration Model defines a Linked Data-based model for describing a configuration supported by a Named Entity Extraction (NEE) service. It is based on the model proposed in \"Configuring Named Entity Extraction through Real-Time Exploitation of Linked Data\" (http://dl.acm.org/citation.cfm?doid\u003d2611040.2611085) for configuring such services, and allows a NEE service to describe and publish as Linked Data its entity mining capabilities, but also to be dynamically configured.","lang":"en"}],"creators":[{"prefUri":"http://users.ics.forth.gr/~fafalios"}],"contributors":[{"prefUri":"http://users.ics.forth.gr/~tzitzik"}],"relMetadata":[{"nbTriplesWithoutInf":0,"uri":"http://purl.org/dc/terms/","nsp":"http://purl.org/dc/terms/","prefix":"dcterms","nbClasses":0,"nbProperties":0,"nbInstances":0,"nbDatatypes":0},{"nbTriplesWithoutInf":0,"uri":"http://www.w3.org/1999/02/22-rdf-syntax-ns#","nsp":"http://www.w3.org/1999/02/22-rdf-syntax-ns#","prefix":"rdf","nbClasses":0,"nbProperties":0,"nbInstances":0,"nbDatatypes":0},{"nbTriplesWithoutInf":0,"uri":"http://www.w3.org/2000/01/rdf-schema#","nsp":"http://www.w3.org/2000/01/rdf-schema#","prefix":"rdfs","nbClasses":0,"nbProperties":0,"nbInstances":0,"nbDatatypes":0},{"nbTriplesWithoutInf":0,"uri":"http://www.w3.org/2002/07/owl","nsp":"http://www.w3.org/2002/07/owl#","prefix":"owl","nbClasses":0,"nbProperties":0,"nbInstances":0,"nbDatatypes":0}],"relSpecializes":[{"nbTriplesWithoutInf":0,"uri":"http://www.w3.org/2000/01/rdf-schema#","nsp":"http://www.w3.org/2000/01/rdf-schema#","prefix":"rdfs","nbClasses":0,"nbProperties":0,"nbInstances":0,"nbDatatypes":0},{"nbTriplesWithoutInf":0,"uri":"http://www.w3.org/2004/02/skos/core","nsp":"http://www.w3.org/2004/02/skos/core#","prefix":"skos","nbClasses":0,"nbProperties":0,"nbInstances":0,"nbDatatypes":0}],"relGeneralizes":[],"relExtends":[{"nbTriplesWithoutInf":0,"uri":"http://www.w3.org/2000/01/rdf-schema#","nsp":"http://www.w3.org/2000/01/rdf-schema#","prefix":"rdfs","nbClasses":0,"nbProperties":0,"nbInstances":0,"nbDatatypes":0}],"relEquivalent":[],"relDisjunc":[],"relImports":[{"nbTriplesWithoutInf":0,"uri":"http://www.w3.org/2004/02/skos/","nbClasses":0,"nbProperties":0,"nbInstances":0,"nbDatatypes":0}]}
+        //var command = globalPath+"/lovScripts/target/lovscripts-cli/lovscripts/bin/suggest "+(req.vocab.isDefinedBy?req.vocab.isDefinedBy:req.vocab.uri)+" /home/jaimetrillos/Documents/LOV/lovScripts/target/lovscripts-cli/lovscripts/lov.config";
+        var command = globalPath+"/lovScripts/target/lovscripts-cli/lovscripts/bin/suggest "+(req.vocab.isDefinedBy?req.vocab.isDefinedBy:req.vocab.uri);
+          var exec = require('child_process').exec;
+          child = exec(command,{timeout:5000},
+            function (error, stdout, stderr) {
+              if(stderr.length<4){
+                if(stdout) stdout = JSON.parse(stdout);
+              }
+              if(error !== null){
+                console.log('exec error: ' + error);
+              }
+               res.render('vocabularies/edit', {
+                stdout:stdout,
+                vocab: req.vocab,
+                langs: langs,
+                listTags:listTags,
+                listPilots: listPilots,
+                profile:req.user,
+                utils: utils
+              });
+          });
+      });
     });
   });
 }
@@ -474,23 +489,26 @@ exports.new = function (req, res) {
           if (err) return res.render('500')
           Stattag.list(function(err, listTags) {
             if (err) return res.render('500')
-            //var command = globalPath+"/lovScripts/target/lovscripts-cli/lovscripts/bin/suggest "+req.body.uri+" /home/jaimetrillos/Documents/LOV/lovScripts/target/lovscripts-cli/lovscripts/lov.config";
-            var command = globalPath+"/lovScripts/target/lovscripts-cli/lovscripts/bin/suggest "+req.body.uri;
-            var exec = require('child_process').exec;
-            child = exec(command,
-              function (error, stdout, stderr) {
-                if(stderr.length<4)stdout = JSON.parse(stdout);
-                if(error !== null){
-                  console.log('exec error: ' + error);
-                }
-                res.render('vocabularies/new', {
-                  stdout:stdout,
-                  vocab: new Vocabulary({}),
-                  langs: langs,
-                  listTags: listTags,
-                  profile:req.user,
-                  utils: utils
-                });
+            Pilot.list(function(err, listPilots) {  
+              //var command = globalPath+"/lovScripts/target/lovscripts-cli/lovscripts/bin/suggest "+req.body.uri+" /home/jaimetrillos/Documents/LOV/lovScripts/target/lovscripts-cli/lovscripts/lov.config";
+              var command = globalPath+"/lovScripts/target/lovscripts-cli/lovscripts/bin/suggest "+req.body.uri;
+              var exec = require('child_process').exec;
+              child = exec(command,
+                function (error, stdout, stderr) {
+                  if(stderr.length<4)stdout = JSON.parse(stdout);
+                  if(error !== null){
+                    console.log('exec error: ' + error);
+                  }
+                  res.render('vocabularies/new', {
+                    stdout:stdout,
+                    vocab: new Vocabulary({}),
+                    langs: langs,
+                    listTags: listTags,
+                    listPilots: listPilots,
+                    profile:req.user,
+                    utils: utils
+                  });
+              });
             });
           });
         });

@@ -21,6 +21,10 @@ var getDescription = function (description) {
   return description
 }
 
+var getNbOccurrences = function (nbOccurrences) {
+  return nbOccurrences
+}
+
 /**
  * Setters
  */
@@ -32,6 +36,12 @@ var setName = function (name) {
 var setDescription = function (description) {
   return description
 }
+
+var setNbOccurrences = function (nbOccurrences) {
+  return nbOccurrences
+}
+
+
   
 /**
  * Pilot Schema
@@ -40,12 +50,14 @@ var setDescription = function (description) {
 var PilotSchema = new Schema({
   //atrillos
   name: {type : String, default : '', trim : true},
-  description: {type : String, default : '', trim : true}  
+  description: {type : String, default : '', trim : true},  
+  nbOccurrences: {type: Number}
 })
 
 /**
  * Statics
  */
+
 PilotSchema.statics = {
 
   /**
@@ -64,13 +76,17 @@ PilotSchema.statics = {
     this.findOne({_id : id})
       .exec(cb)
   },
-    
+
   listPilots: function (cb) {
-    this.find({},{_id:0}).sort({'name': 1}).exec(cb)
+    this.find({},{"_id":0}).sort({'name':1}).exec(cb)
   },
 
-  findPilot: function (name, cb) {   
-    this.findOne({name:name})
+  mostPopularPilots: function (nbItemsRequired, cb) {
+    this.find({},{"_id":0}).sort({'nbOccurrences':-1}).limit(nbItemsRequired).exec(cb)
+  },
+
+  findPilot: function (name, cb) {    
+   this.findOne({name})
       .exec(cb)
   },
 

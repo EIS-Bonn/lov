@@ -173,6 +173,15 @@ block content
                         li
                           a.tag(href='/dataset/bdo/vocabs?tag='+encodeURIComponent(tag)) #{tag}
                 .clear
+                h2 Pilots
+                .line
+                .asideListFloat
+                  -if(vocab.pilots && vocab.pilots.length>0 )
+                    ul.pilotsVocab
+                      - each pilot in vocab.pilots
+                        li
+                          a.tag(href='/dataset/bdo/vocabs?pilot='+encodeURIComponent(pilot)) #{pilot}
+                .clear
                 //h2 LOD
                 //.line
                 //.blabla 

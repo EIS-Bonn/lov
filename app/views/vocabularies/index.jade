@@ -111,8 +111,11 @@ block content
                     - var query = '?';
                     - if(results.queryString)query=query+'q='+results.queryString;
                     - if(typeof results.filters.lang != 'undefined')query+='&lang='+results.filters.lang;
-                    - var tagArray = ( typeof results.filters.tag != 'undefined' ? encodeURIComponent(results.filters.tag).split(","): []);
+                    - var tagArray = ( typeof results.filters.tag != 'undefined' ? encodeURIComponent(results.filters.tag).split(","): []);                    
                     for tag in results.aggregations.tags.buckets
+                      div
+                      - console.log('&&query:'+tag.key)
+                      div
                       - var indexTag = tagArray.indexOf(encodeURIComponent(tag.key));
                       - if(indexTag>-1)
                         - tagArray.splice(indexTag,1);
@@ -135,6 +138,43 @@ block content
                             i.nav-item-moreless show more...
                     - if(results.aggregations.tags.buckets.length>10)
                       - if(tagArray.length>0)query+='&tag='+tagArray.join(",");
+                        li.nav-item(class='hover')
+                          a(href='#{query}')
+                            i.nav-item-moreless show less...
+              //atrillos
+              //-
+                .facet
+                h2.facet-heading Pilot
+                // | !{JSON.stringify(results.aggregations)}
+                nav
+                  ul.nav-facet
+                    - var query = '?';
+                    - if(results.queryString)query=query+'q='+results.queryString;
+                    - if(typeof results.filters.lang != 'undefined')query+='&lang='+results.filters.lang;
+                    - var pilotArray = ( typeof results.filters.pilot != 'undefined' ? encodeURIComponent(results.filters.pilot).split(","): []);
+                    for pilot in results.aggregations.pilots.buckets
+                      - var indexPilot = pilotArray.indexOf(encodeURIComponent(pilot.key));
+                      - if(indexPilot>-1)
+                        - pilotArray.splice(indexPilot,1);
+                          - if(pilotArray.length>0)
+                            li.nav-item-active
+                              a(href='#{query}&pilot=#{pilotArray.join(",")}') #{pilot.key} (#{pilot.doc_count})
+                          - else
+                            li.nav-item-active
+                              a(href='#{query}') #{pilot.key} (#{pilot.doc_count})
+                        -pilotArray.splice(indexPilot,0,encodeURIComponent(pilot.key));
+                      - else
+                        li.nav-item(class='hover')
+                          - pilotArray.push(encodeURIComponent(pilot.key));
+                          a(href='#{query}&pilot=#{pilotArray.join(",")}') #{pilot.key} (#{tapilotg.doc_count})
+                          - pilotArray.pop();
+                    - if(results.aggregations.pilots.buckets.length==10)
+                      - if(pilotArray.length>0)query+='&pilot='+pilotArray.join(",");
+                        li.nav-item(class='hover')
+                          a(href='#{query}&pilot_limit=0')
+                            i.nav-item-moreless show more...
+                    - if(results.aggregations.pilots.buckets.length>10)
+                      - if(pilotArray.length>0)query+='&pilot='+pilotArray.join(",");
                         li.nav-item(class='hover')
                           a(href='#{query}')
                             i.nav-item-moreless show less...

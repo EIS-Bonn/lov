@@ -94,6 +94,29 @@ exports.searchAgent = function (req, res, esclient) {
   });
 }
 
+//atrillos
+/**
+ * Search for agent used by the /agents UI
+ */
+exports.searchPilot = function (req, res, esclient) {
+  return execSearchPilot(esclient, req.query.q, req.query.page_size, req.query.page, req.query.type, req.query.tag, req.query.tag_limit,  function(err, results) {
+      if (err) return res.render('500')
+      //store log in DB
+      var log = new LogSearch({searchWords: req.query.q,
+        searchURL: req.originalUrl,
+        date: new Date(),
+        category: "pilotSearch",
+        method: "ui",
+        nbResults: results.total_results  });//console.log(log);
+      log.save(function (err){if(err)console.log(err)});
+      res.render('pilots/index',{
+        results: results,
+        placeholder: placeholders[(Math.floor(Math.random() * placeholders.length ))],
+        utils: utils
+      });
+  });
+}
+
 /**
  * Full text search used by Vocabs API
  */
@@ -694,6 +717,124 @@ function execSearchAgent(client, queryString, page_size, page, type, tag, tag_li
       var filters = {};
       if(tag != 'null') filters.tag=tag;
       if(type != 'null' && type.indexOf(",")<0) filters.type=type; 
+      
+      result = {
+        total_results: parsed.total,
+        page: page,
+        page_size: page_size,
+        queryString: queryString,
+        filters:filters,
+        aggregations: JSON.parse(data).aggregations,
+        results: parsed.hits
+      };
+      return callback(null, result);
+    }).on('error', function(error) {
+      return callback(error, null);
+    }).exec();
+};
+
+
+//atrillos
+/**
+* Execution of a search on pilot
+*/
+function execSearchPilot(client, queryString, page_size, page, type, tag, tag_limit, callback) {
+  if(!tag_limit || (!parseInt(tag_limit) && tag_limit!=='0') || parseInt(page_size)<1)tag_limit=10;
+  var type='pilots';
+  if(!page_size || (!parseInt(page_size) && page_size!=='0') || parseInt(page_size)<1)page_size=15;
+  if(!page || (!parseInt(page) && page!=='0') || parseInt(page)<1)page=1;
+  page = parseInt(page, 10) || 1;
+  
+  /* fields concerned by the query and their corresponding boost */
+  var fieldToSearchOn= ["name"];
+  console.log("field---"+fieldToSearchOn);
+  
+  /* dynamic build of the filters using tag values */
+  /*var filter='[';
+  if(tag!=null){
+    if(filter.length>1)filter=filter+',';
+    var tagsplit = tag.split(",");
+    for(i=0; i<tagsplit.length; i++){
+      if(tagsplit.length>0 && i>0) filter=filter+',';
+      filter= filter+'{"term":{"tags.label":"'+tagsplit[i]+'"}}';
+    }
+  }*/
+  //filter=eval('('+filter+"]"+')');
+  
+
+    var q = {
+        "from": (page - 1) * page_size,
+        "size": page_size,
+        "query": (function() {
+          /* In case we have a vocabulary or tag filter, we are using a filtered query */ 
+          if(tag!=null){
+            return {
+                "filtered" : {
+                    "query":(function() {
+                    if(queryString && queryString.length>0){
+                      console.log("ojo"+queryString);
+                      return {
+                          "multi_match" : {
+                              "query" : queryString,
+                              "fields" : fieldToSearchOn
+                          }
+                      }
+                    }
+                    else{
+                      return {
+                        "match_all" : {}
+                      }
+                    }
+                  })()                  
+                    ,"filter" : {"bool":{"must":filter}}
+                }
+            }
+          }
+          else{
+            return (function() {
+                    if(queryString && queryString.length>0){
+                      return {
+                          "multi_match" : {
+                              "query" : queryString,
+                              "fields" : fieldToSearchOn
+                          }
+                      }
+                    }
+                    else{
+                      return {
+                        "match_all" : {}
+                      }
+                    }
+                  })();
+          }
+        })(),
+        "sort" : [{ "name" : {"order" : "asc"}}],
+        "aggregations" : {
+                  "types" : {
+                      "terms" : {
+                          "field" : "_type",
+                          "size" : 10
+                      }
+                  },
+                  "tags" : {
+                      "terms" : {
+                          "field" : "pilots.name",
+                          "size" : parseInt(tag_limit)
+                      }
+                  }
+              }
+      };
+    //console.log(JSON.stringify(q))
+    /* build and return the result JSON object */
+    return client.search(indexName, type, q).on('data', function(data) {
+      var parsed, result;
+      parsed = JSON.parse(data).hits;
+      /* filters are the parameters sent by the client to filter the query results */
+      var filters = {};
+      if(tag != 'null') filters.tag=tag;
+      console.log("ojo2"+type);
+      //if(type != 'null' && type.indexOf(",")<0) filters.type=type; 
+      if(type != 'null') filters.type=type; 
       
       result = {
         total_results: parsed.total,
