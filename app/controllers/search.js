@@ -740,7 +740,7 @@ function execSearchAgent(client, queryString, page_size, page, type, tag, tag_li
 */
 function execSearchPilot(client, queryString, page_size, page, type, tag, tag_limit, callback) {
   if(!tag_limit || (!parseInt(tag_limit) && tag_limit!=='0') || parseInt(page_size)<1)tag_limit=10;
-  var type='pilots';
+  var type='pilot';
   if(!page_size || (!parseInt(page_size) && page_size!=='0') || parseInt(page_size)<1)page_size=15;
   if(!page || (!parseInt(page) && page!=='0') || parseInt(page)<1)page=1;
   page = parseInt(page, 10) || 1;
