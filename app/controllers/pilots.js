@@ -117,7 +117,7 @@ exports.new = function (req, res){
  */
 
 exports.update = function(req, res){
-  var pilot = req.pilot.name;
+  var pilot = req.pilot;
   pilot = _.extend(pilot, req.body)
   pilot.save(function(err) {
     if (err) {

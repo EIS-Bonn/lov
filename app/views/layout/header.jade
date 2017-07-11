@@ -13,6 +13,9 @@ header
               a(title='', href='/dataset/bdo/agents')
                 | Agents
             li.wrpl
+              a(title='', href='/dataset/bdo/pilots')
+                | Pilots
+            li.wrpl
               a(title='', href='/dataset/bdo/sparql')
                 | SPARQL/Dump
             if (req.isAuthenticated() && req.user.category === "admin")

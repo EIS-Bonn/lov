@@ -247,7 +247,7 @@ li.inactive .editionInnerBox span {
 .fieldSuggestions .fieldSug .fieldSugLang{
   color:#426C6C;
 }
-.fieldWithLangAddAction, .fieldSugActionTextareaLangDescription, .fieldSugActionTextareaLangTitle, .fieldAgentAddAction, .fieldReviewAddAction, .fieldTagsAddAction, .fieldSugActionAgentComplete{
+.fieldWithLangAddAction, .fieldSugActionTextareaLangDescription, .fieldSugActionTextareaLangTitle, .fieldAgentAddAction, .fieldReviewAddAction, .fieldTagsAddAction, .fieldPilotsAddAction, .fieldSugActionAgentComplete{
   height:1em;
   width:1em;
   cursor:pointer;
@@ -318,6 +318,15 @@ li.inactive .editionInnerBox span {
   cursor:pointer;
 }
 
+.imagePilotRemoveAction{
+  position:absolute;
+  top:.5em;
+  right:.2em;
+  height:.6em;
+  width:.6em;
+  cursor:pointer;
+}
+
 .imageVersionActionRemove, .imageVersionActionUpload, .imageVersionActionEdit{
   height: 1.2em;
   width: 1.2em;
@@ -334,6 +343,9 @@ li.inactive .editionInnerBox span {
   width:100%;
 }
 .tagFromList{
+  cursor:pointer;
+}
+.pilotFromList{
   cursor:pointer;
 }
 .unmatchedRel{

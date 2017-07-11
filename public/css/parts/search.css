@@ -114,6 +114,11 @@
   border-left: 6px solid #9A69BD;
 }
 
+#SearchGrid li.SearchBoxpilot .SearchContainer{ 
+  /*background-color: #FFA500;*/ /*E97F02 rgba(255,165,0,1)*/
+  border-left: 6px solid #E574BC;
+}
+
 .SearchInnerBox .prefix { 
   color:#232323; 
   font-weight: bold;
@@ -245,7 +250,7 @@ nav{
   margin-left: 1.2em;
 }
 
-.nav-item-propertyclass a,.nav-item-propertyclass span, .nav-item-vocabulary span, .nav-item-vocabulary a, .nav-item-agent a,.nav-item-agent span{
+.nav-item-propertyclass a,.nav-item-propertyclass span, .nav-item-vocabulary span, .nav-item-vocabulary a, .nav-item-agent a, .nav-item-agent span, .nav-item-pilot a,.nav-item-pilot span{
   margin-left: 0.4em;
 }
 .nav-item-person a:before,.nav-item-organization a:before,.nav-item-class a:before,.nav-item-property a:before{
@@ -256,7 +261,7 @@ nav{
   border-width: 14px 3px 14px 3px;
   border-style:  solid solid solid solid;
 }
-.nav-item-vocabulary span:before,.nav-item-vocabulary a:before,.nav-item-agent a:before,.nav-item-agent span:before{
+.nav-item-vocabulary span:before,.nav-item-vocabulary a:before,.nav-item-agent a:before,.nav-item-agent span:before, .nav-item-pilot a:before,.nav-item-pilot span:before{
   content: '';
   position: absolute;
   top: 4px;
@@ -285,6 +290,9 @@ content: '';
 }
 .nav-item-agent a:before,.nav-item-agent span:before{
   border-color: #65AB19 #65AB19 #65AB19 #65AB19 ;
+}
+.nav-item-pilot a:before,.nav-item-pilot span:before{
+  border-color: #E574BC #E574BC #E574BC #E574BC ;
 }
 .nav-item-person a:before{
   border-color: #82C836 #82C836 #82C836 #82C836 ;

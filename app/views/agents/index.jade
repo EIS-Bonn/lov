@@ -114,6 +114,8 @@ block content
                       - else
                         li.nav-item(class="nav-item-#{type.key} hover")
                           a(href='#{query}&type=#{type.key}') #{type.key} (#{type.doc_count})
+                    li.nav-item-inactive(class="nav-item-pilot hover")
+                      a(href='/dataset/bdo/pilots') pilot >
               .facet
                 h2.facet-heading Tag
                 // | !{JSON.stringify(results.aggregations)}

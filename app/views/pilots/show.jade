@@ -44,13 +44,6 @@ block content
                       tr
                         td Description
                         td #{pilot.description}
-                      //- if(pilot.altUris && agent.altUris.length>0)
-                        //tr
-                          //td AltURIs
-                          //td
-                            //each alturi in agent.altUris 
-                              //div
-                                //a(href='#{alturi}', target='_blank') #{alturi}
             aside.wrpl
               .h-padding
                 h2 Statistics
@@ -142,13 +135,4 @@ block content
                   chartVis.attr("width", targetWidthVis);
                   chartVis.attr("height", Math.round(targetWidthVis / aspectVis));
               }).trigger("resize");
-            aside.wrpl
-              .h-padding
-                h2 Tags
-                .line
-                .asideListFloat
-                  -if(tags && tags.length>0 )
-                    ul.tagsVocab
-                      - each tag in tags
-                        li
-                          a.tag(href='/dataset/bdo/vocabs?tag='+encodeURIComponent(tag)) #{tag}
+            

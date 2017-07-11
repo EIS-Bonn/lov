@@ -5,6 +5,6 @@
  versions.js 
  vocabularies.js.
  */
-exports.path = '/root/BigDataOcean';
+exports.path = '/BDO';
 exports.URL = 'http://localhost:3333/dataset/bdo';
 exports.adminMail ='BigDataOcean <adminMail@gmail.com>';

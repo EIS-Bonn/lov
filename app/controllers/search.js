@@ -54,7 +54,7 @@ exports.search = function (req, res, esclient) {
  * Search for vocabulary used by the /vocabs UI
  */
 exports.searchVocabulary = function (req, res, esclient) {
-  return execSearchVocabulary(esclient, req.query.q, req.query.page_size, req.query.page, req.query.tag, req.query.tag_limit, req.query.lang, req.query.lang_limit,  function(err, results) {
+  return execSearchVocabulary(esclient, req.query.q, req.query.page_size, req.query.page, req.query.tag, req.query.tag_limit, req.query.lang, req.query.lang_limit, req.query.pilot, req.query.pilot_limit,  function(err, results) {
     if (err) return res.render('500')
     //store log in DB
     var log = new LogSearch({searchWords: req.query.q,
@@ -96,10 +96,10 @@ exports.searchAgent = function (req, res, esclient) {
 
 //atrillos
 /**
- * Search for agent used by the /agents UI
+ * Search for pilot used by the /pilots UI
  */
 exports.searchPilot = function (req, res, esclient) {
-  return execSearchPilot(esclient, req.query.q, req.query.page_size, req.query.page, req.query.type, req.query.tag, req.query.tag_limit,  function(err, results) {
+  return execSearchPilot(esclient, req.query.q, req.query.page_size, req.query.page, req.query.tag, req.query.tag_limit, function(err, results) {
       if (err) return res.render('500')
       //store log in DB
       var log = new LogSearch({searchWords: req.query.q,
@@ -124,12 +124,34 @@ exports.apiSearchVocabs = function (req, res, esclient) {
   if (!req.query.q) { //control that q param is present
 		return standardBadRequestHandler(req, res, 'Query parameter missing. Syntax: ?q=querytext');
 	} else {
-    return execSearchVocabulary(esclient, req.query.q, req.query.page_size, req.query.page, req.query.tag, req.query.tag_limit, req.query.lang, req.query.lang_limit,  function(err, results) {
+    return execSearchVocabulary(esclient, req.query.q, req.query.page_size, req.query.page, req.query.tag, req.query.tag_limit, req.query.lang, req.query.lang_limit, req.query.pilot, req.query.pilot_limit,  function(err, results) {
         //store log in DB
         var log = new LogSearch({searchWords: req.query.q,
           searchURL: req.originalUrl,
           date: new Date(),
           category: "vocabularySearch",
+          method: "api",
+          nbResults: results.total_results  });//console.log(log);
+        log.save(function (err){if(err)console.log(err)});
+        return standardCallback(req, res, err, results);
+    });
+  }
+}
+
+//trillos
+/**
+ * Full text search used by Pilots API
+ */
+exports.apiSearchPilot = function (req, res, esclient) {
+  if (!req.query.q) { //control that q param is present
+    return standardBadRequestHandler(req, res, 'Query parameter missing. Syntax: ?q=querytext');
+  } else {
+    return execSearchPilot(esclient, req.query.q, req.query.page_size, req.query.page, req.query.tag, req.query.tag_limit, function(err, results) {
+        //store log in DB
+        var log = new LogSearch({searchWords: req.query.q,
+          searchURL: req.originalUrl,
+          date: new Date(),
+          category: "pilotSearch",
           method: "api",
           nbResults: results.total_results  });//console.log(log);
         log.save(function (err){if(err)console.log(err)});
@@ -486,9 +508,10 @@ function execSearch(client, queryString, page_size, page, type, vocab, vocab_lim
 /**
 * Execution of a search on vocabularies
 */
-function execSearchVocabulary(client, queryString, page_size, page, tag, tag_limit, lang, lang_limit, callback) {
+function execSearchVocabulary(client, queryString, page_size, page, tag, tag_limit, lang, lang_limit, pilot, pilot_limit, callback) {
   if(!tag_limit || (!parseInt(tag_limit) && tag_limit!=='0') || parseInt(page_size)<1)tag_limit=10;
   if(!lang_limit || (!parseInt(lang_limit) && lang_limit!=='0') || parseInt(page_size)<1)lang_limit=10;
+  if(!pilot_limit || (!parseInt(pilot_limit) && pilot_limit!=='0') || parseInt(page_size)<1)pilot_limit=10;
   var type='vocabulary';
   if(!page_size || (!parseInt(page_size) && page_size!=='0') || parseInt(page_size)<1)page_size=15;
   if(!page || (!parseInt(page) && page!=='0') || parseInt(page)<1)page=1;
@@ -524,6 +547,14 @@ function execSearchVocabulary(client, queryString, page_size, page, tag, tag_lim
       filter= filter+'{"term":{"langs":"'+langsplit[i]+'"}}';
     }
   }
+  /*if(pilot!=null){
+    if(filter.length>1)filter=filter+',';
+    var pilotsplit = pilot.split(",");
+    for(i=0; i<pilotsplit.length; i++){
+      if(pilotsplit.length>0 && i>0) filter=filter+',';
+      filter= filter+'{"term":{"pilots":"'+pilotsplit[i]+'"}}';
+    }
+  }*/
   filter=eval('('+filter+"]"+')');
   
 
@@ -592,6 +623,12 @@ function execSearchVocabulary(client, queryString, page_size, page, tag, tag_lim
                           "field" : "langs",
                           "size" : parseInt(lang_limit)
                       }
+                  },
+                  "pilots" : {
+                      "terms" : {
+                          "field" : "pilots",
+                          "size" : parseInt(pilot_limit)
+                      }
                   }
               }
       };
@@ -604,6 +641,7 @@ function execSearchVocabulary(client, queryString, page_size, page, tag, tag_lim
       var filters = {};
       if(tag != 'null') filters.tag=tag;
       if(lang != 'null') filters.lang=lang;
+      if(pilot != 'null') filters.pilot=pilot;
       
       result = {
         total_results: parsed.total,
@@ -738,28 +776,43 @@ function execSearchAgent(client, queryString, page_size, page, type, tag, tag_li
 /**
 * Execution of a search on pilot
 */
-function execSearchPilot(client, queryString, page_size, page, type, tag, tag_limit, callback) {
+function execSearchPilot(client, queryString, page_size, page, tag, tag_limit, callback) {
   if(!tag_limit || (!parseInt(tag_limit) && tag_limit!=='0') || parseInt(page_size)<1)tag_limit=10;
   var type='pilot';
   if(!page_size || (!parseInt(page_size) && page_size!=='0') || parseInt(page_size)<1)page_size=15;
   if(!page || (!parseInt(page) && page!=='0') || parseInt(page)<1)page=1;
   page = parseInt(page, 10) || 1;
   
-  /* fields concerned by the query and their corresponding boost */
-  var fieldToSearchOn= ["name"];
-  console.log("field---"+fieldToSearchOn);
+  /* Weights for each field type in the score function */ 
+  var weightLocalName=12;/* the local name of a URI */
+  var weightPrimLabel=3;/* primary label includes rdfs:comment*/
+  //var weightSecLabel=1.5;/* secondary label includes dcterms:description*/
   
-  /* dynamic build of the filters using tag values */
-  /*var filter='[';
+  /* fields concerned by the query and their corresponding boost */
+  var fieldToSearchOn= [
+  "name.autocomplete^"+weightLocalName,
+  "http://www.w3.org/2000/01/rdf-schema#comment*^"+weightPrimLabel
+  ];
+  
+  /* dynamic build of the filters using tag and lang values */
+  var filter='[';
   if(tag!=null){
     if(filter.length>1)filter=filter+',';
     var tagsplit = tag.split(",");
     for(i=0; i<tagsplit.length; i++){
       if(tagsplit.length>0 && i>0) filter=filter+',';
-      filter= filter+'{"term":{"tags.label":"'+tagsplit[i]+'"}}';
+      filter= filter+'{"term":{"tags":"'+tagsplit[i]+'"}}';
+    }
+  }
+  /*if(lang!=null){
+    if(filter.length>1)filter=filter+',';
+    var langsplit = lang.split(",");
+    for(i=0; i<langsplit.length; i++){
+      if(langsplit.length>0 && i>0) filter=filter+',';
+      filter= filter+'{"term":{"langs":"'+langsplit[i]+'"}}';
     }
   }*/
-  //filter=eval('('+filter+"]"+')');
+  filter=eval('('+filter+"]"+')');
   
 
     var q = {
@@ -767,12 +820,12 @@ function execSearchPilot(client, queryString, page_size, page, type, tag, tag_li
         "size": page_size,
         "query": (function() {
           /* In case we have a vocabulary or tag filter, we are using a filtered query */ 
+          //if(lang!=null || tag!=null){
           if(tag!=null){
             return {
                 "filtered" : {
                     "query":(function() {
                     if(queryString && queryString.length>0){
-                      console.log("ojo"+queryString);
                       return {
                           "multi_match" : {
                               "query" : queryString,
@@ -785,7 +838,7 @@ function execSearchPilot(client, queryString, page_size, page, type, tag, tag_li
                         "match_all" : {}
                       }
                     }
-                  })()                  
+                  })()                
                     ,"filter" : {"bool":{"must":filter}}
                 }
             }
@@ -805,23 +858,30 @@ function execSearchPilot(client, queryString, page_size, page, type, tag, tag_li
                         "match_all" : {}
                       }
                     }
-                  })();
+                  })()
           }
         })(),
-        "sort" : [{ "name" : {"order" : "asc"}}],
-        "aggregations" : {
-                  "types" : {
-                      "terms" : {
-                          "field" : "_type",
-                          "size" : 10
-                      }
-                  },
+        "sort" : (function() {
+                    if(queryString && queryString.length>0){
+                      return [{ "_score" : {"order" : "desc"}}]
+                    }
+                    else{
+                      return [{ "name" : {"order" : "asc"}}]
+                    }
+                  })()
+        ,"aggregations" : {
                   "tags" : {
                       "terms" : {
-                          "field" : "pilots.name",
+                          "field" : "tags",
                           "size" : parseInt(tag_limit)
                       }
-                  }
+                  }/*,
+                  "langs" : {
+                      "terms" : {
+                          "field" : "langs",
+                          "size" : parseInt(lang_limit)
+                      }
+                  }*/
               }
       };
     //console.log(JSON.stringify(q))
@@ -832,9 +892,7 @@ function execSearchPilot(client, queryString, page_size, page, type, tag, tag_li
       /* filters are the parameters sent by the client to filter the query results */
       var filters = {};
       if(tag != 'null') filters.tag=tag;
-      console.log("ojo2"+type);
-      //if(type != 'null' && type.indexOf(",")<0) filters.type=type; 
-      if(type != 'null') filters.type=type; 
+      //if(lang != 'null') filters.lang=lang;
       
       result = {
         total_results: parsed.total,

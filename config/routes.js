@@ -104,8 +104,8 @@ module.exports = function (app, passport,esclient, elasticsearchClient, emailTra
   app.param('agentName', agents.loadFromName)
 
   //atrillos
-  // agent
-  //app.get('/dataset/bdo/pilots', function(req, res){search.searchAgent(req,res,esclient);})
+  // pilot
+  app.get('/dataset/bdo/pilots', function(req, res){search.searchPilot(req,res,esclient);})
   app.get('/dataset/bdo/pilots/:pilotName', pilots.show)
   app.param('pilotName', pilots.loadFromName)
 
@@ -192,9 +192,11 @@ module.exports = function (app, passport,esclient, elasticsearchClient, emailTra
   app.get('/dataset/bdo/api/v2/agent/info', function(req, res){agents.apiInfoAgent(req,res);})
 
   //atrillos
-  //app.get('/dataset/bdo/api/v2/pilot/search', function(req, res){search.apiSearchAgent(req,res,esclient);})
-  app.get('/dataset/bdo/api/v2/pilot/list', function(req, res){agents.apiListPilots(req,res);})
-  app.get('/dataset/bdo/api/v2/pilot/info', function(req, res){agents.apiInfoPilot(req,res);})
+  app.get('/dataset/bdo/api/v2/pilot/autocomplete', pilots.autoComplete)
+  app.get('/dataset/bdo/api/v2/pilot/autocompleteFull', pilots.autoCompleteFull)
+  app.get('/dataset/bdo/api/v2/pilot/search', function(req, res){search.apiSearchPilot(req,res,esclient);})
+  app.get('/dataset/bdo/api/v2/pilot/list', function(req, res){pilots.apiListPilots(req,res);})
+  app.get('/dataset/bdo/api/v2/pilot/info', function(req, res){pilots.apiInfoPilot(req,res);})
   
   app.get('/dataset/bdo/api/v2/vocabulary/autocomplete', function(req, res){search.apiAutocompleteVocabs(req,res,esclient);})
   app.get('/dataset/bdo/api/v2/autocomplete/vocabularies', function(req, res){search.apiAutocompleteVocabs(req,res,esclient);})
