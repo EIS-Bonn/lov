@@ -35,7 +35,7 @@ block content
             #greenContainer.contents.clear.col-2.split.wrplGreen
               h2 Metadata
               .metadataFrame
-                div(class='metadataContainer#{pilot.type + pilot.type}')
+                div(class='metadataContainerPilot')
                   table.metadata-table.noheader.flat-table-3(style="width:100%")
                     tbody
                       tr
@@ -44,6 +44,7 @@ block content
                       tr
                         td Description
                         td #{pilot.description}
+          //-  
             aside.wrpl
               .h-padding
                 h2 Statistics
@@ -70,7 +71,11 @@ block content
                 return chart;
               });
           article
-           
+            #greenContainer.contents.clear.col-2.split.wrplGreen
+              h2 Has role in #{allVocabs.length} vocabularies
+              .visus
+                div(class='visusContainer#{pilot.type.charAt(0).toUpperCase() + agent.type.slice(1)}')
+                  #vis(style="margin: 0 0 0 0")    
             script.   
               var root={"name": "flare","children": [!{allVocabs}]};
               var boxWidth = 600,

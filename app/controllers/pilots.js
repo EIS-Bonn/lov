@@ -132,51 +132,37 @@ exports.update = function(req, res){
  */
 
 exports.show = function(req, res){
-  //Vocabulary.listCreatedPerPiLot(req.pilot._id, function(err, creatVocabs) {
-    //if (err) return res.render('500')
-    //Vocabulary.listContributedPerPilot(req.pilot._id, function(err, contribVocabs) {
-      //if (err) return res.render('500')
-      //Vocabulary.listPublishedPerPilot(req.pilot._id, function(err, pubVocabs) {
-        //if (err) return res.render('500')
+  Vocabulary.listCreatedPerPilot(req.pilot._id, function(err, creatVocabs) {
+    if (err) return res.render('500')
     
         /* prepare pie data*/
-        //var pieData = [[
-                        //{ 
-                          //"label": "Creator",
-                          //"value" : (creatVocabs)?creatVocabs.length:0
-                        //} , 
-                        //{ 
-                          //"label": "Contributor",
-                          //"value" : (contribVocabs)?contribVocabs.length:0
-                        //} , 
-                        //{ 
-                          //"label": "Publisher",
-                          //"value" : (pubVocabs)?pubVocabs.length:0
-                        //}
-                      //]];
+        var pieData = [[
+                        { 
+                          "label": "Pilot",
+                          "value" : (creatVocabs)?creatVocabs.length:0
+                        }
+                      ]];
                       
         /* prepare tags */
-        //var allVocabs = creatVocabs.concat(contribVocabs.concat(pubVocabs));
-        //var tags = [];
-        //if(allVocabs.length){
-          //for(i=0; i<allVocabs.length; i++){
-            //if(allVocabs[i].tags){
-              //for(j=0; j<allVocabs[i].tags.length; j++){
-                //if(tags.indexOf(allVocabs[i].tags[j])<0)tags.push(allVocabs[i].tags[j]);
-              //}
-            //}
-          //}
-       // }
+        var allVocabs = creatVocabs;
+        var tags = [];
+        if(allVocabs.length){
+          for(i=0; i<allVocabs.length; i++){
+            if(allVocabs[i].tags){
+              for(j=0; j<allVocabs[i].tags.length; j++){
+                if(tags.indexOf(allVocabs[i].tags[j])<0)tags.push(allVocabs[i].tags[j]);
+              }
+            }
+          }
+        }
         
         res.render('pilots/show', {
           pilot: req.pilot,
-          //allVocabs: allVocabs,
-          //pieData: pieData,
-          //tags: tags
+          allVocabs: allVocabs,
+          pieData: pieData,
+          tags: tags
         })
-      //})
-    //})
-  //})
+  })
 }
 
  /**

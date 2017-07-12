@@ -56,7 +56,7 @@
   color:#FFFFFF;
   overflow:hidden;
 }
-.metadataContainerLang, .metadataContainerVocab, .metadataContainerPerson,.metadataContainerOrganization{
+.metadataContainerLang, .metadataContainerVocab, .metadataContainerPerson,.metadataContainerOrganization, .metadataContainerPilot{
   padding-left:.5em;
 }
 .metadataContainerLang{
@@ -70,6 +70,10 @@
 }
 .metadataContainerOrganization{
   border-left: 6px solid #4A8806;
+}
+
+.metadataContainerPilot{
+  border-left: 6px solid #E574BC;
 }
 
   

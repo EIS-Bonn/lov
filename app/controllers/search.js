@@ -547,14 +547,14 @@ function execSearchVocabulary(client, queryString, page_size, page, tag, tag_lim
       filter= filter+'{"term":{"langs":"'+langsplit[i]+'"}}';
     }
   }
-  /*if(pilot!=null){
+  if(pilot!=null){
     if(filter.length>1)filter=filter+',';
     var pilotsplit = pilot.split(",");
     for(i=0; i<pilotsplit.length; i++){
       if(pilotsplit.length>0 && i>0) filter=filter+',';
       filter= filter+'{"term":{"pilots":"'+pilotsplit[i]+'"}}';
     }
-  }*/
+  }
   filter=eval('('+filter+"]"+')');
   
 
@@ -563,7 +563,7 @@ function execSearchVocabulary(client, queryString, page_size, page, tag, tag_lim
         "size": page_size,
         "query": (function() {
           /* In case we have a vocabulary or tag filter, we are using a filtered query */ 
-          if(lang!=null || tag!=null){
+          if(lang!=null || tag!=null || pilot!=null){
             return {
                 "filtered" : {
                     "query":(function() {
