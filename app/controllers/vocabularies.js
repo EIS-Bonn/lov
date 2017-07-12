@@ -86,10 +86,10 @@ exports.apiTags = function (req, res) {
 }
 
 /**
-* Vocabulary PIlots List API
+* Vocabulary Pilots List API
 */
 exports.apiPilots = function (req, res) {
-  Pilot.list(function(err, pilots) {
+  Pilot.listPilots(function(err, pilots) {
     if (err) return res.render('500')
     return standardCallback(req, res, err, p);
   })
@@ -489,7 +489,7 @@ exports.new = function (req, res) {
           if (err) return res.render('500')
           Stattag.list(function(err, listTags) {
             if (err) return res.render('500')
-            Pilot.list(function(err, listPilots) {  
+            Pilot.listPilots(function(err, listPilots) {  
               //var command = globalPath+"/lovScripts/target/lovscripts-cli/lovscripts/bin/suggest "+req.body.uri+" /home/jaimetrillos/Documents/LOV/lovScripts/target/lovscripts-cli/lovscripts/lov.config";
               var command = globalPath+"/lovScripts/target/lovscripts-cli/lovscripts/bin/suggest "+req.body.uri;
               var exec = require('child_process').exec;
