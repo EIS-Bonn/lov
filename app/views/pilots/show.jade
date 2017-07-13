@@ -44,37 +44,22 @@ block content
                       tr
                         td Description
                         td #{pilot.description}
-          //-  
             aside.wrpl
               .h-padding
-                h2 Statistics
+                h2 Tags
                 .line
-                svg#chart(style='height:200px;')               
-                .clear
-                  
-            script.
-              nv.addGraph(function() {
-                var chart = nv.models.pieChart()
-                  .x(function(d) { return d.label })
-                  .y(function(d) { return d.value })
-                  .values(function(d) { return d })
-                  .valueFormat(d3.format('.'))
-                  .showLegend(true)
-                  .showLabels(false)
-                  .color(d3.scale.category10().range())
-                  .margin({top: 0, right: 5, bottom: 0, left: 0});
-                d3.select("#chart")
-                  .datum(!{JSON.stringify(pieData)})
-                  .transition().duration(500)
-                  .call(chart);
-                nv.utils.windowResize(chart.update);
-                return chart;
-              });
+                .asideListFloat
+                  -if(tags && tags.length>0 )
+                    ul.tagsVocab
+                      - each tag in tags
+                        li
+                          a.tag(href='/dataset/bdo/vocabs?tag='+encodeURIComponent(tag)) #{tag}
           article
             #greenContainer.contents.clear.col-2.split.wrplGreen
-              h2 Has role in #{allVocabs.length} vocabularies
+              h2 Is related to #{allVocabs.length} vocabularies
+            
               .visus
-                div(class='visusContainer#{pilot.type.charAt(0).toUpperCase() + agent.type.slice(1)}')
+                div(class='visusContainer#{pilot.type')
                   #vis(style="margin: 0 0 0 0")    
             script.   
               var root={"name": "flare","children": [!{allVocabs}]};
@@ -115,10 +100,7 @@ block content
                     .style("text-anchor", "middle")
                     .text(function(d) { return d.className.substring(0, d.r / 3); })
                     .style("font-size", function (d) { return ((d.r / 30)) + "em"; });
-                    
-                
-                
-
+              
               // Returns a flattened hierarchy containing all leaf nodes under the root.
               function classes(root) {
                 var classes = [];

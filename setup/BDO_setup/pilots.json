@@ -1,4 +1,4 @@
-{"_id":{"$oid":"5964c16b3ef58311b2b15857"},"description":"Fault Prediction \u0026 Proactive Maintenance","name":"PILOT I","__v":0}
-{"_id":{"$oid":"5964c19c3ef58311b2b15859"},"description":"Mare Protection","name":"PILOT II","__v":0}
-{"_id":{"$oid":"5964c1c03ef58311b2b1585b"},"description":"Maritime Security \u0026 Anomaly Detection","name":"PILOT III","__v":0}
-{"_id":{"$oid":"5964c1d53ef58311b2b1585d"},"description":"Wave Power","name":"PILOT IV","__v":0}
+{"_id":{"$oid":"5966371975e63111bc21a14c"},"name":"PILOT_I","description":"Fault Prediction \u0026 Proactive Maintenance","nbOccurrences":1}
+{"_id":{"$oid":"5966371975e63111bc21a14d"},"name":"PILOT_II","description":"Mare Protection","nbOccurrences":0}
+{"_id":{"$oid":"5966371975e63111bc21a14e"},"name":"PILOT_III","description":"Maritime Security \u0026 Anomaly Detection","nbOccurrences":1}
+{"_id":{"$oid":"5966371975e63111bc21a14f"},"name":"PILOT_IV","description":"Wave Power","nbOccurrences":0}

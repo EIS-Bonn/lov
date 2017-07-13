@@ -132,21 +132,13 @@ exports.update = function(req, res){
  */
 
 exports.show = function(req, res){
-  Vocabulary.listCreatedPerPilot(req.pilot._id, function(err, creatVocabs) {
-    if (err) return res.render('500')
-    
-        /* prepare pie data*/
-        var pieData = [[
-                        { 
-                          "label": "Pilot",
-                          "value" : (creatVocabs)?creatVocabs.length:0
-                        }
-                      ]];
-                      
+  Vocabulary.listCreatedPerPilot(req.pilot.name, function(err, creatVocabs) {
+    if (err) return res.render('500')    
         /* prepare tags */
-        var allVocabs = creatVocabs;
+
+        var allVocabs = creatVocabs;        
         var tags = [];
-        if(allVocabs.length){
+        if(allVocabs.length){          
           for(i=0; i<allVocabs.length; i++){
             if(allVocabs[i].tags){
               for(j=0; j<allVocabs[i].tags.length; j++){
@@ -159,7 +151,6 @@ exports.show = function(req, res){
         res.render('pilots/show', {
           pilot: req.pilot,
           allVocabs: allVocabs,
-          pieData: pieData,
           tags: tags
         })
   })

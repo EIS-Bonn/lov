@@ -3,3 +3,5 @@
 {"_id":{"$oid":"59415f852e36eb324cbb57dd"},"type":"organization","altUris":[],"name":"Quantities, Units, Dimensions and Data Types Ontologies","prefUri":"http://www.qudt.org/release2/qudt-catalog.html","__v":0}
 {"_id":{"$oid":"594162b5d8138a34b28f9616"},"type":"person","altUris":[],"name":"Bernard Vatant","prefUri":"http://data.semanticweb.org/person/bernard-vatant","__v":0}
 {"_id":{"$oid":"594162c8d8138a34b28f9617"},"type":"organization","altUris":[],"name":"GeoNames","prefUri":"http://dbpedia.org/resource/GeoNames","__v":0}
+{"_id":{"$oid":"594935089902df13f0d98101"},"type":"organization","altUris":[],"name":"NASA SWEET","prefUri":"https://sweet.jpl.nasa.gov/","__v":0}
+{"_id":{"$oid":"5966326ebd12e22a4ff986cc"},"type":"person","altUris":[],"name":"Dan Brickley","prefUri":"http://google.com/+DanBrickley","__v":0}

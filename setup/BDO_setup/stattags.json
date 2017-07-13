@@ -1,3 +1,41 @@
-{"_id":{"$oid":"5941652a8f347aca1dd08578"},"label":"W3C Rec","nbOccurrences":4}
-{"_id":{"$oid":"5941652a8f347aca1dd08579"},"label":"RDF","nbOccurrences":1}
-{"_id":{"$oid":"5941652a8f347aca1dd0857a"},"label":"Vocabularies","nbOccurrences":6}
+{"_id":{"$oid":"5966371975e63111bc21a121"},"label":"W3C Rec","nbOccurrences":4}
+{"_id":{"$oid":"5966371975e63111bc21a122"},"label":"RDF","nbOccurrences":1}
+{"_id":{"$oid":"5966371975e63111bc21a123"},"label":"Vocabularies","nbOccurrences":8}
+{"_id":{"$oid":"5966371975e63111bc21a124"},"label":"Catalogs","nbOccurrences":0}
+{"_id":{"$oid":"5966371975e63111bc21a125"},"label":"API","nbOccurrences":0}
+{"_id":{"$oid":"5966371975e63111bc21a126"},"label":"Methods","nbOccurrences":0}
+{"_id":{"$oid":"5966371975e63111bc21a127"},"label":"Multimedia","nbOccurrences":0}
+{"_id":{"$oid":"5966371975e63111bc21a128"},"label":"Academy","nbOccurrences":0}
+{"_id":{"$oid":"5966371975e63111bc21a129"},"label":"Metadata","nbOccurrences":0}
+{"_id":{"$oid":"5966371975e63111bc21a12a"},"label":"Biology","nbOccurrences":0}
+{"_id":{"$oid":"5966371975e63111bc21a12b"},"label":"Health","nbOccurrences":0}
+{"_id":{"$oid":"5966371975e63111bc21a12c"},"label":"People","nbOccurrences":0}
+{"_id":{"$oid":"5966371975e63111bc21a12d"},"label":"Geometry","nbOccurrences":0}
+{"_id":{"$oid":"5966371975e63111bc21a12e"},"label":"Geography","nbOccurrences":0}
+{"_id":{"$oid":"5966371975e63111bc21a12f"},"label":"Food","nbOccurrences":0}
+{"_id":{"$oid":"5966371975e63111bc21a130"},"label":"Society","nbOccurrences":0}
+{"_id":{"$oid":"5966371975e63111bc21a131"},"label":"Quality","nbOccurrences":0}
+{"_id":{"$oid":"5966371975e63111bc21a132"},"label":"Support","nbOccurrences":0}
+{"_id":{"$oid":"5966371975e63111bc21a133"},"label":"Games","nbOccurrences":0}
+{"_id":{"$oid":"5966371975e63111bc21a134"},"label":"Government","nbOccurrences":0}
+{"_id":{"$oid":"5966371975e63111bc21a135"},"label":"General \u0026 Upper","nbOccurrences":0}
+{"_id":{"$oid":"5966371975e63111bc21a136"},"label":"CSV","nbOccurrences":0}
+{"_id":{"$oid":"5966371975e63111bc21a137"},"label":"eBusiness","nbOccurrences":0}
+{"_id":{"$oid":"5966371975e63111bc21a138"},"label":"Environment","nbOccurrences":0}
+{"_id":{"$oid":"5966371975e63111bc21a139"},"label":"Travel","nbOccurrences":0}
+{"_id":{"$oid":"5966371975e63111bc21a13a"},"label":"Events","nbOccurrences":0}
+{"_id":{"$oid":"5966371975e63111bc21a13b"},"label":"Contracts","nbOccurrences":0}
+{"_id":{"$oid":"5966371975e63111bc21a13c"},"label":"Tag","nbOccurrences":0}
+{"_id":{"$oid":"5966371975e63111bc21a13d"},"label":"Industry","nbOccurrences":0}
+{"_id":{"$oid":"5966371975e63111bc21a13e"},"label":"Press","nbOccurrences":0}
+{"_id":{"$oid":"5966371975e63111bc21a13f"},"label":"Services","nbOccurrences":0}
+{"_id":{"$oid":"5966371975e63111bc21a140"},"label":"PLM","nbOccurrences":0}
+{"_id":{"$oid":"5966371975e63111bc21a141"},"label":"Music","nbOccurrences":0}
+{"_id":{"$oid":"5966371975e63111bc21a142"},"label":"Time","nbOccurrences":0}
+{"_id":{"$oid":"5966371975e63111bc21a143"},"label":"SPAR","nbOccurrences":0}
+{"_id":{"$oid":"5966371975e63111bc21a144"},"label":"Rec","nbOccurrences":0}
+{"_id":{"$oid":"5966371975e63111bc21a145"},"label":"FRBR","nbOccurrences":0}
+{"_id":{"$oid":"5966371975e63111bc21a146"},"label":"Security","nbOccurrences":0}
+{"_id":{"$oid":"5966371975e63111bc21a147"},"label":"Image","nbOccurrences":0}
+{"_id":{"$oid":"5966371975e63111bc21a148"},"label":"PROTON","nbOccurrences":0}
+{"_id":{"$oid":"5966371975e63111bc21a149"},"label":"SSDesk","nbOccurrences":0}

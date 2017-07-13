@@ -249,7 +249,7 @@ VocabularySchema.statics = {
       .sort({prefix:1})
       .exec(cb)
   },
-  
+ 
   listVocabsForReview: function (cb) {
     this.find({},{prefix:1,_id:0,reviews:1})
       .sort({prefix:1})

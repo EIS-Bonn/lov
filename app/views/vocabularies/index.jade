@@ -123,9 +123,6 @@ block content
                             li.nav-item-active
                               a(href='#{query}&tag=#{tagArray.join(",")}') #{tag.key} (#{tag.doc_count})
                           - else
-                            div
-                            -console.log('manananananana-'+query)
-                            div
                             li.nav-item-active
                               a(href='#{query}') #{tag.key} (#{tag.doc_count})
                         -tagArray.splice(indexTag,0,encodeURIComponent(tag.key));
@@ -157,16 +154,10 @@ block content
                       - var indexPilot = pilotArray.indexOf(encodeURIComponent(pilot.key));
                       - if(indexPilot>-1)
                         - pilotArray.splice(indexPilot,1);
-                            div
-                            -console.log('manananananana-'+pilotArray.length)
-                            div
                           - if(pilotArray.length>0)
                             li.nav-item-active
                               a(href='#{query}&pilot=#{pilotArray.join(",")}') #{pilot.key} (#{pilot.doc_count})
                           - else
-                            div
-                            -console.log('manananananana-'+pilot.doc_count)
-                            div
                             li.nav-item-active
                               a(href='#{query}') #{pilot.key} (#{pilot.doc_count})
                         -pilotArray.splice(indexPilot,0,encodeURIComponent(pilot.key));
