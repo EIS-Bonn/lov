@@ -179,7 +179,7 @@ exports.apiListPilots = function (req, res) {
 */
 exports.apiInfoPilot = function (req, res) {
   if (!(req.query.pilot!=null)) return res.send(500, "You must provide a value for 'pilot' parameter");
-  Pilot.loadFromNameURIAltURI(req.query.pilot, function (err, pilot) {
+  Pilot.loadFromName(req.query.pilot, function (err, pilot) {
     if (err) return res.send(500, err);
     //store log in DB
     var exists = (pilot)?1:0;

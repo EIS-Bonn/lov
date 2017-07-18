@@ -1,0 +1,4 @@
+{"_id":{"$oid":"5952787071239837040ec7ad"},"query":"How old is ssn?","date":{"$date":"2017-06-27T15:23:28.137Z"},"isQuestionProcessed":true,"isResultEmpty":false,"__v":0}
+{"_id":{"$oid":"5954a2aeb3cce82a063b7527"},"query":"What is ssn?","date":{"$date":"2017-06-29T06:48:14.874Z"},"isQuestionProcessed":true,"isResultEmpty":false,"__v":0}
+{"_id":{"$oid":"5954a3868207bc2aab6570a4"},"query":"What is ssn?","date":{"$date":"2017-06-29T06:51:50.880Z"},"isQuestionProcessed":true,"isResultEmpty":false,"__v":0}
+{"_id":{"$oid":"5954a4e5a87c1a2b7fc5a81d"},"query":"What is ssn?","date":{"$date":"2017-06-29T06:57:41.489Z"},"isQuestionProcessed":true,"isResultEmpty":false,"__v":0}

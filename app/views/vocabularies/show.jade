@@ -383,6 +383,12 @@ block content
               .transition().duration(200)
               .call(chart);
 
+         d3.selectAll(".nv-bar").on('click',
+          function(){
+            console.log("aaaaaaaaaaaaaaaa");
+            window.location.href = "/dataset/bdo/terms?&vocab=#{vocab.prefix}";
+           });
+
           nv.utils.windowResize(chart.update);
           return chart;
         });
