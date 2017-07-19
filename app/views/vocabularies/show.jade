@@ -385,8 +385,10 @@ block content
 
          d3.selectAll(".nv-bar").on('click',
           function(){
-            console.log("aaaaaaaaaaaaaaaa");
-            window.location.href = "/dataset/bdo/terms?&vocab=#{vocab.prefix}";
+            //trillos
+            var string = vocab.prefix;
+            var pref = string.toLowerCase();
+            window.location.href = "/dataset/bdo/terms?&vocab=#{pref}";
            });
 
           nv.utils.windowResize(chart.update);
