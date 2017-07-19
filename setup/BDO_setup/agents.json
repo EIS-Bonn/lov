@@ -7,3 +7,29 @@
 {"_id":{"$oid":"596e20e6c724d829e6acda42"},"type":"person","altUris":[],"name":"Markus Lanthaler","prefUri":"http://www.markus-lanthaler.com/","__v":0}
 {"_id":{"$oid":"596e2123c724d829e6acda43"},"type":"person","altUris":[],"name":"David Wood","prefUri":"http://about.me/david_wood","__v":0}
 {"_id":{"$oid":"596e21d1c724d829e6acda4a"},"type":"person","altUris":[],"name":"Dan Brickley","prefUri":"http://google.com/+DanBrickley","__v":0}
+{"_id":{"$oid":"596f224486fe821005ad1e32"},"type":"organization","altUris":[],"name":"W3C Semantic Sensor Network Incubator Group","prefUri":"http://www.w3.org/2005/Incubator/ssn/","__v":0}
+{"_id":{"$oid":"596f2690329658146c36e688"},"type":"organization","altUris":[],"name":"Dublin Core Metadata Initiative","prefUri":"http://purl.org/dc/aboutdcmi#DCMI","__v":0}
+{"_id":{"$oid":"596f27e8329658146c36e696"},"type":"organization","altUris":[],"name":"Creative Commons","prefUri":"http://dbpedia.org/resource/Creative_Commons","__v":0}
+{"_id":{"$oid":"596f288e329658146c36e69d"},"type":"person","altUris":[],"name":"Nicolas Seydoux","prefUri":"http://www.irit.fr/recherches/MELODI/ontologies/contributors#seydoux","__v":0}
+{"_id":{"$oid":"596f28b2329658146c36e69f"},"type":"person","altUris":[],"name":"Mahdi Ben Alaya","prefUri":"http://www.irit.fr/recherches/MELODI/ontologies/contributors#ben_alaya","__v":0}
+{"_id":{"$oid":"596f28cc329658146c36e6a0"},"type":"person","altUris":[],"name":"Nathalie Hernandez","prefUri":"http://www.irit.fr/recherches/MELODI/ontologies/contributors#hernandez","__v":0}
+{"_id":{"$oid":"596f28eb329658146c36e6a1"},"type":"person","altUris":[],"name":"Thierry Monteil","prefUri":"http://www.irit.fr/recherches/MELODI/ontologies/contributors#monteil","__v":0}
+{"_id":{"$oid":"596f2905329658146c36e6a2"},"type":"person","altUris":[],"name":"Khalil Drira","prefUri":"http://www.irit.fr/recherches/MELODI/ontologies/contributors#drira","__v":0}
+{"_id":{"$oid":"596f29d2329658146c36e6a9"},"type":"person","altUris":[],"name":"Maxime Lefrançois","prefUri":"http://maxime-lefrancois.info#me","__v":0}
+{"_id":{"$oid":"596f2b20329658146c36e6b0"},"type":"person","altUris":[],"name":"Laurent Lefort","prefUri":"http://google.com/+LaurentLefort","__v":0}
+{"_id":{"$oid":"596f2b39329658146c36e6b1"},"type":"person","altUris":[],"name":"Hans Peter de Koning","prefUri":"http://ontolog.cim3.net/cgi-bin/wiki.pl?HansPeter_De_Koning","__v":0}
+{"_id":{"$oid":"596f2b55329658146c36e6b2"},"type":"person","altUris":[],"name":"Nicolas Rouquette","prefUri":"http://ontolog.cim3.net/cgi-bin/wiki.pl?NicolasRouquette","__v":0}
+{"_id":{"$oid":"596f2b73329658146c36e6b3"},"type":"person","altUris":[],"name":"Roger Burkhart","prefUri":"http://ontolog.cim3.net/cgi-bin/wiki.pl?RogerBurkhart","__v":0}
+{"_id":{"$oid":"596f2b93329658146c36e6b4"},"type":"person","altUris":[],"name":"Huáscar Espinoza","prefUri":"http://www.informatik.uni-trier.de/~ley/pers/hd/e/Espinoza:Hu=aacute=scar","__v":0}
+{"_id":{"$oid":"596f2c2fa81f482484a72914"},"type":"person","altUris":[],"name":"Ian Davis","prefUri":"https://plus.google.com/114972661571648085271","__v":0}
+{"_id":{"$oid":"596f2d0859617525afd6a9cb"},"type":"person","altUris":[],"name":"Libby Miller","prefUri":"http://data.semanticweb.org/person/libby-miller","__v":0}
+{"_id":{"$oid":"596f33d059617525afd6a9d2"},"type":"organization","altUris":[],"name":"Google","prefUri":"http://dbpedia.org/resource/Google","__v":0}
+{"_id":{"$oid":"596f33e859617525afd6a9d3"},"type":"organization","altUris":[],"name":"Microsoft Corporation","prefUri":"http://dbpedia.org/resource/Microsoft","__v":0}
+{"_id":{"$oid":"596f33ff59617525afd6a9d4"},"type":"organization","altUris":[],"name":"Yahoo!, Inc.","prefUri":"http://dbpedia.org/resource/Yahoo!","__v":0}
+{"_id":{"$oid":"596f34c559617525afd6a9db"},"type":"organization","altUris":[],"name":"W3C","prefUri":"http://www.w3.org/data#W3C","__v":0}
+{"_id":{"$oid":"596f358809e3962bdfdcb80f"},"type":"person","altUris":[],"name":"Alistair Miles","prefUri":"http://purl.net/aliman","__v":0}
+{"_id":{"$oid":"596f359e09e3962bdfdcb810"},"type":"person","altUris":[],"name":"Sean Bechhofer","prefUri":"https://plus.google.com/117822622810723317855","__v":0}
+{"_id":{"$oid":"596f367709e3962bdfdcb817"},"type":"organization","altUris":[],"name":"W3C/OGC Spatial Data on the Web Working Group","prefUri":"https://www.w3.org/2015/spatial/","__v":0}
+{"_id":{"$oid":"596f36f309e3962bdfdcb81e"},"type":"person","altUris":[],"name":"Lise Rozat","prefUri":"http://data.semanticweb.org/person/lise-rozat","__v":0}
+{"_id":{"$oid":"596f370a09e3962bdfdcb81f"},"type":"person","altUris":[],"name":"Pierre-Yves Vandenbussche","prefUri":"http://google.com/+PierreYvesVandenbussche","__v":0}
+{"_id":{"$oid":"596f372609e3962bdfdcb820"},"type":"organization","altUris":[],"name":"OKFN","prefUri":"http://viaf.org/viaf/200830293","__v":0}
