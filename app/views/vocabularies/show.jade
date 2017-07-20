@@ -382,13 +382,10 @@ block content
               .datum(!{JSON.stringify(vocabElementsData)})
               .transition().duration(200)
               .call(chart);
-
-         d3.selectAll(".nv-bar").on('click',
-          function(){
-            //trillos
-            var string = vocab.prefix;
-            var pref = string.toLowerCase();
-            window.location.href = "/dataset/bdo/terms?&vocab=#{pref}";
+          //trillos
+          d3.selectAll(".nv-bar").on('click',
+            function(){
+              window.location.href = "/dataset/bdo/terms?&vocab=#{vocab.prefix.toLowerCase()}";
            });
 
           nv.utils.windowResize(chart.update);
