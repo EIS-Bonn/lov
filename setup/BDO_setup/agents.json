@@ -33,3 +33,14 @@
 {"_id":{"$oid":"596f36f309e3962bdfdcb81e"},"type":"person","altUris":[],"name":"Lise Rozat","prefUri":"http://data.semanticweb.org/person/lise-rozat","__v":0}
 {"_id":{"$oid":"596f370a09e3962bdfdcb81f"},"type":"person","altUris":[],"name":"Pierre-Yves Vandenbussche","prefUri":"http://google.com/+PierreYvesVandenbussche","__v":0}
 {"_id":{"$oid":"596f372609e3962bdfdcb820"},"type":"organization","altUris":[],"name":"OKFN","prefUri":"http://viaf.org/viaf/200830293","__v":0}
+{"_id":{"$oid":"59705a7815234416e906780f"},"type":"person","altUris":[],"name":"Jarmo Kalaoja","prefUri":"http://www.vtt.fi/JarmoKalaoja","__v":0}
+{"_id":{"$oid":"597061cf15234416e906787f"},"type":"person","altUris":[],"name":"Michael Hausenblas","prefUri":"http://vocab.deri.ie/void#Michael%20Hausenblas","__v":0}
+{"_id":{"$oid":"597061ed15234416e9067880"},"type":"person","altUris":[],"name":"Jun Zhao","prefUri":"http://vocab.deri.ie/void#junzha","__v":0}
+{"_id":{"$oid":"597061fc15234416e9067881"},"type":"person","altUris":[],"name":"Keith Alexander","prefUri":"http://vocab.deri.ie/void#keiale","__v":0}
+{"_id":{"$oid":"5970620d15234416e9067882"},"type":"person","altUris":[],"name":"Richard Cyganiak","prefUri":"http://vocab.deri.ie/void#cygri","__v":0}
+{"_id":{"$oid":"597062ca15234416e906788d"},"type":"person","altUris":[],"name":"Phil Archer","prefUri":"https://plus.google.com/103670676337547906055","__v":0}
+{"_id":{"$oid":"597062e015234416e906788e"},"type":"person","altUris":[],"name":"Fadi Maali","prefUri":"https://plus.google.com/112288617424467640490","__v":0}
+{"_id":{"$oid":"597062f615234416e906788f"},"type":"person","altUris":[],"name":"John Erickson","prefUri":"https://plus.google.com/116779670157680576942","__v":0}
+{"_id":{"$oid":"5970638e15234416e9067896"},"type":"person","altUris":[],"name":"Leigh Dodds","prefUri":"https://plus.google.com/115143058857561938604","__v":0}
+{"_id":{"$oid":"5970645d15234416e906789f"},"type":"person","altUris":[],"name":"Feng Pan","prefUri":"mailto:fengpan@microsoft.com","__v":0}
+{"_id":{"$oid":"5970647a15234416e90678a0"},"type":"person","altUris":[],"name":"Jerry R. Hobbs","prefUri":"mailto:hobbs@isi.edu","__v":0}

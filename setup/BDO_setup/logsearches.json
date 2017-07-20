@@ -502,3 +502,14 @@
 {"_id":{"$oid":"596f3aff84380436ccb676a5"},"searchURL":"/dataset/bdo/vocabs","date":{"$date":"2017-07-19T10:57:03.966Z"},"category":"vocabularySearch","method":"ui","nbResults":"23","__v":0}
 {"_id":{"$oid":"596f3b7c84380436ccb676a6"},"searchURL":"/dataset/bdo/vocabs","date":{"$date":"2017-07-19T10:59:08.884Z"},"category":"vocabularySearch","method":"ui","nbResults":"23","__v":0}
 {"_id":{"$oid":"596f3b9884380436ccb676a7"},"searchURL":"/dataset/bdo/vocabs","date":{"$date":"2017-07-19T10:59:36.391Z"},"category":"vocabularySearch","method":"ui","nbResults":"23","__v":0}
+{"_id":{"$oid":"59705de015234416e9067842"},"searchURL":"/dataset/bdo/vocabs","date":{"$date":"2017-07-20T07:38:08.200Z"},"category":"vocabularySearch","method":"ui","nbResults":"10","__v":0}
+{"_id":{"$oid":"59705ded15234416e9067843"},"searchURL":"/dataset/bdo/agents","date":{"$date":"2017-07-20T07:38:21.741Z"},"category":"agentSearch","method":"ui","nbResults":"36","__v":0}
+{"_id":{"$oid":"59705df515234416e9067844"},"searchURL":"/dataset/bdo/agents?\u0026page=2","date":{"$date":"2017-07-20T07:38:29.373Z"},"category":"agentSearch","method":"ui","nbResults":"36","__v":0}
+{"_id":{"$oid":"59705dfa15234416e9067845"},"searchURL":"/dataset/bdo/agents?\u0026page=3","date":{"$date":"2017-07-20T07:38:34.290Z"},"category":"agentSearch","method":"ui","nbResults":"36","__v":0}
+{"_id":{"$oid":"59705dff15234416e9067846"},"searchURL":"/dataset/bdo/agents?\u0026page=2","date":{"$date":"2017-07-20T07:38:39.132Z"},"category":"agentSearch","method":"ui","nbResults":"36","__v":0}
+{"_id":{"$oid":"59705e0415234416e9067847"},"searchURL":"/dataset/bdo/agents?\u0026page=1","date":{"$date":"2017-07-20T07:38:44.087Z"},"category":"agentSearch","method":"ui","nbResults":"36","__v":0}
+{"_id":{"$oid":"5970654215234416e90678a9"},"searchURL":"/dataset/bdo/vocabs","date":{"$date":"2017-07-20T08:09:38.792Z"},"category":"vocabularySearch","method":"ui","nbResults":"44","__v":0}
+{"_id":{"$oid":"5970664d15234416e90678aa"},"searchURL":"/dataset/bdo/terms?\u0026vocab=matr","date":{"$date":"2017-07-20T08:14:05.105Z"},"category":"termSearch","method":"ui","nbResults":"28","__v":0}
+{"_id":{"$oid":"5970664d15234416e90678ab"},"searchURL":"/dataset/bdo/terms?\u0026vocab=matr","date":{"$date":"2017-07-20T08:14:05.848Z"},"category":"termSearch","method":"ui","nbResults":"28","__v":0}
+{"_id":{"$oid":"5970665f15234416e90678ac"},"searchURL":"/dataset/bdo/terms?\u0026vocab=phenatmo","date":{"$date":"2017-07-20T08:14:23.468Z"},"category":"termSearch","method":"ui","nbResults":"30","__v":0}
+{"_id":{"$oid":"5970666c15234416e90678ad"},"searchURL":"/dataset/bdo/terms?\u0026vocab=san","date":{"$date":"2017-07-20T08:14:36.426Z"},"category":"termSearch","method":"ui","nbResults":"29","__v":0}
