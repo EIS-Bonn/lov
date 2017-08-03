@@ -328,7 +328,7 @@ exports.destroy = function(req, res){
   })
   //jtrillos
   //Call the scripts for updating the elasticsearch
-  scriptGenerator()
+  //scriptGenerator()
 }
 
 exports.create = function (req, res) {
@@ -411,7 +411,7 @@ exports.create = function (req, res) {
                             });*/
                             //jtrillos
                             //Call the scripts for updating the elasticsearch
-                            scriptGenerator();
+                            //scriptGenerator();
                             return res.send({redirect:'/dataset/bdo/vocabs/'+vocab.prefix})
                         });
                   });
