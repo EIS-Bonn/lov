@@ -476,6 +476,17 @@ margin-left: auto;
   float:left;
 }
 
+.editionTable textarea.textAreaUriDataset{
+  width:85%;
+  height: auto;
+  float:left;
+}
+.editionTable textarea.textAreaLabelDataset{
+  width:85%;
+  height: auto;
+  float:left;
+}
+
 .editionActionBar{
   padding-top:1em;
 }

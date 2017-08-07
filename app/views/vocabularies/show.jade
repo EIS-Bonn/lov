@@ -118,6 +118,11 @@ block content
                                   div(class='agentThumbInnerBody#{agent.type}')
                                     div.agentThumbName #{agent.name}
                                     div.agentThumbPrefUri #{agent.prefUri}
+                      //trillos
+                      if vocab.datasets && vocab.datasets.length>0
+                        tr
+                          td Datasets
+                          td !{utils.displayDatasets(vocab.datasets)}
                       if vocab.reviews && vocab.reviews.length>0
                         tr
                           td Comment
@@ -182,14 +187,13 @@ block content
                         li
                           a.tag(href='/dataset/bdo/vocabs?pilot='+encodeURIComponent(pilot)) #{pilot}
                 .clear
-                //h2 LOD
-                //.line
-                //.blabla 
-                  //span Vocabulary used in 
-                  //a(href='http://stats.lod2.eu/', target='_blank')
-                    b #{(vocab.datasets)?vocab.datasets.length: 0} datasets 
-                  //span 
-                //.clear
+                h2 LOD
+                .line
+                .blabla 
+                  span Vocabulary used in 
+                  b #{(vocab.datasets)?vocab.datasets.length: 0} datasets 
+                  span 
+                .clear
       section#post.postMediumDarkBlue
         h2(style="width:50%; float:left;" title="Vocabularies using #{vocab.prefix}. The relation type between a vocabulary and #{vocab.prefix} is indicated by the color.") #{inData.nodes?inData.nodes.length-1:0} Incoming Links
         h2(style="width:50%; float:left;" title="Vocabularies used by #{vocab.prefix}. The relation type between #{vocab.prefix} and a vocabulary is indicated by the color.")  #{outData.nodes?outData.nodes.length-1:0} Outgoing Links

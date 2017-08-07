@@ -82,6 +82,7 @@ var VocabularySchema = new Schema({
   datasets: [{
     uri: { type : String, trim : true },
     label: { type : String, ref : 'Agent' },
+    createdAt: { type : Date},
     occurrences: { type : String, trim : true}
   }],
   

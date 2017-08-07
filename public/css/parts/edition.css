@@ -247,7 +247,7 @@ li.inactive .editionInnerBox span {
 .fieldSuggestions .fieldSug .fieldSugLang{
   color:#426C6C;
 }
-.fieldWithLangAddAction, .fieldSugActionTextareaLangDescription, .fieldSugActionTextareaLangTitle, .fieldAgentAddAction, .fieldReviewAddAction, .fieldTagsAddAction, .fieldPilotsAddAction, .fieldSugActionAgentComplete{
+.fieldWithLangAddAction, .fieldSugActionTextareaLangDescription, .fieldSugActionTextareaLangTitle, .fieldAgentAddAction, .fieldDatasetAddAction, .fieldReviewAddAction, .fieldTagsAddAction, .fieldPilotsAddAction, .fieldSugActionAgentComplete{
   height:1em;
   width:1em;
   cursor:pointer;
@@ -336,6 +336,10 @@ li.inactive .editionInnerBox span {
 }
 
 .reviewProv{
+  color: #5E9B9B;
+  padding:.2em 0 .7em 1em;
+}
+.datasetProv{
   color: #5E9B9B;
   padding:.2em 0 .7em 1em;
 }

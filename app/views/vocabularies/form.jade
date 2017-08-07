@@ -29,7 +29,7 @@ block content
                 - if (!vocab.isNew)
                   input#testIfNew(type="hidden", name="_method", value="PUT")
                 - else
-                  input(type="hidden", name="createdInLOVAt", value="#{utils.dateToYMD(new Date())}")
+                  input(type="hidden", name="createdInBDOAt", value="#{utils.dateToYMD(new Date())}")
                 .metadataFrame
                   #formErrors
                   div(class='metadataContainerVocab')
@@ -292,6 +292,23 @@ block content
                                     span.tag #{tag}
                                     img.imageTagRemoveAction(src='/img/remove_white.png' onClick='this.parentNode.remove();')
                                     input(type='hidden' name='tags[]' value='#{tag}' )
+                        //trillos
+                        tr
+                          td Datasets
+                            img.fieldDatasetAddAction(src='/img/add_grey.png')
+                          td#datasetsTd(class='#{req.user.agent}')
+                            if(vocab.datasets)
+                              each dataset, i in vocab.datasets
+                                div
+                                  textarea.textAreaLabelDataset(name='datasets[#{i}].label' rows='2', placeholder='Label') #{dataset.label}
+                                  img.imageWithLangRemoveAction(src='/img/remove.png' onClick='this.parentNode.remove();')
+                                  textarea.textAreaUriDataset(name='datasets[#{i}].uri' rows='2', placeholder='URI') #{dataset.uri}
+                                  div.clear.datasetProv
+                                    span On 
+                                    span #{utils.dateToYMD(dataset.createdAt)}
+                                  input(type='hidden' name='datasets[#{i}].uri' value='#{dataset.uri}' )
+                                  input(type='hidden' name='datasets[#{i}].label' value='#{dataset.label}' )
+                                  input(type='hidden' name='datasets[#{i}].createdAt' value='#{utils.dateToYMD(dataset.createdAt)}' )
                         tr
                           td Reviews
                             img.fieldReviewAddAction(src='/img/add_grey.png')
@@ -470,6 +487,63 @@ block content
             document.getElementById(divName).appendChild(newdiv);
             document.getElementById('cptOverall').value = cptVal;
         }
+        //trillos
+        function addDataset(divName,dataArray,langArray,value,lang){
+          var cptVal = document.getElementById('cptOverall').value;
+          cptVal++;
+          var today = new Date();
+          var d = today.getDate();
+          var m = today.getMonth()+1;
+          var y = today.getFullYear();
+          var currentUserId = document.getElementById('reviewsTd').className;
+          
+            var newdiv = document.createElement('div');
+              var textarea = document.createElement("textarea");
+              textarea.className  = 'textAreaLabelDataset';
+              textarea.name ='datasets['+cptVal+'].label';
+              textarea.rows = '1';
+              textarea.value= value;
+              textarea.placeholder= 'Label';
+            newdiv.appendChild(textarea);
+              var image = document.createElement("img");
+              image.className ='imageWithLangRemoveAction';
+              image.src='/img/remove.png';
+              image.addEventListener('click', function(){ this.parentNode.remove();}, false);
+            newdiv.appendChild(image);
+              var textarea2 = document.createElement("textarea");
+              textarea2.className  = 'textAreaUrilDataset';
+              textarea2.name ='datasets['+cptVal+'].uri';
+              textarea2.rows = '1';
+              textarea2.innerHTML= value; 
+              textarea2.placeholder= 'URI';            
+            newdiv.appendChild(textarea2);  
+              var agentDate = document.createElement('div');
+              agentDate.className  = 'clear datasetProv';
+                var span1 = document.createElement('span');
+                span1.innerHTML= ' On ';
+              agentDate.appendChild(span1);
+                var span2 = document.createElement('span');
+                span2.innerHTML= y + '-' + (m<=9 ? '0' + m : m) + '-' + (d <= 9 ? '0' + d : d);
+              agentDate.appendChild(span2);
+            newdiv.appendChild(agentDate);
+                var label = document.createElement('input');
+                label.type  = 'hidden';
+                label.name= 'datasets['+cptVal+'].label';    
+                label.value= textarea; 
+            newdiv.appendChild(label);
+                var uri = document.createElement('input');
+                uri.type  = 'hidden';
+                uri.name= 'datasets['+cptVal+'].uri';    
+                uri.value= textarea2; 
+            newdiv.appendChild(uri);
+                var created = document.createElement('input');
+                created.type  = 'hidden';
+                created.name= 'datasets['+cptVal+'].createdAt';    
+                created.value= y + '-' + (m<=9 ? '0' + m : m) + '-' + (d <= 9 ? '0' + d : d); 
+            newdiv.appendChild(created);            
+            document.getElementById(divName).appendChild(newdiv);
+            document.getElementById('cptOverall').value = cptVal;
+        }
         function addTextareaLang(divName,dataArray,value,lang){
             var cptVal = document.getElementById('cptOverall').value;
             cptVal++;
@@ -618,7 +692,7 @@ block content
                  },
                  success: function(data) {
                     if(data.count>0){
-                      document.getElementById('formErrors').innerHTML ='Prefix '+formData.prefix+' is already used in LOV';
+                      document.getElementById('formErrors').innerHTML ='Prefix '+formData.prefix+' is already used in BDO';
                       document.getElementById('formErrors').style.display = "block";
                       window.scrollTo(0, 0);
                     }
@@ -675,6 +749,10 @@ block content
         
         $('.fieldReviewAddAction').click(function() {  //on click 
             addReview('reviewsTd','titles','titlesLangs','','');
+        });
+        //trillos
+        $('.fieldDatasetAddAction').click(function() {  //on click 
+            addDataset('datasetsTd','titles','titlesLangs','','');
         });
         $('.fieldWithLangAddActionTitle').click(function() {  //on click 
           addTextareaLang('titlesTd','titles','','');
