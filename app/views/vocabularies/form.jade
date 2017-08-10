@@ -302,7 +302,7 @@ block content
                                 div
                                   input#inputDatasetLabel(type='text' name="datasets[#{i}].label" value='#{dataset.label}' placeholder='Label')
                                   img.imageWithLangRemoveAction(src='/img/remove.png' onClick='this.parentNode.remove();')
-                                  input#inputDatasetUri(type='text' name="datasets[#{i}].uri" value='#{dataset.uri}' placeholder='URI')
+                                  input#inputDatasetUri(type='text' name="datasets[#{i}].uri" value='#{dataset.uri}' placeholder='URI' required)
                                   div.clear.datasetProv
                                     span On 
                                     span #{utils.dateToYMD(dataset.createdAt)}
@@ -493,53 +493,63 @@ block content
           var d = today.getDate();
           var m = today.getMonth()+1;
           var y = today.getFullYear();
-          var currentUserId = document.getElementById('reviewsTd').className;
+          var currentUserId = document.getElementById('datasetsTd').className;
           
             var newdiv = document.createElement('div');
-              var label = document.createElement("input");
-              label.name ='datasets['+cptVal+'].label';
-              label.type ='text';
-              label.value= value;
-              label.placeholder= 'Name of the Dataset';
-            newdiv.appendChild(label);
+              var input = document.createElement('input');
+              input.className  = 'inputDatasetLabel';
+              input.name ='datasets['+cptVal+'].label';
+              input.type = 'text';
+              input.placeholder="Name of the Dataset";
+              input.innerHTML= value;
+            newdiv.appendChild(input);
               var image = document.createElement("img");
               image.className ='imageWithLangRemoveAction';
               image.src='/img/remove.png';
               image.addEventListener('click', function(){ this.parentNode.remove();}, false);
             newdiv.appendChild(image);
-              var uriDataset = document.createElement("input");
-              uriDataset.name ='datasets['+cptVal+'].uri';
-              uriDataset.type ='text';
-              uriDataset.value= value; 
-              uriDataset.placeholder= 'URI';            
-            newdiv.appendChild(uriDataset);  
+              var input2 = document.createElement('input');
+              input2.className  = 'inputDatasetUri';
+              input2.name ='datasets['+cptVal+'].uri';
+              input2.type = 'text';
+              input2.placeholder="URI";
+              input2.innerHTML= value;
+              input2.required = true;
+            newdiv.appendChild(input2);
               var agentDate = document.createElement('div');
               agentDate.className  = 'clear datasetProv';
                 var span1 = document.createElement('span');
-                span1.innerHTML= ' On ';
+                span1.innerHTML= 'By ';
               agentDate.appendChild(span1);
                 var span2 = document.createElement('span');
-                span2.innerHTML= y + '-' + (m<=9 ? '0' + m : m) + '-' + (d <= 9 ? '0' + d : d);
+                span2.innerHTML= 'Me';
               agentDate.appendChild(span2);
+                var span3 = document.createElement('span');
+                span3.innerHTML= ' on ';
+              agentDate.appendChild(span3);
+                var span4 = document.createElement('span');
+                span4.innerHTML= y + '-' + (m<=9 ? '0' + m : m) + '-' + (d <= 9 ? '0' + d : d);
+              agentDate.appendChild(span4);
             newdiv.appendChild(agentDate);
                 var label = document.createElement('input');
                 label.type  = 'hidden';
-                label.name = 'datasets['+cptVal+'].label';    
-                label.value = label; 
+                label.name= 'datasets['+cptVal+'].label';    
+                label.value= input.value; 
             newdiv.appendChild(label);
-                var uri = document.createElement('input');
+              var uri = document.createElement('input');
                 uri.type  = 'hidden';
                 uri.name= 'datasets['+cptVal+'].uri';    
-                uri.value= uriDataset; 
+                uri.value= input2.value; 
             newdiv.appendChild(uri);
                 var created = document.createElement('input');
                 created.type  = 'hidden';
-                created.name = 'datasets['+cptVal+'].createdAt';    
-                created.value = y + '-' + (m<=9 ? '0' + m : m) + '-' + (d <= 9 ? '0' + d : d); 
+                created.name= 'datasets['+cptVal+'].createdAt';    
+                created.value= y + '-' + (m<=9 ? '0' + m : m) + '-' + (d <= 9 ? '0' + d : d); 
             newdiv.appendChild(created);            
             document.getElementById(divName).appendChild(newdiv);
             document.getElementById('cptOverall').value = cptVal;
         }
+
         function addTextareaLang(divName,dataArray,value,lang){
             var cptVal = document.getElementById('cptOverall').value;
             cptVal++;
@@ -637,13 +647,13 @@ block content
           //test if Namespace is present
           if(!formData.nsp || !ValidUrl(formData.nsp)) formErrors+='The Namespace is required and must be a valid URI<br>';
           //test if Dataset URI is present
-          if(formData.datasets){
-            var ispresent = false;
-            for (i = 0; formData.datasets.length > i; i += 1) {
-              var datasetUri = formData.datasets[i];
-                if(!datasetUri.uri || !ValidUrl(datasetUri.uri)) formErrors+='The Dataset URI is required and must be a valid URI<br>';
-            }
-          }
+          //if(formData.datasets){
+          //  var ispresent = false;
+          //  for (i = 0; formData.datasets.length > i; i += 1) {
+          //    var datasetUri = formData.datasets[i];
+          //      if(!datasetUri.uri || !ValidUrl(datasetUri.uri)) formErrors+='The Dataset URI is required and must be a valid URI<br>';
+          //  }
+          //}
           //test if prefix is present 
           if(!formData.prefix)  formErrors+='The Prefix is required<br>';
           //test at least one title in English
