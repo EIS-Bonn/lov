@@ -300,14 +300,12 @@ block content
                             if(vocab.datasets)
                               each dataset, i in vocab.datasets
                                 div
-                                  textarea.textAreaLabelDataset(name='datasets[#{i}].label' rows='2', placeholder='Label') #{dataset.label}
+                                  input#inputDatasetLabel(type='text' name="datasets[#{i}].label" value='#{dataset.label}' placeholder='Label')
                                   img.imageWithLangRemoveAction(src='/img/remove.png' onClick='this.parentNode.remove();')
-                                  textarea.textAreaUriDataset(name='datasets[#{i}].uri' rows='2', placeholder='URI') #{dataset.uri}
+                                  input#inputDatasetUri(type='text' name="datasets[#{i}].uri" value='#{dataset.uri}' placeholder='URI')
                                   div.clear.datasetProv
                                     span On 
                                     span #{utils.dateToYMD(dataset.createdAt)}
-                                  input(type='hidden' name='datasets[#{i}].uri' value='#{dataset.uri}' )
-                                  input(type='hidden' name='datasets[#{i}].label' value='#{dataset.label}' )
                                   input(type='hidden' name='datasets[#{i}].createdAt' value='#{utils.dateToYMD(dataset.createdAt)}' )
                         tr
                           td Reviews
@@ -498,25 +496,23 @@ block content
           var currentUserId = document.getElementById('reviewsTd').className;
           
             var newdiv = document.createElement('div');
-              var textarea = document.createElement("textarea");
-              textarea.className  = 'textAreaLabelDataset';
-              textarea.name ='datasets['+cptVal+'].label';
-              textarea.rows = '1';
-              textarea.value= value;
-              textarea.placeholder= 'Label';
-            newdiv.appendChild(textarea);
+              var label = document.createElement("input");
+              label.name ='datasets['+cptVal+'].label';
+              label.type ='text';
+              label.value= value;
+              label.placeholder= 'Name of the Dataset';
+            newdiv.appendChild(label);
               var image = document.createElement("img");
               image.className ='imageWithLangRemoveAction';
               image.src='/img/remove.png';
               image.addEventListener('click', function(){ this.parentNode.remove();}, false);
             newdiv.appendChild(image);
-              var textarea2 = document.createElement("textarea");
-              textarea2.className  = 'textAreaUrilDataset';
-              textarea2.name ='datasets['+cptVal+'].uri';
-              textarea2.rows = '1';
-              textarea2.innerHTML= value; 
-              textarea2.placeholder= 'URI';            
-            newdiv.appendChild(textarea2);  
+              var uriDataset = document.createElement("input");
+              uriDataset.name ='datasets['+cptVal+'].uri';
+              uriDataset.type ='text';
+              uriDataset.value= value; 
+              uriDataset.placeholder= 'URI';            
+            newdiv.appendChild(uriDataset);  
               var agentDate = document.createElement('div');
               agentDate.className  = 'clear datasetProv';
                 var span1 = document.createElement('span');
@@ -528,18 +524,18 @@ block content
             newdiv.appendChild(agentDate);
                 var label = document.createElement('input');
                 label.type  = 'hidden';
-                label.name= 'datasets['+cptVal+'].label';    
-                label.value= textarea; 
+                label.name = 'datasets['+cptVal+'].label';    
+                label.value = label; 
             newdiv.appendChild(label);
                 var uri = document.createElement('input');
                 uri.type  = 'hidden';
                 uri.name= 'datasets['+cptVal+'].uri';    
-                uri.value= textarea2; 
+                uri.value= uriDataset; 
             newdiv.appendChild(uri);
                 var created = document.createElement('input');
                 created.type  = 'hidden';
-                created.name= 'datasets['+cptVal+'].createdAt';    
-                created.value= y + '-' + (m<=9 ? '0' + m : m) + '-' + (d <= 9 ? '0' + d : d); 
+                created.name = 'datasets['+cptVal+'].createdAt';    
+                created.value = y + '-' + (m<=9 ? '0' + m : m) + '-' + (d <= 9 ? '0' + d : d); 
             newdiv.appendChild(created);            
             document.getElementById(divName).appendChild(newdiv);
             document.getElementById('cptOverall').value = cptVal;
@@ -638,8 +634,10 @@ block content
           
           //test if URI is present
           if(!formData.uri || !ValidUrl(formData.uri)) formErrors+='The URI is required and must be a valid URI<br>';
-          //test if Namepsace is present
+          //test if Namespace is present
           if(!formData.nsp || !ValidUrl(formData.nsp)) formErrors+='The Namespace is required and must be a valid URI<br>';
+          //test if Dataset URI is present
+          if(!formData.datasets[0].uri || !ValidUrl(formData.datasets[0].uri)) formErrors+='The Dataset URI is required and must be a valid URI<br>';
           //test if prefix is present 
           if(!formData.prefix)  formErrors+='The Prefix is required<br>';
           //test at least one title in English
