@@ -646,14 +646,15 @@ block content
           if(!formData.uri || !ValidUrl(formData.uri)) formErrors+='The URI is required and must be a valid URI<br>';
           //test if Namespace is present
           if(!formData.nsp || !ValidUrl(formData.nsp)) formErrors+='The Namespace is required and must be a valid URI<br>';
+          //trillos (Does not work)
           //test if Dataset URI is present
-          //if(formData.datasets){
-          //  var ispresent = false;
-          //  for (i = 0; formData.datasets.length > i; i += 1) {
-          //    var datasetUri = formData.datasets[i];
-          //      if(!datasetUri.uri || !ValidUrl(datasetUri.uri)) formErrors+='The Dataset URI is required and must be a valid URI<br>';
-          //  }
-          //}
+          /*if(formData.datasets){
+            var ispresent = false;
+            for (i = 0; formData.datasets.length > i; i += 1) {
+              var datasetUri = formData.datasets[i];
+                if(!datasetUri.uri || !ValidUrl(datasetUri.uri)) formErrors+='The Dataset URI is required and must be a valid URI<br>';
+            }
+          }*/
           //test if prefix is present 
           if(!formData.prefix)  formErrors+='The Prefix is required<br>';
           //test at least one title in English
