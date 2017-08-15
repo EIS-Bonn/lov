@@ -627,6 +627,16 @@ block content
             return true;
           }
         }
+
+        //trillos
+        function ValidAlphabetic(str)  {  
+          var letters = /^[A-Za-z]+$/;  
+          if(!str.match(letters)) {  
+            return false;  
+          } else {  
+            return true;  
+          }  
+        }  
         
         function test(){
           var formData = form2js('TheForm', '.', true,
@@ -656,7 +666,7 @@ block content
             }
           }*/
           //test if prefix is present 
-          if(!formData.prefix)  formErrors+='The Prefix is required<br>';
+          if(!formData.prefix || !ValidAlphabetic(formData.prefix))  formErrors+='The Prefix is required and must be only alphabetic characters<br>';
           //test at least one title in English
           if(formData.titles){
             var ispresent = false;
