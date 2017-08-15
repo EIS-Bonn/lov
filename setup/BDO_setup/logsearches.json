@@ -566,3 +566,7 @@
 {"_id":{"$oid":"5991c3d99b56ba3ff7069bd6"},"searchWords":"seas","searchURL":"/dataset/bdo/terms?q=seas","date":{"$date":"2017-08-14T15:38:01.346Z"},"category":"termSearch","method":"ui","nbResults":"54","__v":0}
 {"_id":{"$oid":"5991c3e89b56ba3ff7069bd7"},"searchWords":"seas","searchURL":"/dataset/bdo/terms?q=seas\u0026page=6","date":{"$date":"2017-08-14T15:38:16.825Z"},"category":"termSearch","method":"ui","nbResults":"54","__v":0}
 {"_id":{"$oid":"5991c3fd9b56ba3ff7069bd8"},"searchURL":"/dataset/bdo/terms?\u0026vocab=seaseval","date":{"$date":"2017-08-14T15:38:37.053Z"},"category":"termSearch","method":"ui","nbResults":"13","__v":0}
+{"_id":{"$oid":"5991c6c447747753c606a9ad"},"searchURL":"/dataset/bdo/terms","date":{"$date":"2017-08-14T15:50:28.741Z"},"category":"termSearch","method":"ui","nbResults":"2620","__v":0}
+{"_id":{"$oid":"5991c6c847747753c606a9ae"},"searchURL":"/dataset/bdo/pilots","date":{"$date":"2017-08-14T15:50:32.580Z"},"category":"pilotSearch","method":"ui","nbResults":"4","__v":0}
+{"_id":{"$oid":"5991c71247747753c606a9af"},"searchURL":"/dataset/bdo/vocabs","date":{"$date":"2017-08-14T15:51:46.513Z"},"category":"vocabularySearch","method":"ui","nbResults":"44","__v":0}
+{"_id":{"$oid":"5992e0bf043c9918496b8a10"},"searchURL":"/dataset/bdo/vocabs","date":{"$date":"2017-08-15T11:53:35.042Z"},"category":"vocabularySearch","method":"ui","nbResults":"44","__v":0}
