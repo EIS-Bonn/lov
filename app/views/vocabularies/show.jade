@@ -80,11 +80,13 @@ block content
                           //td !{utils.valueLangDisplay(lastVersion.languageIds,'label','iso639P3PCode','/dataset/bdo/languages/')}
                           td
                             each lang in lastVersion.languageIds
-                              a(href='/dataset/bdo/languages/#{lang.iso639P3PCode}')
-                                div.AgentThumb
-                                  div(class='agentThumbInnerBodylanguage')
-                                    div.agentThumbName #{lang.label}
-                                    div.agentThumbPrefUri #{lang.iso639P1Code}
+                              if lang 
+                                a(href='/dataset/bdo/languages/#{lang.iso639P3PCode}')
+                                  div.AgentThumb
+                                    div(class='agentThumbInnerBodylanguage')
+                                      div.agentThumbName #{lang.label}
+                                      div.agentThumbPrefUri #{lang.iso639P1Code}
+                              
                       if vocab.creatorIds && vocab.creatorIds.length>0
                         tr
                           td Creator

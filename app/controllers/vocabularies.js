@@ -378,7 +378,10 @@ exports.create = function (req, res) {
           var target_path = './versions/'+vocab._id+'/' +vocab._id+'_'+ issuedStr+'.n3' //req.files.file.name;
           // move the file from the temporary location to the intended location
           fs.rename(stdout, target_path, function(err) {
-              if (err) throw err;
+              //if (err) throw err;
+              if (err) {
+                return res.send({redirect:'/dataset/bdo/vocabs/'+vocab.prefix})
+              }
               // delete the temporary file, so that the explicitly set temporary upload dir does not get filled with unwanted files
               fs.unlink(stdout, function() {
                   if (err) throw err;
