@@ -31,7 +31,7 @@ block content
               script.
                 var yasqe = YASQE(document.getElementById('yasqe'), {
                   sparql: {
-                    endpoint: 'http://localhost:3030/bigdataocean/sparql',
+                    endpoint: 'http://212.101.173.34:3030/bigdataocean/sparql',
                     showQueryButton: true
                     },
                     value: 'PREFIX vann:<http://purl.org/vocab/vann/>\n\PREFIX voaf:<http://purl.org/vocommons/voaf#>\n\ \n\### Vocabularies contained in BigDataOcean and their prefix\n\SELECT DISTINCT ?vocabPrefix ?vocabURI {\n\ \tGRAPH <http://localhost:3333/dataset/bdo>{\n\ \t \t?vocabURI a voaf:Vocabulary.\n\ \t \t?vocabURI vann:preferredNamespacePrefix ?vocabPrefix.\n\}} ORDER BY ?vocabPrefix'
