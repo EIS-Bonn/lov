@@ -104,3 +104,17 @@ Running BigDataOcean Repository
 		b. cd Documents/BigDataOcean/lov
 		npm start
 	4. Go to google chrome and http://localhost:3333/dataset/bdo
+
+NOTE:
+In order to work with the new web server, we change some information:
+	1. LovScripts: 
+		- LovConstants.java line 19, 41 we change localhost to 212.101.173.34
+		- lov.config line 8
+
+	2. Lov:
+		- views/api.jade all the line that contain localhost we change it to 212.101.173.34
+		- views/endpoint/index.jade line 34
+		- config/configPath.js line 9
+		- config/routes.js line 259
+		- setup/BDO_setup/vocabularies.json in each line that has localhost was changed to 212.101.173.34
+		- in order to see the changes in fuseki, we run the mongo2rdf bash to create .n3 and .nq that are save in the public/bdo.zip

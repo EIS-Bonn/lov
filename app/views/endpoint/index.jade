@@ -34,7 +34,7 @@ block content
                     endpoint: 'http://212.101.173.34:3030/bigdataocean/sparql',
                     showQueryButton: true
                     },
-                    value: 'PREFIX vann:<http://purl.org/vocab/vann/>\n\PREFIX voaf:<http://purl.org/vocommons/voaf#>\n\ \n\### Vocabularies contained in BigDataOcean and their prefix\n\SELECT DISTINCT ?vocabPrefix ?vocabURI {\n\ \tGRAPH <http://localhost:3333/dataset/bdo>{\n\ \t \t?vocabURI a voaf:Vocabulary.\n\ \t \t?vocabURI vann:preferredNamespacePrefix ?vocabPrefix.\n\}} ORDER BY ?vocabPrefix'
+                    value: 'PREFIX vann:<http://purl.org/vocab/vann/>\n\PREFIX voaf:<http://purl.org/vocommons/voaf#>\n\ \n\### Vocabularies contained in BigDataOcean and their prefix\n\SELECT DISTINCT ?vocabPrefix ?vocabURI {\n\ \t \t?vocabURI a voaf:Vocabulary.\n\ \t \t?vocabURI vann:preferredNamespacePrefix ?vocabPrefix.\n\} ORDER BY ?vocabPrefix'
                 });
                 var yasr = YASR(document.getElementById("yasr"), {
                   //this way, the URLs in the results are prettified using the defined prefixes in the query

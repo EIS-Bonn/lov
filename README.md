@@ -1,6 +1,6 @@
 # Linked Open Vocabularies (LOV) - frontEnd
 
-This is the [BigDataOcean Metadata Repository (based on LOV)](https://github.com/EIS-Bonn/BigDataOcean-LOV). LOV provides a choice of several hundreds of such vocabularies, based on quality requirements including URI stability and availability on the Web, use of standard formats and publication best practices, quality metadata and documentation, identifiable and trustable publication body, proper versioning policy.
+This is the [BigDataOcean Metadata Docker Repository (based on LOV)](https://github.com/EIS-Bonn/BigDataOcean-LOV) and this is the [BigDataOcean Metadata Repository web page](http://212.101.173.34:3333/dataset/bdo/). LOV provides a choice of several hundreds of such vocabularies, based on quality requirements including URI stability and availability on the Web, use of standard formats and publication best practices, quality metadata and documentation, identifiable and trustable publication body, proper versioning policy.
 
 LOV uses [lovScripts](https://github.com/EIS-Bonn/lovScripts) for backoffice scripts such as the aggregator and other scripts.
 
@@ -30,9 +30,9 @@ For that use the files in the folder /setup
 
 Then visit [http://localhost:3000/](http://localhost:3000/)
 ```
-  $ mongoimport -d lov -c agents --file .\agents.json
-  $ mongoimport -d lov -c languages --file .\languages.json
-  $ mongoimport -d lov -c stattags --file .\stattags.json
+  $ mongoimport -d bdo -c agents --file .\agents.json
+  $ mongoimport -d bdo -c languages --file .\languages.json
+  $ mongoimport -d bdo -c stattags --file .\stattags.json
 ```
 
 ## Directory structure
@@ -47,9 +47,11 @@ Then visit [http://localhost:3000/](http://localhost:3000/)
   |__config.js
   |__passport.js (auth config)
   |__express.js (express.js configs)
+  |__configPath.js (some global variables configs)
   |__middlewares/ (custom middlewares)
 -lib/
 -public/
+-setup/
 ```
 
 ## License

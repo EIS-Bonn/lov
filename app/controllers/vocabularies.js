@@ -578,22 +578,5 @@ function scriptGenerator() {
     }
   });
 
-  /*var commandFuseki2 = globalPath+"/apache-jena-fuseki-2.6.0/bin/s-put http://localhost:3030/bigdataocean/data default "+globalPath+"/lov/public/lov.n3";
-  var execFuseki2 = require('child_process').exec;
-  child = execFuseki2(commandFuseki2, function (errorFuseki2, stdoutFuseki2, stderrFuseki2) {
-    if(errorFuseki2 !== null){
-      console.log('exec errorFuseki2: ' + errorFuseki2);
-    }else{
-      console.log('ENTREEE OTRA VEZ');
-      var commandFuseki3 = globalPath+"/apache-jena-fuseki-2.6.0/bin/s-put http://localhost:3030/bigdataocean/data default "+globalPath+"/lov/public/lov.nq";
-      var execFuseki3 = require('child_process').exec;
-      child = execFuseki3(commandFuseki3, function (errorFuseki3, stdoutFuseki3, stderrFuseki3) {
-        if(errorFuseki3 !== null){
-          console.log('exec errorFuseki3: ' + errorFuseki3);
-        }
-      });
-    }
-  });*/
-
   return true;
 }

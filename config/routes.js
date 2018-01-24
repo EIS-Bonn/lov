@@ -256,7 +256,7 @@ module.exports = function (app, passport,esclient, elasticsearchClient, emailTra
     if(namedGraphUri)path+='&named-graph-uri='+ encodeURIComponent(namedGraphUri);
     delete headers['content-length'];
     delete headers['cookie'];
-    var options = {hostname: 'localhost',port: 3030,path: path, headers: headers};
+    var options = {hostname: '212.101.173.34',port: 3030,path: path, headers: headers};
     //console.log('OPTIONS: '+JSON.stringify(options));
     http.get(options, function(response) {
         var bodyChunks = [];
