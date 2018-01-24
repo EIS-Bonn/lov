@@ -118,3 +118,8 @@ In order to work with the new web server, we change some information:
 		- config/routes.js line 259
 		- setup/BDO_setup/vocabularies.json in each line that has localhost was changed to 212.101.173.34
 		- in order to see the changes in fuseki, we run the mongo2rdf bash to create .n3 and .nq that are save in the public/bdo.zip
+
+	3. Q&A:
+		- src/webapp/main.py line 15
+		- src/webapp/lov/printHandlers.py in each line that has localhost was changed to 212.101.173.34
+		- src/webapp/lov/settings.py line 35
