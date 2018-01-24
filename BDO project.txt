@@ -109,7 +109,7 @@ NOTE:
 In order to work with the new web server, we change some information:
 	1. LovScripts: 
 		- LovConstants.java line 19, 41 we change localhost to 212.101.173.34
-		- lov.config line 8
+		- lov.config line 8, 9
 
 	2. Lov:
 		- views/api.jade all the line that contain localhost we change it to 212.101.173.34
