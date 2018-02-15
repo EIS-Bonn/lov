@@ -38,7 +38,11 @@ var env = process.env.NODE_ENV || 'development'
 process.env.TZ = 'Europe/London';
 
 // Bootstrap db connection
-mongoose.connect(config.db)
+var options_mongo = {
+  server: { socketOptions: {keepAlive: 1, connectTimeoutMS: 30000}},
+  replset: { socketOptions: {keepAlive: 1, connectTimeoutMS: 30000}}
+}
+mongoose.connect(config.db, options);
 
 // Bootstrap ElasticSearch Connection
 var esclient = new ElasticSearchClient(config.es);
