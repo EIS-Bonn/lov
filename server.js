@@ -42,7 +42,7 @@ var options_mongo = {
   server: { socketOptions: {keepAlive: 1, connectTimeoutMS: 30000}},
   replset: { socketOptions: {keepAlive: 1, connectTimeoutMS: 30000}}
 }
-mongoose.connect(config.db, options);
+mongoose.connect(config.db, options_mongo);
 
 // Bootstrap ElasticSearch Connection
 var esclient = new ElasticSearchClient(config.es);
