@@ -66,7 +66,7 @@ block content
                           td.paramType  int
                           td.paramDesc Number of elements to display in the tag facet (default: 10).
                     .apiExample For example, using the BigDataOcean Search Term API, your app can search for all classes with the term "Person" in any litteral value: 
-                      a(href="/dataset/bdo/api/v2/term/search?q=Person&type=class", target="_blank") http://212.101.173.34:3333/dataset/lov/api/v2/term/search?q=Person&type=class
+                      a(href="/dataset/bdo/api/v2/term/search?q=Person&type=class", target="_blank") http://212.101.173.21:3333/dataset/lov/api/v2/term/search?q=Person&type=class
               li.apiOperation#autocompleteTermv2
                 .apiOperationHeading
                   h2
@@ -96,7 +96,7 @@ block content
                           td.paramType int 
                           td.paramDesc Maximum number of results to return per page (default: 10).
                     .apiExample For example, using the Autocomplete Term API, your app can search for all classes with terms URI or Prefixed URI begining with "foaf:": 
-                      a(href="/dataset/bdo/api/v2/term/autocomplete?q=foaf:p&type=class", target="_blank") http://212.101.173.34:3333/dataset/lov/api/v2/term/autocomplete?q=foaf:p&type=class
+                      a(href="/dataset/bdo/api/v2/term/autocomplete?q=foaf:p&type=class", target="_blank") http://212.101.173.21:3333/dataset/lov/api/v2/term/autocomplete?q=foaf:p&type=class
                  
               li.apiOperation#suggestTermsv2
                 .apiOperationHeading
@@ -127,7 +127,7 @@ block content
                           td.paramType int 
                           td.paramDesc Maximum number of results to return per page (default: 10).
                     .apiExample For example, using the Suggest Term API, your app can get suggestion of misspelled query terms such as "preson": 
-                      a(href="/dataset/bdo/api/v2/term/suggest?q=preson", target="_blank") http://212.101.173.34:3333/dataset/lov/api/v2/term/suggest?q=preson
+                      a(href="/dataset/bdo/api/v2/term/suggest?q=preson", target="_blank") http://212.101.173.21:3333/dataset/lov/api/v2/term/suggest?q=preson
           
           article.wrplGreen(style="width:100%;")
             .apiGroupName Vocabulary
@@ -153,7 +153,7 @@ block content
                           td.paramType -
                           td.paramDesc -
                     .apiExample For example, using the List Vocab API, your app can list all vocabularies in BigDataOcean: 
-                      a(href="/dataset/bdo/api/v2/vocabulary/list", target="_blank") http://212.101.173.34:3333/dataset/lov/api/v2/vocabulary/list
+                      a(href="/dataset/bdo/api/v2/vocabulary/list", target="_blank") http://212.101.173.21:3333/dataset/lov/api/v2/vocabulary/list
               li.apiOperation#searchVocabsv2
                 .apiOperationHeading
                   h2
@@ -207,7 +207,7 @@ block content
                           td.paramType  int
                           td.paramDesc Number of elements to display in the pilot facet (default: 10).
                     .apiExample For example, using the BigDataOcean Search Vocab API, your app can search for all vocabulary in English matching the term "Time": 
-                      a(href="/dataset/bdo/api/v2/vocabulary/search?q=time&lang=English", target="_blank") http://212.101.173.34:3333/dataset/lov/api/v2/vocabulary/search?q=time&lang=English
+                      a(href="/dataset/bdo/api/v2/vocabulary/search?q=time&lang=English", target="_blank") http://212.101.173.21:3333/dataset/lov/api/v2/vocabulary/search?q=time&lang=English
               li.apiOperation#autocompleteVocabsv2
                 .apiOperationHeading
                   h2
@@ -233,7 +233,7 @@ block content
                           td.paramType int 
                           td.paramDesc Maximum number of results to return per page (default: 10).
                     .apiExample For example, using the Autocomplete Vocab API, your app can search for all vocabularies with URI or Prefix begining with "geo": 
-                      a(href="/dataset/bdo/api/v2/vocabulary/autocomplete?q=geo", target="_blank") http://212.101.173.34:3333/dataset/lov/api/v2/vocabulary/autocomplete?q=geo
+                      a(href="/dataset/bdo/api/v2/vocabulary/autocomplete?q=geo", target="_blank") http://212.101.173.21:3333/dataset/lov/api/v2/vocabulary/autocomplete?q=geo
               li.apiOperation#infoVocabsv2
                 .apiOperationHeading
                   h2
@@ -255,7 +255,7 @@ block content
                           td.paramType string
                           td.paramDesc Prefix, URI or Namespace of a vocabulary in BigDataOcean. This parameter is mandatory
                     .apiExample For example, using the Info Vocab API, your app can get the deatils about Semantic Sensor Network Ontology vocabulary: 
-                      a(href="/dataset/bdo/api/v2/vocabulary/info?vocab=ssn", target="_blank") http://212.101.173.34:3333/dataset/lov/api/v2/vocabulary/info?vocab=ssn
+                      a(href="/dataset/bdo/api/v2/vocabulary/info?vocab=ssn", target="_blank") http://212.101.173.21:3333/dataset/lov/api/v2/vocabulary/info?vocab=ssn
           article.wrplGreen(style="width:100%;")
             .apiGroupName Agent
             ul.apiGroup
@@ -280,7 +280,7 @@ block content
                           td.paramType -
                           td.paramDesc -
                     .apiExample For example, using the List Agent API, your app can list all agents in BigDataOcean: 
-                      a(href="/dataset/bdo/api/v2/agent/list", target="_blank") http://212.101.173.34:3333/dataset/lov/api/v2/agent/list
+                      a(href="/dataset/bdo/api/v2/agent/list", target="_blank") http://212.101.173.21:3333/dataset/lov/api/v2/agent/list
               li.apiOperation#searchAgentsv2
                 .apiOperationHeading
                   h2
@@ -322,7 +322,7 @@ block content
                           td.paramType  int
                           td.paramDesc Number of elements to display in the tag facet (default: 10).
                     .apiExample For example, using the BigDataOcean Search Agent API, your app can search for all person having a name containing "Pierre": 
-                      a(href="/dataset/bdo/api/v2/agent/search?q=Pierre&type=person", target="_blank") http://212.101.173.34:3333/dataset/lov/api/v2/agent/search?q=Pierre&type=person
+                      a(href="/dataset/bdo/api/v2/agent/search?q=Pierre&type=person", target="_blank") http://212.101.173.21:3333/dataset/lov/api/v2/agent/search?q=Pierre&type=person
               li.apiOperation#autocompleteAgentsv2
                 .apiOperationHeading
                   h2
@@ -331,7 +331,7 @@ block content
                   .apiLabel Autocomplete Agent API v2
                 .apiOperationContent
                   .apiOperationContentContainer
-                    .apiDesc The Autocomplete Agent API allows a user to get autocompletion recommendations for agents (Person or Organization) in BigDataOcean Repository. The autocompletion is performed on agent name (e.g. Food and Agriculture Organization) or agent URI (e.g. http://212.101.173.34:3333/dataset/lov/agents/Food%20and%20Agriculture%20Organization). The user can ask for autocompletion from 1 character.
+                    .apiDesc The Autocomplete Agent API allows a user to get autocompletion recommendations for agents (Person or Organization) in BigDataOcean Repository. The autocompletion is performed on agent name (e.g. Food and Agriculture Organization) or agent URI (e.g. http://212.101.173.21:3333/dataset/lov/agents/Food%20and%20Agriculture%20Organization). The user can ask for autocompletion from 1 character.
                     table.apiTable
                       thead
                         tr
@@ -344,7 +344,7 @@ block content
                           td.paramType string
                           td.paramDesc URI or prefixed URI to complete (from 1 character).
                     .apiExample For example, using the Autocomplete Agent API, your app can search for all agents with name or URI including "bern": 
-                      a(href="/dataset/bdo/api/v2/agent/autocomplete?q=bern", target="_blank") http://212.101.173.34:3333/dataset/lov/api/v2/agent/autocomplete?q=bern
+                      a(href="/dataset/bdo/api/v2/agent/autocomplete?q=bern", target="_blank") http://212.101.173.21:3333/dataset/lov/api/v2/agent/autocomplete?q=bern
               li.apiOperation#infoAgentsv2
                 .apiOperationHeading
                   h2
@@ -366,7 +366,7 @@ block content
                           td.paramType string
                           td.paramDesc URI, AltURI or FullName (as stated in BigDataOcean) of an agent in BigDataOcean. This parameter is mandatory
                     .apiExample For example, using the Info Agent API, your app can get the details about W3C agent: 
-                      a(href="/dataset/bdo/api/v2/agent/info?agent=W3C", target="_blank") http://212.101.173.34:3333/dataset/lov/api/v2/agent/info?agent=W3C
+                      a(href="/dataset/bdo/api/v2/agent/info?agent=W3C", target="_blank") http://212.101.173.21:3333/dataset/lov/api/v2/agent/info?agent=W3C
           //atrillos
           article.wrplGreen(style="width:100%;")
             .apiGroupName Pilot
@@ -392,7 +392,7 @@ block content
                           td.paramType -
                           td.paramDesc -
                     .apiExample For example, using the List Pilot API, your app can list all pilots in BigDataOcean: 
-                      a(href="/dataset/bdo/api/v2/pilot/list", target="_blank") http://212.101.173.34:3333/dataset/lov/api/v2/pilot/list
+                      a(href="/dataset/bdo/api/v2/pilot/list", target="_blank") http://212.101.173.21:3333/dataset/lov/api/v2/pilot/list
               li.apiOperation#searchPilotsv2
                 .apiOperationHeading
                   h2
@@ -434,7 +434,7 @@ block content
                           td.paramType  int
                           td.paramDesc Number of elements to display in the tag facet (default: 10).
                     .apiExample For example, using the BigDataOcean Search Pilot API, your app can search for a pilot having a name containing "PILOT": 
-                      a(href="/dataset/bdo/api/v2/pilot/search?q=PILOT", target="_blank") http://212.101.173.34:3333/dataset/lov/api/v2/pilot/search?q=PILOT
+                      a(href="/dataset/bdo/api/v2/pilot/search?q=PILOT", target="_blank") http://212.101.173.21:3333/dataset/lov/api/v2/pilot/search?q=PILOT
               li.apiOperation#autocompletePilotsv2
                 .apiOperationHeading
                   h2
@@ -456,7 +456,7 @@ block content
                           td.paramType string
                           td.paramDesc Name (from 1 character).
                     .apiExample For example, using the Autocomplete Pilot API, your app can search for all pilot with name or URI including "PI": 
-                      a(href="/dataset/bdo/api/v2/pilot/autocomplete?q=PI", target="_blank") http://212.101.173.34:3333/dataset/lov/api/v2/pilot/autocomplete?q=PI
+                      a(href="/dataset/bdo/api/v2/pilot/autocomplete?q=PI", target="_blank") http://212.101.173.21:3333/dataset/lov/api/v2/pilot/autocomplete?q=PI
               li.apiOperation#infoPilotsv2
                 .apiOperationHeading
                   h2
@@ -478,7 +478,7 @@ block content
                           td.paramType string
                           td.paramDesc Name (as stated in BigDataOcean) of a BigDataOcean pilot. This parameter is mandatory
                     .apiExample For example, using the Info Pilot API, your app can get the details about PILOT_III: 
-                      a(href="/dataset/bdo/api/v2/pilot/info?pilot=PILOT_III", target="_blank") http://212.101.173.34:3333/dataset/lov/api/v2/pilot/info?pilot=PILOT_III
+                      a(href="/dataset/bdo/api/v2/pilot/info?pilot=PILOT_III", target="_blank") http://212.101.173.21:3333/dataset/lov/api/v2/pilot/info?pilot=PILOT_III
       script.
         $(".apiOperationContent").hide()
         $( ".apiOperationHeading" ).click(function() {

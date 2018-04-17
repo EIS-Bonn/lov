@@ -1,6 +1,6 @@
 # Linked Open Vocabularies (LOV) - frontEnd
 
-This is the [BigDataOcean Metadata Docker Repository (based on LOV)](https://github.com/EIS-Bonn/BigDataOcean-LOV) and this is the [BigDataOcean Metadata Repository web page](http://212.101.173.34:3333/dataset/bdo/). LOV provides a choice of several hundreds of such vocabularies, based on quality requirements including URI stability and availability on the Web, use of standard formats and publication best practices, quality metadata and documentation, identifiable and trustable publication body, proper versioning policy.
+This is the [BigDataOcean Metadata Docker Repository (based on LOV)](https://github.com/EIS-Bonn/BigDataOcean-LOV) and this is the [BigDataOcean Metadata Repository web page](http://212.101.173.21:3333/dataset/bdo/). LOV provides a choice of several hundreds of such vocabularies, based on quality requirements including URI stability and availability on the Web, use of standard formats and publication best practices, quality metadata and documentation, identifiable and trustable publication body, proper versioning policy.
 
 LOV uses [lovScripts](https://github.com/EIS-Bonn/lovScripts) for backoffice scripts such as the aggregator and other scripts.
 
