@@ -1,1 +1,1 @@
-{ "_id" : ObjectId("594146f31e0e3221baf82350"), "email" : "mail@gmail.com", "hashed_password" : "17796da24aabd75286feeed114107018edbab766", "salt" : "1079113919100", "agent" : ObjectId("594142ce8f347aca1dd072cb"), "activated" : "true", "category" : "admin", "__v" : 0 }
+{"_id":{"$oid":"594146f31e0e3221baf82350"},"email":"mail@gmail.com","hashed_password":"17796da24aabd75286feeed114107018edbab766","salt":"1079113919100","agent":{"$oid":"594142ce8f347aca1dd072cb"},"activated":"true","category":"admin","__v":0.0}
