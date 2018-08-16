@@ -1,77 +1,80 @@
-{"_id":{"$oid":"596e183fc724d829e6acd9fe"},"type":"organization","altUris":[],"name":"W3C Consortium","prefUri":"https://www.w3.org/","__v":0}
 {"_id":{"$oid":"596e21d1c724d829e6acda4a"},"type":"person","altUris":[],"name":"Dan Brickley","prefUri":"http://google.com/+DanBrickley","__v":0}
-{"_id":{"$oid":"596f224486fe821005ad1e32"},"type":"organization","altUris":[],"name":"W3C Semantic Sensor Network Incubator Group","prefUri":"http://www.w3.org/2005/Incubator/ssn/","__v":0}
-{"_id":{"$oid":"596f2690329658146c36e688"},"type":"organization","altUris":[],"name":"Dublin Core Metadata Initiative","prefUri":"http://purl.org/dc/aboutdcmi#DCMI","__v":0}
-{"_id":{"$oid":"594142ce8f347aca1dd072cb"},"prefUri":"http://mydomain/yourUri","name":"admin BDO","type":"person","altUris":[]}
-{"_id":{"$oid":"596f27e8329658146c36e696"},"type":"organization","altUris":[],"name":"Creative Commons","prefUri":"http://dbpedia.org/resource/Creative_Commons","__v":0}
-{"_id":{"$oid":"596e1fd4c724d829e6acda38"},"type":"person","altUris":[],"name":"Bernard Vatant","prefUri":"http://data.semanticweb.org/person/bernard-vatant","__v":0}
 {"_id":{"$oid":"596f28b2329658146c36e69f"},"type":"person","altUris":[],"name":"Mahdi Ben Alaya","prefUri":"http://www.irit.fr/recherches/MELODI/ontologies/contributors#ben_alaya","__v":0}
-{"_id":{"$oid":"596f288e329658146c36e69d"},"type":"person","altUris":[],"name":"Nicolas Seydoux","prefUri":"http://www.irit.fr/recherches/MELODI/ontologies/contributors#seydoux","__v":0}
 {"_id":{"$oid":"596f28eb329658146c36e6a1"},"type":"person","altUris":[],"name":"Thierry Monteil","prefUri":"http://www.irit.fr/recherches/MELODI/ontologies/contributors#monteil","__v":0}
+{"_id":{"$oid":"596f288e329658146c36e69d"},"type":"person","altUris":[],"name":"Nicolas Seydoux","prefUri":"http://www.irit.fr/recherches/MELODI/ontologies/contributors#seydoux","__v":0}
 {"_id":{"$oid":"596f2905329658146c36e6a2"},"type":"person","altUris":[],"name":"Khalil Drira","prefUri":"http://www.irit.fr/recherches/MELODI/ontologies/contributors#drira","__v":0}
-{"_id":{"$oid":"596f28cc329658146c36e6a0"},"type":"person","altUris":[],"name":"Nathalie Hernandez","prefUri":"http://www.irit.fr/recherches/MELODI/ontologies/contributors#hernandez","__v":0}
 {"_id":{"$oid":"596f29d2329658146c36e6a9"},"type":"person","altUris":[],"name":"Maxime Lefrançois","prefUri":"http://maxime-lefrancois.info#me","__v":0}
+{"_id":{"$oid":"596f28cc329658146c36e6a0"},"type":"person","altUris":[],"name":"Nathalie Hernandez","prefUri":"http://www.irit.fr/recherches/MELODI/ontologies/contributors#hernandez","__v":0}
 {"_id":{"$oid":"596e2123c724d829e6acda43"},"type":"person","altUris":[],"name":"David Wood","prefUri":"http://about.me/david_wood","__v":0}
-{"_id":{"$oid":"596f2b20329658146c36e6b0"},"type":"person","altUris":[],"name":"Laurent Lefort","prefUri":"http://google.com/+LaurentLefort","__v":0}
 {"_id":{"$oid":"596e20e6c724d829e6acda42"},"type":"person","altUris":[],"name":"Markus Lanthaler","prefUri":"http://www.markus-lanthaler.com/","__v":0}
+{"_id":{"$oid":"596f2b20329658146c36e6b0"},"type":"person","altUris":[],"name":"Laurent Lefort","prefUri":"http://google.com/+LaurentLefort","__v":0}
 {"_id":{"$oid":"596f2b39329658146c36e6b1"},"type":"person","altUris":[],"name":"Hans Peter de Koning","prefUri":"http://ontolog.cim3.net/cgi-bin/wiki.pl?HansPeter_De_Koning","__v":0}
-{"_id":{"$oid":"596e1a56c724d829e6acda0b"},"type":"organization","altUris":[],"name":"SWEET by NASA","prefUri":"https://sweet.jpl.nasa.gov/","__v":0}
-{"_id":{"$oid":"596e1c8dc724d829e6acda21"},"type":"organization","altUris":[],"name":"QUDT CATALOG","prefUri":"http://qudt.org/","__v":0}
+{"_id":{"$oid":"596f224486fe821005ad1e32"},"type":"organization","altUris":[],"name":"W3C Semantic Sensor Network Incubator Group","prefUri":"http://www.w3.org/2005/Incubator/ssn/","__v":0}
 {"_id":{"$oid":"596e1fe6c724d829e6acda39"},"type":"organization","altUris":[],"name":"GeoNames","prefUri":"http://dbpedia.org/resource/GeoNames","__v":0}
+{"_id":{"$oid":"596e183fc724d829e6acd9fe"},"type":"organization","altUris":[],"name":"W3C Consortium","prefUri":"https://www.w3.org/","__v":0}
+{"_id":{"$oid":"596e1c8dc724d829e6acda21"},"type":"organization","altUris":[],"name":"QUDT CATALOG","prefUri":"http://qudt.org/","__v":0}
 {"_id":{"$oid":"596f2b73329658146c36e6b3"},"type":"person","altUris":[],"name":"Roger Burkhart","prefUri":"http://ontolog.cim3.net/cgi-bin/wiki.pl?RogerBurkhart","__v":0}
 {"_id":{"$oid":"596f2d0859617525afd6a9cb"},"type":"person","altUris":[],"name":"Libby Miller","prefUri":"http://data.semanticweb.org/person/libby-miller","__v":0}
-{"_id":{"$oid":"596f2b55329658146c36e6b2"},"type":"person","altUris":[],"name":"Nicolas Rouquette","prefUri":"http://ontolog.cim3.net/cgi-bin/wiki.pl?NicolasRouquette","__v":0}
 {"_id":{"$oid":"596f2c2fa81f482484a72914"},"type":"person","altUris":[],"name":"Ian Davis","prefUri":"https://plus.google.com/114972661571648085271","__v":0}
 {"_id":{"$oid":"596f2b93329658146c36e6b4"},"type":"person","altUris":[],"name":"Huáscar Espinoza","prefUri":"http://www.informatik.uni-trier.de/~ley/pers/hd/e/Espinoza:Hu=aacute=scar","__v":0}
-{"_id":{"$oid":"596f33e859617525afd6a9d3"},"type":"organization","altUris":[],"name":"Microsoft Corporation","prefUri":"http://dbpedia.org/resource/Microsoft","__v":0}
+{"_id":{"$oid":"596f2690329658146c36e688"},"type":"organization","altUris":[],"name":"Dublin Core Metadata Initiative","prefUri":"http://purl.org/dc/aboutdcmi#DCMI","__v":0}
+{"_id":{"$oid":"594142ce8f347aca1dd072cb"},"prefUri":"http://mydomain/yourUri","name":"admin BDO","type":"person","altUris":[]}
+{"_id":{"$oid":"596f2b55329658146c36e6b2"},"type":"person","altUris":[],"name":"Nicolas Rouquette","prefUri":"http://ontolog.cim3.net/cgi-bin/wiki.pl?NicolasRouquette","__v":0}
+{"_id":{"$oid":"596f27e8329658146c36e696"},"type":"organization","altUris":[],"name":"Creative Commons","prefUri":"http://dbpedia.org/resource/Creative_Commons","__v":0}
+{"_id":{"$oid":"596e1fd4c724d829e6acda38"},"type":"person","altUris":[],"name":"Bernard Vatant","prefUri":"http://data.semanticweb.org/person/bernard-vatant","__v":0}
+{"_id":{"$oid":"596e1a56c724d829e6acda0b"},"type":"organization","altUris":[],"name":"SWEET by NASA","prefUri":"https://sweet.jpl.nasa.gov/","__v":0}
 {"_id":{"$oid":"596f33d059617525afd6a9d2"},"type":"organization","altUris":[],"name":"Google","prefUri":"http://dbpedia.org/resource/Google","__v":0}
 {"_id":{"$oid":"596f33ff59617525afd6a9d4"},"type":"organization","altUris":[],"name":"Yahoo!, Inc.","prefUri":"http://dbpedia.org/resource/Yahoo!","__v":0}
 {"_id":{"$oid":"596f34c559617525afd6a9db"},"type":"organization","altUris":[],"name":"W3C","prefUri":"http://www.w3.org/data#W3C","__v":0}
 {"_id":{"$oid":"596f358809e3962bdfdcb80f"},"type":"person","altUris":[],"name":"Alistair Miles","prefUri":"http://purl.net/aliman","__v":0}
-{"_id":{"$oid":"596f359e09e3962bdfdcb810"},"type":"person","altUris":[],"name":"Sean Bechhofer","prefUri":"https://plus.google.com/117822622810723317855","__v":0}
+{"_id":{"$oid":"596f33e859617525afd6a9d3"},"type":"organization","altUris":[],"name":"Microsoft Corporation","prefUri":"http://dbpedia.org/resource/Microsoft","__v":0}
 {"_id":{"$oid":"596f367709e3962bdfdcb817"},"type":"organization","altUris":[],"name":"W3C/OGC Spatial Data on the Web Working Group","prefUri":"https://www.w3.org/2015/spatial/","__v":0}
 {"_id":{"$oid":"596f36f309e3962bdfdcb81e"},"type":"person","altUris":[],"name":"Lise Rozat","prefUri":"http://data.semanticweb.org/person/lise-rozat","__v":0}
+{"_id":{"$oid":"596f359e09e3962bdfdcb810"},"type":"person","altUris":[],"name":"Sean Bechhofer","prefUri":"https://plus.google.com/117822622810723317855","__v":0}
 {"_id":{"$oid":"596f370a09e3962bdfdcb81f"},"type":"person","altUris":[],"name":"Pierre-Yves Vandenbussche","prefUri":"http://google.com/+PierreYvesVandenbussche","__v":0}
-{"_id":{"$oid":"597062ca15234416e906788d"},"type":"person","altUris":[],"name":"Phil Archer","prefUri":"https://plus.google.com/103670676337547906055","__v":0}
-{"_id":{"$oid":"5970638e15234416e9067896"},"type":"person","altUris":[],"name":"Leigh Dodds","prefUri":"https://plus.google.com/115143058857561938604","__v":0}
-{"_id":{"$oid":"597062f615234416e906788f"},"type":"person","altUris":[],"name":"John Erickson","prefUri":"https://plus.google.com/116779670157680576942","__v":0}
-{"_id":{"$oid":"5970645d15234416e906789f"},"type":"person","altUris":[],"name":"Feng Pan","prefUri":"mailto:fengpan@microsoft.com","__v":0}
-{"_id":{"$oid":"5970647a15234416e90678a0"},"type":"person","altUris":[],"name":"Jerry R. Hobbs","prefUri":"mailto:hobbs@isi.edu","__v":0}
-{"_id":{"$oid":"5992f18d0360bc19d80c04e4"},"type":"organization","altUris":[],"name":"TopQuadrant","prefUri":"http://topquadrant.com/","__v":0}
-{"_id":{"$oid":"5992f336b429f51f65a454fc"},"type":"person","altUris":[],"name":"Jun Zhao","prefUri":"http://data.semanticweb.org/person/jun-zhao","__v":0}
 {"_id":{"$oid":"5992f34bb429f51f65a454fd"},"type":"person","altUris":[],"name":"Satya Sahoo","prefUri":"http://data.semanticweb.org/person/satya-s-sahoo","__v":0}
 {"_id":{"$oid":"5992f392b429f51f65a454fe"},"type":"person","altUris":[],"name":"James Cheney","prefUri":"http://homepages.inf.ed.ac.uk/jcheney/","__v":0}
+{"_id":{"$oid":"5970645d15234416e906789f"},"type":"person","altUris":[],"name":"Feng Pan","prefUri":"mailto:fengpan@microsoft.com","__v":0}
 {"_id":{"$oid":"5992f3ddb429f51f65a454ff"},"type":"person","altUris":[],"name":"Tim Lebo","prefUri":"http://tw.rpi.edu/web/person/TimLebo","__v":0}
+{"_id":{"$oid":"5992f18d0360bc19d80c04e4"},"type":"organization","altUris":[],"name":"TopQuadrant","prefUri":"http://topquadrant.com/","__v":0}
 {"_id":{"$oid":"5992f40db429f51f65a45500"},"type":"person","altUris":[],"name":"David Corsar","prefUri":"https://plus.google.com/100954827456454466231","__v":0}
+{"_id":{"$oid":"5992f336b429f51f65a454fc"},"type":"person","altUris":[],"name":"Jun Zhao","prefUri":"http://data.semanticweb.org/person/jun-zhao","__v":0}
 {"_id":{"$oid":"5992f436b429f51f65a45501"},"type":"person","altUris":[],"name":"Stephan Zednik","prefUri":"https://plus.google.com/101814011167454124189","__v":0}
-{"_id":{"$oid":"5992f467b429f51f65a45502"},"type":"person","altUris":[],"name":"Stian Soiland-Reyes","prefUri":"https://plus.google.com/108141746798163896498","__v":0}
 {"_id":{"$oid":"5992f49eb429f51f65a45503"},"type":"person","altUris":[],"name":"Khalid Belhajjame","prefUri":"http://orcid.org/0000-0001-6938-0820","__v":0}
-{"_id":{"$oid":"5992f4d2b429f51f65a45504"},"type":"person","altUris":[],"name":"Deborah L. McGuinness","prefUri":"https://plus.google.com/110672390728356952792","__v":0}
+{"_id":{"$oid":"5970638e15234416e9067896"},"type":"person","altUris":[],"name":"Leigh Dodds","prefUri":"https://plus.google.com/115143058857561938604","__v":0}
 {"_id":{"$oid":"5992f520b429f51f65a45505"},"type":"person","altUris":[],"name":"Daniel Garijo","prefUri":"https://plus.google.com/112455864978418678437","__v":0}
+{"_id":{"$oid":"5992f467b429f51f65a45502"},"type":"person","altUris":[],"name":"Stian Soiland-Reyes","prefUri":"https://plus.google.com/108141746798163896498","__v":0}
+{"_id":{"$oid":"5992f4d2b429f51f65a45504"},"type":"person","altUris":[],"name":"Deborah L. McGuinness","prefUri":"https://plus.google.com/110672390728356952792","__v":0}
 {"_id":{"$oid":"5992f670b429f51f65a4550c"},"type":"person","altUris":[],"name":"Ralph Hodgson","prefUri":"https://www.linkedin.com/in/ralphhodgson","__v":0}
-{"_id":{"$oid":"5992f890ccff8c216d9bee44"},"type":"person","altUris":[],"name":"Aldo Gangemi","prefUri":"https://plus.google.com/112317835656203084058","__v":0}
+{"_id":{"$oid":"597062ca15234416e906788d"},"type":"person","altUris":[],"name":"Phil Archer","prefUri":"https://plus.google.com/103670676337547906055","__v":0}
+{"_id":{"$oid":"597062f615234416e906788f"},"type":"person","altUris":[],"name":"John Erickson","prefUri":"https://plus.google.com/116779670157680576942","__v":0}
+{"_id":{"$oid":"5970647a15234416e90678a0"},"type":"person","altUris":[],"name":"Jerry R. Hobbs","prefUri":"mailto:hobbs@isi.edu","__v":0}
 {"_id":{"$oid":"596f372609e3962bdfdcb820"},"type":"organization","altUris":[],"name":"OKFN","prefUri":"http://viaf.org/viaf/200830293","__v":0}
-{"_id":{"$oid":"59705a7815234416e906780f"},"type":"person","altUris":[],"name":"Jarmo Kalaoja","prefUri":"http://www.vtt.fi/JarmoKalaoja","__v":0}
-{"_id":{"$oid":"597061cf15234416e906787f"},"type":"person","altUris":[],"name":"Michael Hausenblas","prefUri":"http://vocab.deri.ie/void#Michael%20Hausenblas","__v":0}
-{"_id":{"$oid":"597061ed15234416e9067880"},"type":"person","altUris":[],"name":"Jun Zhao","prefUri":"http://vocab.deri.ie/void#junzha","__v":0}
-{"_id":{"$oid":"597061fc15234416e9067881"},"type":"person","altUris":[],"name":"Keith Alexander","prefUri":"http://vocab.deri.ie/void#keiale","__v":0}
 {"_id":{"$oid":"5970620d15234416e9067882"},"type":"person","altUris":[],"name":"Richard Cyganiak","prefUri":"http://vocab.deri.ie/void#cygri","__v":0}
-{"_id":{"$oid":"597062e015234416e906788e"},"type":"person","altUris":[],"name":"Fadi Maali","prefUri":"https://plus.google.com/112288617424467640490","__v":0}
 {"_id":{"$oid":"5992fa48ccff8c216d9bee4b"},"type":"person","altUris":[],"name":"Arofan Gregory","prefUri":"http://data.semanticweb.org/person/arofan-gregory","__v":0}
-{"_id":{"$oid":"5992fac8ccff8c216d9bee4c"},"type":"person","altUris":[],"name":"Jeni Tennison","prefUri":"https://plus.google.com/112095156983892490612","__v":0}
 {"_id":{"$oid":"5992faffccff8c216d9bee4d"},"type":"person","altUris":[],"name":"Dave Reynolds","prefUri":"https://plus.google.com/114719444327647609228","__v":0}
+{"_id":{"$oid":"5992fac8ccff8c216d9bee4c"},"type":"person","altUris":[],"name":"Jeni Tennison","prefUri":"https://plus.google.com/112095156983892490612","__v":0}
+{"_id":{"$oid":"597062e015234416e906788e"},"type":"person","altUris":[],"name":"Fadi Maali","prefUri":"https://plus.google.com/112288617424467640490","__v":0}
+{"_id":{"$oid":"597061fc15234416e9067881"},"type":"person","altUris":[],"name":"Keith Alexander","prefUri":"http://vocab.deri.ie/void#keiale","__v":0}
 {"_id":{"$oid":"5992fb4bccff8c216d9bee4e"},"type":"person","altUris":[],"name":"Ian Dickinson","prefUri":"https://plus.google.com/115572233219232685995","__v":0}
 {"_id":{"$oid":"5992ff1e60d25824bdf9fe3a"},"type":"person","altUris":[],"name":"Laura Daniele","prefUri":"https://www.linkedin.com/in/lauradaniele","__v":0}
-{"_id":{"$oid":"5992ff3d60d25824bdf9fe3b"},"type":"person","altUris":[],"name":"TNO","prefUri":"https://www.tno.nl/nl/","__v":0}
 {"_id":{"$oid":"5992fff460d25824bdf9fe42"},"type":"person","altUris":[],"name":"Tim Berners-Lee","prefUri":"https://plus.google.com/113372414904624897851","__v":0}
-{"_id":{"$oid":"599300a260d25824bdf9fe49"},"type":"organization","altUris":[],"name":"SDMX","prefUri":"http://sdmx.org/","__v":0}
 {"_id":{"$oid":"599303b7049b082a5edc54ed"},"type":"organization","altUris":[],"name":"SeaDataNet","prefUri":"http://vocab.nerc.ac.uk","__v":0}
+{"_id":{"$oid":"599300a260d25824bdf9fe49"},"type":"organization","altUris":[],"name":"SDMX","prefUri":"http://sdmx.org/","__v":0}
+{"_id":{"$oid":"5992ff3d60d25824bdf9fe3b"},"type":"person","altUris":[],"name":"TNO","prefUri":"https://www.tno.nl/nl/","__v":0}
 {"_id":{"$oid":"599303de049b082a5edc54ee"},"type":"organization","altUris":[],"name":"Natural Environment Research Council","prefUri":"www.nerc.ac.uk/","__v":0}
 {"_id":{"$oid":"599304e7049b082a5edc54f5"},"type":"organization","altUris":[],"name":"CDIP","prefUri":"http://cdip.ucsd.edu","__v":0}
+{"_id":{"$oid":"597061cf15234416e906787f"},"type":"person","altUris":[],"name":"Michael Hausenblas","prefUri":"http://vocab.deri.ie/void#Michael%20Hausenblas","__v":0}
+{"_id":{"$oid":"59705a7815234416e906780f"},"type":"person","altUris":[],"name":"Jarmo Kalaoja","prefUri":"http://www.vtt.fi/JarmoKalaoja","__v":0}
+{"_id":{"$oid":"5992f890ccff8c216d9bee44"},"type":"person","altUris":[],"name":"Aldo Gangemi","prefUri":"https://plus.google.com/112317835656203084058","__v":0}
 {"_id":{"$oid":"5993054b049b082a5edc54f6"},"type":"person","altUris":[],"name":"Julie Thomas","prefUri":"https://www.linkedin.com/in/julie-thomas-0b439014","__v":0}
-{"_id":{"$oid":"59930878049b082a5edc5501"},"type":"person","altUris":[],"name":"Soeren Roug","prefUri":"http://www.eionet.europa.eu/users/roug","__v":0}
+{"_id":{"$oid":"597061ed15234416e9067880"},"type":"person","altUris":[],"name":"Jun Zhao","prefUri":"http://vocab.deri.ie/void#junzha","__v":0}
 {"_id":{"$oid":"5993089c049b082a5edc5502"},"type":"organization","altUris":[],"name":"GEMET","prefUri":"http://www.eionet.europa.eu/","__v":0}
+{"_id":{"$oid":"59930878049b082a5edc5501"},"type":"person","altUris":[],"name":"Soeren Roug","prefUri":"http://www.eionet.europa.eu/users/roug","__v":0}
 {"_id":{"$oid":"5b7169976da2dd001eb05d68"},"prefUri":"","name":"INSPIRE","altUris":[],"type":"organization","__v":0}
 {"_id":{"$oid":"5b716b636da2dd001eb05d79"},"prefUri":"","name":"MMI","altUris":[],"type":"organization","__v":0}
 {"_id":{"$oid":"5b716b746da2dd001eb05d7a"},"prefUri":"","name":"CF Metadata","altUris":[],"type":"organization","__v":0}
 {"_id":{"$oid":"5b716b986da2dd001eb05d7b"},"prefUri":"http://cfconventions.org/Data/cf-standard-names/docs/standard-name-contributors.html","name":"CF Standard Names","altUris":[],"type":"organization","__v":0}
+{"_id":{"$oid":"5b7533aa79104600c79a9502"},"prefUri":"http://dbpedia.org/resource/University_of_Bonn","name":"University of Bonn","altUris":[],"type":"organization","__v":0}
+{"_id":{"$oid":"5b7533c079104600c79a9503"},"prefUri":"","name":"Jaime Manuel Trillos Ujueta","altUris":[],"type":"person","__v":0}
+{"_id":{"$oid":"5b7533c879104600c79a9504"},"prefUri":"","name":"Ana Cristina Trillos Ujueta","altUris":[],"type":"person","__v":0}
