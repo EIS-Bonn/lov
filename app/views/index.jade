@@ -22,7 +22,7 @@ block content
           .search
             form#searchForm(action='/dataset/bdo/terms' method='get')
               a(href='/dataset/bdo/terms') &nbsp
-              input#searchInput(name='q', type='text', placeholder='', autocomplete='off')  
+              input#searchInput(name='q', type='text', placeholder='search term', autocomplete='off')  
           script.      
             $(document).ready(function() {
               $( "#searchInput" ).autocomplete({

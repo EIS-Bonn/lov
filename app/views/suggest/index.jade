@@ -2,6 +2,7 @@ extends ../layout/layout
 block content
       section#post.postBlue.postSearch
         form#searchForm(action='' method='get' onsubmit='document.getElementById("loading").style.visibility="visible";')
+          p(style='font-size: 150%;padding-bottom: 10px;') Suggest a new vocabulary/ontology to be added to the repository:
           div.searchWrapper#searchSuggest
             button(type='submit', value=' ') Suggest
             input(name='q', type='text', placeholder='Enter the vocabulary URI to recommend', autocomplete='off', value='#{(typeof(suggestion) != "undefined")? suggestion:""}')
