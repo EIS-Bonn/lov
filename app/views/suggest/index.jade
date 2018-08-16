@@ -37,7 +37,8 @@ block content
           #greenContainer.clear.wrplGreen(style="width:100%")
             .suggestMessageBox
               p(style="padding-top: 0em; font-size:120%") An error occurred:
-              p(style="padding-top: 2em;") #{stderr}
+              //p(style="padding-top: 2em;") #{stderr}
+              p(style="padding-top: 2em;") Failed to determine the triples content type.  
         - if(typeof(stdout) !== 'undefined' && JSON.stringify(stdout).length>4)
           article
             #greenContainer.contents.clear.col-2.split.wrplGreen
