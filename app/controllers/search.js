@@ -1062,7 +1062,7 @@ function execAutocompleteLabelsTerms(client, queryString, suggest_size, callback
 * Terms Autocomplete Labels API
 */
 exports.apiAutocompleteLabelsTerms = function (req, res, esclient) {
-	if (!req.query.q) { //control that q param is present
+	/*if (!req.query.q) { //control that q param is present
 		return standardBadRequestHandler(req, res, 'Query parameter missing. Syntax: ?q=querytext');
 	} else {
 		console.log('Autocomplete for terms labels starting with "'+req.query.q+'"')
@@ -1082,7 +1082,7 @@ exports.apiAutocompleteLabelsTerms = function (req, res, esclient) {
         res.header('Content-type', 'application/json; charset=utf-8');
         res.json(resp.autocomplete[0].options);
     });
-	}
+	}*/
 }
 
 

@@ -15,7 +15,7 @@ var path = require('path')
 
 module.exports = {
   development: {
-    db: 'mongodb://mongodb/bdo',
+    db: 'mongodb://admin:bd0@mongodb/bdo?authSource=admin',
     es: {host: 'elasticsearch',port: 9200},
     email: {
       service: 'Gmail',
@@ -26,7 +26,7 @@ module.exports = {
     }
   },
   test: {
-    db: 'mongodb://mongodb/bdo',
+    db: 'mongodb://admin:bd0@mongodb/bdo?authSource=admin',
     es: {host: 'elasticsearch',port: 9200},
     email: {
       service: 'Gmail',
