@@ -108,19 +108,19 @@ Running BigDataOcean Repository
 NOTE:
 In order to work with the new web server, we change some information:
 	1. LovScripts: 
-		- LovConstants.java line 19, 41 we change localhost to 212.101.173.21
+		- LovConstants.java line 19, 41 we change localhost to localhost
 		- lov.config line 8, 9
-		- /main/resources/queries .sparql files changed GRAPH <http://212.101.173.21:3333/dataset/bdo>
+		- /main/resources/queries .sparql files changed GRAPH <http://localhost:3333/dataset/bdo>
 
 	2. Lov:
-		- views/api.jade all the line that contain localhost we change it to 212.101.173.21
+		- views/api.jade all the line that contain localhost we change it to localhost
 		- views/endpoint/index.jade line 34
 		- config/configPath.js line 9
 		- config/routes.js line 259
-		- setup/BDO_setup/vocabularies.json in each line that has localhost was changed to 212.101.173.21
+		- setup/BDO_setup/vocabularies.json in each line that has localhost was changed to localhost
 		- in order to see the changes in fuseki, we run the mongo2rdf bash to create .n3 and .nq that are save in the public/bdo.zip
 
 	3. Q&A:
 		- src/webapp/main.py line 15
-		- src/webapp/lov/printHandlers.py in each line that has localhost was changed to 212.101.173.21
+		- src/webapp/lov/printHandlers.py in each line that has localhost was changed to localhost
 		- src/webapp/lov/settings.py line 35
